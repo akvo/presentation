@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html class="reveal-full-page" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Akvo FLow API</title>
+    <meta name="author" content="Deden Bangkit" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <style type="text/css">
+      .underline {
+        text-decoration: underline;
+      }
+    </style>
+    <link rel="stylesheet" href="assets/reveal.css" />
+
+    <link rel="stylesheet" href="assets/moon.css" id="theme" />
+
+    <link rel="stylesheet" href="assets/akvo.css" />
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css";
+        document.getElementsByTagName("head")[0].appendChild(link);
+      }
+    </script>
+    <script type="text/javascript" src="assets/zoom.js"></script>
+    <script type="text/javascript" src="assets/notes.js"></script>
+  </head>
+  <body
+    class="reveal-viewport"
+    style="
+      --slide-width: 960px;
+      --slide-height: 700px;
+      --slide-scale: 1.2452571428571428;
+      transition: transform 0.8s ease 0s;
+    "
+  >
+    <div
+      class="reveal slide center focused has-vertical-slides has-horizontal-slides ready"
+      role="application"
+      data-transition-speed="default"
+      data-background-transition="fade"
+      style="cursor: none"
+    >
+      <div
+        class="slides"
+        style="
+          width: 960px;
+          height: 700px;
+          inset: 50% auto auto 50%;
+          transform: translate(-50%, -50%) scale(1.24526);
+        "
+      >
+        <section
+          id="sec-title-slide"
+          style="top: 320.5px; display: block"
+          class="present"
+        >
+          Akvo Flow API
+        </section>
+        <section
+          id="sec-table-of-contents"
+          style="top: 49px; display: block"
+          aria-hidden="true"
+          class="future"
+          hidden=""
+        >
+          <div id="table-of-contents" role="doc-toc">
+            <h2>Table of Contents</h2>
+            <div id="text-table-of-contents" role="doc-toc">
+              <ul>
+                <li><a href="#/slide-orge448742">1. Schedule | Goals</a></li>
+                <li>
+                  <a href="#/slide-orgf2454dd">2. Introduction to Akvo Flow</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-org1ffcf6e"
+                        >2.1. Akvo Flow Online Workspace</a
+                      >
+                      <ul>
+                        <li>
+                          <a href="#/slide-orga3a38a4"
+                            >2.1.1. Getting to know the Akvo Flow online
+                            workspace.</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#/slide-orgf0b5975">2.1.2. Landing Page</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-orgb6d09f7">2.1.3. Devices Tab</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-orgf05305e">2.1.4. Data Tab</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-orgd68bf1d">2.1.5. Resources Tab</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-orga9876b0">2.1.6. Maps Tab</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-org8b75380">2.1.7. Users Tab</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-org121fc3d">2.1.8. Messages</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#/slide-orgd07641b">2.2. Login To Akvo Flow</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-org2ec7125"
+                            >2.2.1. Creating new user account</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#/slide-orge1f40fe">3. Survey</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-org7cbf7ed">3.1. Editing Survey</a>
+                    </li>
+                    <li>
+                      <a href="#/slide-orgfe80bd6">3.2. Survey Setting</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#/slide-orgb717c00">4. Form Page</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-orgdb68a71">4.1. Adding a Form</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-org3e28c6b">4.1.1. Editing Form</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-org4c526fe"
+                            >4.1.2. Monitoring / Multiple Forms</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#/slide-org7b5ea16">4.2. Question Groups</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-orgfcf87cc">4.2.1. Repeat Group</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#/slide-org0598462">4.3. Questions</a></li>
+                    <li>
+                      <a href="#/slide-org93e77ad">4.4. Question Types</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-org0bded79">4.4.1. Free text</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-org25a46bf"
+                            >4.4.2. Option (select one or many)</a
+                          >
+                        </li>
+                        <li><a href="#/slide-orgd5e99ca">4.4.3. Cascade</a></li>
+                        <li><a href="#/slide-org0bf5d5f">4.4.4. Number</a></li>
+                        <li>
+                          <a href="#/slide-org1ff0a38">4.4.5. Geolocation</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-orge19dac0">4.4.6. Photo / Video</a>
+                        </li>
+                        <li><a href="#/slide-org7d092c3">4.4.7. Date</a></li>
+                        <li><a href="#/slide-org9c42411">4.4.8. Barcode</a></li>
+                        <li>
+                          <a href="#/slide-org91052c9"
+                            >4.4.9. Geographic shapes</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#/slide-orga316962">4.4.10. Signature</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-org03f58dc"
+                            >4.4.11. Akvo Caddisfly (water and soil quality
+                            test)</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#/slide-orgf0973a6">5. Akvo Flow API</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-org310ca73">5.1. SSO Login</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-orgba9a0ac"
+                            >5.1.1. Do i have to use my google password to
+                            authenticate?</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#/slide-org6d88760"
+                            >5.1.2. Getting the ID TOKEN</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#/slide-org1e44bde">5.2. Rest API</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-orgb001a29">5.2.1. [Root] Folders</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-org0a66799">5.2.2. Survey List</a>
+                        </li>
+                        <li><a href="#/slide-org7d6b907">5.2.3. Survey</a></li>
+                        <li>
+                          <a href="#/slide-orgcf15637">5.2.4. Datapoints</a>
+                        </li>
+                        <li>
+                          <a href="#/slide-orga704851">5.2.5. Form Instances</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#/slide-org68088ee">5.3. Sync API</a></li>
+                    <li><a href="#/slide-orgada7cd8">5.4. Documentation</a></li>
+                    <li>
+                      <a href="#/slide-org201c88a">5.5. Fair use Policy</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section
+          style="top: 0px; display: block"
+          aria-hidden="true"
+          class="stack future"
+          hidden=""
+        >
+          <section id="slide-orge448742" style="top: 165px; display: block">
+            <h2 id="orge448742">
+              <span class="section-number-2">1.</span> Schedule | Goals
+            </h2>
+            <ul>
+              <li>
+                <b>Day 1</b>
+                <ul>
+                  <li>Introduction</li>
+                  <li>Introduction to Flow APIs</li>
+                  <li>
+                    Understanding Flow entities (Folder, survey, Forms, data)
+                  </li>
+                  <li>Authentication</li>
+                </ul>
+              </li>
+              <li>
+                <b>Day 2</b>
+                <ul>
+                  <li>Understanding the folders API</li>
+                  <li>Understanding surveys and forms APIs</li>
+                </ul>
+              </li>
+              <li>
+                <b>Day 3</b>
+                <ul>
+                  <li>Understanding the data API</li>
+                </ul>
+              </li>
+              <li>
+                <b>Day 4</b>
+                <ul>
+                  <li>Understanding sync API</li>
+                </ul>
+              </li>
+              <li>
+                <b>Day 5</b>
+                <ul>
+                  <li>Basic transformation techniques</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section
+          style="top: 350px; display: none"
+          aria-hidden="true"
+          class="stack future"
+          hidden=""
+        >
+          <section id="slide-orgf2454dd" style="top: 350px; display: none">
+            <h2 id="orgf2454dd">
+              <span class="section-number-2">2.</span> Introduction to Akvo Flow
+            </h2>
+            <div class="outline-text-2" id="text-2"></div>
+          </section>
+          <section
+            id="slide-org1ffcf6e"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org1ffcf6e">
+              <span class="section-number-3">2.1.</span> Akvo Flow Online
+              Workspace
+            </h3>
+            <div class="outline-text-3" id="text-2-1"></div>
+          </section>
+          <section
+            id="slide-orga3a38a4"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orga3a38a4">
+              <span class="section-number-4">2.1.1.</span> Getting to know the
+              Akvo Flow online workspace.
+            </h4>
+            <p>
+              Here you prepare to capture, access and manage your Flow data.
+            </p>
+            <aside class="notes">
+              <p>
+                Each organisation has its own URL to access it's online
+                workspace. The Flow online workspace is made up a series of
+                pages.
+              </p>
+            </aside>
+            <p>
+              Access to each tool menu is limited by permissions so not all
+              functions will be available to all users.
+            </p>
+          </section>
+          <section
+            id="slide-orgf0b5975"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgf0b5975">
+              <span class="section-number-4">2.1.2.</span> Landing Page
+            </h4>
+            <p>The first page you see after you log in is the Surveys tab.</p>
+            <p width="100%">
+              <img
+                src="assets/page-landing.png"
+                alt="page-landing.png"
+                width="100%"
+              />
+              Surveys are the centrepiece of Flow. Create, edit and publish
+              surveys from the Surveys tab.
+            </p>
+          </section>
+          <section
+            id="slide-orgb6d09f7"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgb6d09f7">
+              <span class="section-number-4">2.1.3.</span> Devices Tab
+            </h4>
+            <p>
+              In the Devices page you manage the devices connected to capture
+              data.
+            </p>
+          </section>
+          <section
+            id="slide-orgf05305e"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgf05305e">
+              <span class="section-number-4">2.1.4.</span> Data Tab
+            </h4>
+            <p>
+              The Data tab is where you can view, edit, export, import and clean
+              data collected with Flow surveys.
+            </p>
+          </section>
+          <section
+            id="slide-orgd68bf1d"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgd68bf1d">
+              <span class="section-number-4">2.1.5.</span> Resources Tab
+            </h4>
+            <p>
+              The Resources tab holds your cascades, as they act as a resource
+              you can create and re-use in any Flow form.
+            </p>
+          </section>
+          <section
+            id="slide-orga9876b0"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orga9876b0">
+              <span class="section-number-4">2.1.6.</span> Maps Tab
+            </h4>
+            <p>
+              The map on your Flow's online space shows the surveys collected
+              with a GPS location as points on a map.
+            </p>
+          </section>
+          <section
+            id="slide-org8b75380"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org8b75380">
+              <span class="section-number-4">2.1.7.</span> Users Tab
+            </h4>
+            <p>Here is where you manage your users and their permissions.</p>
+          </section>
+          <section
+            id="slide-org121fc3d"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org121fc3d">
+              <span class="section-number-4">2.1.8.</span> Messages
+            </h4>
+            <p>
+              The Messages tab lists messages related to activity with surveys
+              and data processing activity.
+            </p>
+          </section>
+          <section
+            id="slide-orgd07641b"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="orgd07641b">
+              <span class="section-number-3">2.2.</span> Login To Akvo Flow
+            </h3>
+            <p>
+              To be able to use both APIs you need to be a user on Akvo Flow.
+              This means the Akvo Flow organisational admin needs to add you to
+              the Akvo Flow online workspace and give you access to the folder
+              and survey you need.
+            </p>
+          </section>
+          <section
+            id="slide-org2ec7125"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org2ec7125">
+              <span class="section-number-4">2.2.1.</span> Creating new user
+              account
+            </h4>
+            <p>
+              Go to
+              <a href="https://{{instance_name}}.akvoflow.org/"
+                >https://{{instance_name}}.akvoflow.org/</a
+              >, then click on create account and complete the required user
+              details to have your user account. Then validate your email by
+              clicking in the confirmation link that will be sent to your email
+              inbox.
+            </p>
+          </section>
+        </section>
+        <section
+          style="top: 350px; display: none"
+          aria-hidden="true"
+          class="stack future"
+          hidden=""
+        >
+          <section id="slide-orge1f40fe" style="top: 350px; display: none">
+            <h2 id="orge1f40fe">
+              <span class="section-number-2">3.</span> Survey
+            </h2>
+            <div class="outline-text-2" id="text-3"></div>
+          </section>
+          <section
+            id="slide-org7cbf7ed"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org7cbf7ed">
+              <span class="section-number-3">3.1.</span> Editing Survey
+            </h3>
+
+            <div id="org26a6d93" class="figure">
+              <p>
+                <img
+                  src="assets/page-survey.gif"
+                  alt="page-survey.gif"
+                  width="100%"
+                />
+              </p>
+            </div>
+          </section>
+          <section
+            id="slide-orgfe80bd6"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="orgfe80bd6">
+              <span class="section-number-3">3.2.</span> Survey Setting
+            </h3>
+
+            <div id="orge8fbeac" class="figure">
+              <p>
+                <img
+                  src="assets/page-survey_2.png"
+                  alt="page-survey_2.png"
+                  width="75%"
+                />
+              </p>
+            </div>
+
+            <ol>
+              <li>
+                Indicates the number of forms in the survey. A new survey has
+                zero forms.
+              </li>
+              <li>Indicates if this is a monitoring survey or not.</li>
+              <li>
+                The title of the survey. A short title to describe the survey.
+                On the device, this will be shown as the title of the survey as
+                well
+              </li>
+              <li>
+                Language: the master language of the survey. In addition to
+                this, any number of translations can be added later. The default
+                master language is English.&nbsp;Note:&nbsp;You can type your
+                forms in any language you want. You do not need to change this
+                setting in that case. This setting is used when you translate
+                your forms to another language.
+              </li>
+              <li>Button to add a form to the survey.</li>
+            </ol>
+          </section>
+        </section>
+        <section
+          style="top: 350px; display: none"
+          aria-hidden="true"
+          class="stack future"
+          hidden=""
+        >
+          <section id="slide-orgb717c00" style="top: 350px; display: none">
+            <h2 id="orgb717c00">
+              <span class="section-number-2">4.</span> Form Page
+            </h2>
+            <div class="outline-text-2" id="text-4"></div>
+          </section>
+          <section
+            id="slide-orgdb68a71"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="orgdb68a71">
+              <span class="section-number-3">4.1.</span> Adding a Form
+            </h3>
+            <p>
+              Each survey in Akvo Flow is created to capture data on a different
+              subject. A survey can consist of one or multiple forms, which hold
+              your questions that are organised into question groups. This
+              chapter will show you how to create a new form in your survey, add
+              multiple forms and edit a form.
+            </p>
+          </section>
+          <section
+            id="slide-org3e28c6b"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org3e28c6b">
+              <span class="section-number-4">4.1.1.</span> Editing Form
+            </h4>
+
+            <div id="org9d26c9e" class="figure">
+              <p>
+                <img
+                  src="assets/page-form.png"
+                  alt="page-form.png"
+                  width="100%"
+                />
+              </p>
+            </div>
+
+            <ol>
+              <li>
+                <p>Action items</p>
+                <aside class="notes">
+                  <p>
+                    Publish the form once you are done editing it and it is
+                    ready for data collection. Preview gives you a look at how
+                    the form will show in the Akvo Flow app or as a webform.
+                    Delete removes the form fully. Please note that once you
+                    delete a form it cannot be recreated. Share as webform
+                    enables you to collect data via the web browser on your
+                    computer or any other device. This is an alternative way to
+                    capture data besides the Akvo Flow app.
+                  </p>
+                </aside>
+              </li>
+              <li>
+                The version of the form. Each time a form is changed, it’s
+                version is updated.
+              </li>
+              <li>
+                The ID of the form. This can be used to manually download the
+                form to a device.
+              </li>
+              <li>The current total number of questions in the form.</li>
+              <li>
+                Form basics. Here you can change the name of the form, add
+                translation and notifications.
+              </li>
+              <li>
+                Insert group. This inserts a new question group, which is the
+                first step in creating the questions of the form.
+              </li>
+            </ol>
+          </section>
+          <section
+            id="slide-org4c526fe"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org4c526fe">
+              <span class="section-number-4">4.1.2.</span> Monitoring / Multiple
+              Forms
+            </h4>
+            <p>
+              A regular survey will only contain a single form. However, you can
+              add additional forms to a survey, which capture different aspects
+              about the subject of the survey.
+            </p>
+
+            <p>
+              To add multiple forms to a survey, you first need to enable
+              monitoring on the survey by clicking on the checkbox
+              <b>Enable monitoring</b> features. This will allow you to add more
+              forms to your survey. When this has been enabled, you can create
+              multiple forms.
+            </p>
+
+            <p>
+              More at
+              <a
+                href="https://akvoflow.supporthero.io/article/show/5302-introduction-to-tracking-change-over-time"
+                >Tracking Change over time</a
+              >
+            </p>
+
+            <aside class="notes">
+              <p>
+                For example, if you survey water pumps, you could have a
+                <span class="underline">registration form</span> that captures
+                the basic information for a water point, a
+                <span class="underline">water quality form</span>, that captures
+                water quality information about that point, and a ‘functionality
+                update form’ that periodically captures the functionality.
+              </p>
+
+              <p>
+                In addition, you need to select the form which will be used to
+                create new data points, which we call the Registration form.
+                Other forms will just be able to update the existing data
+                points.
+              </p>
+            </aside>
+          </section>
+          <section
+            id="slide-org7b5ea16"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org7b5ea16">
+              <span class="section-number-3">4.2.</span> Question Groups
+            </h3>
+            <p>A form consist of questions organised into question groups.</p>
+          </section>
+          <section
+            id="slide-orgfcf87cc"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgfcf87cc">
+              <span class="section-number-4">4.2.1.</span> Repeat Group
+            </h4>
+            <p>
+              <b>Repeat this group</b> checkbox will allow to repeat the
+              question group of questions as many times as needed. This will
+              make it possible to ask the same set of questions multiple times
+              without needing to predefine them manually in the surveys. For
+              example, if you want to ask the same questions to each member of a
+              household, you will add the questions to one question group and
+              click on the repeat option.
+            </p>
+          </section>
+          <section
+            id="slide-org0598462"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org0598462">
+              <span class="section-number-3">4.3.</span> Questions
+            </h3>
+            <p>
+              To create a new question select the question group you want it to
+              be in then click Show Questions next to the question group. Click
+              Add New Question or click Edit next to an existing question.
+            </p>
+
+            <div id="org41e3406" class="figure">
+              <p>
+                <img
+                  src="assets/page-question.png"
+                  alt="page-question.png"
+                  width="100%"
+                />
+              </p>
+            </div>
+          </section>
+          <section
+            id="slide-org93e77ad"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org93e77ad">
+              <span class="section-number-3">4.4.</span> Question Types
+            </h3>
+            <p>
+              In Flow we support a large variety of different question types to
+              help you create a diverse survey. These are the question types
+              available in the Flow system:
+            </p>
+          </section>
+          <section
+            id="slide-org0bded79"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org0bded79">
+              <span class="section-number-4">4.4.1.</span> Free text
+            </h4>
+            <p>
+              Shows the user a text box on the device to fill in the answer,
+              with no specific format. Text can be letters, numbers and symbols,
+              and appears in the data views and reports exactly as it was typed
+              into the device.
+            </p>
+          </section>
+          <section
+            id="slide-org25a46bf"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org25a46bf">
+              <span class="section-number-4">4.4.2.</span> Option (select one or
+              many)
+            </h4>
+            <p>
+              create a set of preset options for the device user to select from
+              on the device when answering the question. Option questions can be
+              single answer or multiple answers. The survey author can elect to
+              allow ‘other’ responses, which on the device presents a free text
+              field for entering any other response outside the preset options.
+              Option questions will have frequency analysis performed on them in
+              data analysis.
+            </p>
+          </section>
+          <section
+            id="slide-orgd5e99ca"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgd5e99ca">
+              <span class="section-number-4">4.4.3.</span> Cascade
+            </h4>
+            <p>
+              A cascade question uses a user-defined hierarchy of options in
+              order to display multiple dropdowns on the device. Determining a
+              location is a good example: in a first dropdown question you
+              choose the region, and then in the next dropdown, you can choose
+              from the districts in that region, and so on. The user selects a
+              pre-created cascade from the "Choose cascade resource" dropdown
+              menu.
+            </p>
+          </section>
+          <section
+            id="slide-org0bf5d5f"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org0bf5d5f">
+              <span class="section-number-4">4.4.4.</span> Number
+            </h4>
+            <p>
+              Allows only numbers to be typed into the answer entry field on the
+              device. Number questions will have basic statistical analysis
+              performed on them in data analysis.
+            </p>
+          </section>
+          <section
+            id="slide-org1ff0a38"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org1ff0a38">
+              <span class="section-number-4">4.4.5.</span> Geolocation
+            </h4>
+            <p>
+              Uses the device's GPS to automatically fill in latitude, longitude
+              and elevation. Click the Check Geo Location button to fill in
+              these questions on the device.
+            </p>
+          </section>
+          <section
+            id="slide-orge19dac0"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orge19dac0">
+              <span class="section-number-4">4.4.6.</span> Photo / Video
+            </h4>
+            <p>
+              Presents the option to take a photo or video as part of the
+              survey. Click the Take Photo or Take Video buttons on the device
+              to access the device camera.
+            </p>
+          </section>
+          <section
+            id="slide-org7d092c3"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org7d092c3">
+              <span class="section-number-4">4.4.7.</span> Date
+            </h4>
+            <p>
+              Presents a date picker on the device for the device user to select
+              a date.
+            </p>
+          </section>
+          <section
+            id="slide-org9c42411"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org9c42411">
+              <span class="section-number-4">4.4.8.</span> Barcode
+            </h4>
+            <p>
+              With the Barcode question you can scan a barcode or a QR code as
+              part of your Flow form. Install a scanner app on your device and
+              Flow will connect to it once you reach the question in the Flow
+              app.
+            </p>
+          </section>
+          <section
+            id="slide-org91052c9"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org91052c9">
+              <span class="section-number-4">4.4.9.</span> Geographic shapes
+            </h4>
+            <p>
+              Allows the user to define points, lines or areas on a map. This
+              can for example be used to capture geographic features of interest
+              such a group of water taps, walking paths, farmer plots, or
+              protected woodland areas.
+            </p>
+          </section>
+          <section
+            id="slide-orga316962"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orga316962">
+              <span class="section-number-4">4.4.10.</span> Signature
+            </h4>
+            <p>
+              with this question you can add a signature field to your form,
+              which holds both the signature and the name of the signatory.
+            </p>
+          </section>
+          <section
+            id="slide-org03f58dc"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org03f58dc">
+              <span class="section-number-4">4.4.11.</span> Akvo Caddisfly
+              (water and soil quality test)
+            </h4>
+            <p>
+              Akvo Caddisfly enables you to add a water quality test to your
+              Flow survey. You can choose from a list of parameters that you
+              want to measure.
+            </p>
+          </section>
+        </section>
+        <section
+          style="top: 350px; display: none"
+          aria-hidden="true"
+          class="stack future"
+          hidden=""
+        >
+          <section id="slide-orgf0973a6" style="top: 350px; display: none">
+            <h2 id="orgf0973a6">
+              <span class="section-number-2">5.</span> Akvo Flow API
+            </h2>
+            <p>
+              The Akvo Flow REST API is a read-only API, being a read-only API
+              means that we currently only support GET requests. You can get
+              data out of Flow but not use the API to put data in Flow.
+            </p>
+          </section>
+          <section
+            id="slide-org310ca73"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org310ca73">
+              <span class="section-number-3">5.1.</span> SSO Login
+            </h3>
+            <div class="outline-text-3" id="text-5-1"></div>
+          </section>
+          <section
+            id="slide-orgba9a0ac"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgba9a0ac">
+              <span class="section-number-4">5.1.1.</span> Do i have to use my
+              google password to authenticate?
+            </h4>
+            <p>
+              However, Akvo Flow don't store any password yet when you signed up
+              with Google. OpenID connect uses different method of
+              authentication, This means that we don't store your Google
+              password when you authenticate with this method. If you already
+              signed up with Google, you can set the Akvo Flow password with
+              <b><b>forgot password</b></b> button. Then check your email and
+              the following instruction to set the password.
+            </p>
+
+            <div id="org9c1ae38" class="figure">
+              <p>
+                <img
+                  src="assets/forgot-password.png"
+                  alt="forgot-password.png"
+                  width="25%"
+                />
+              </p>
+            </div>
+          </section>
+          <section
+            id="slide-org6d88760"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org6d88760">
+              <span class="section-number-4">5.1.2.</span> Getting the ID TOKEN
+            </h4>
+            <p>
+              The <b>ID TOKEN</b> is a token issued as a result of user
+              authentication. In the following http request call is example to
+              get the <b>ID TOKEN</b>
+            </p>
+
+            <div class="org-src-container">
+              <pre
+                class="src src-bash"
+                id="Authenticate"
+              ><code trim="">curl -s \
+       -d "client_id=S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS" \
+       -d "username=${AUTH0_USER}" \
+       -d "password=${AUTH0_PWD}" \
+       -d "grant_type=password" \
+       -d "scope=openid email" \
+       "https://akvofoundation.eu.auth0.com/oauth/token" | jq
+</code></pre>
+            </div>
+
+            <pre class="example">
+{
+  "access_token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9ha3ZvZm91bmRhdGlvbi5ldS5hdXRoMC5jb20vIn0..FPObhFY3RXs0CC7s.CWU3t7bB2OiA-6m0affaHo4-g2PxqFV-NRCOKAS4uQrxPOAOYO5cnJcNgJQ4_shXSL2N5UV97FoWLs83eZNYhpWIsiCwcT9fD1rfzEnkXqaS1HAXLWakdQUJHJV166yk6NoPsBWY8bWD9mNamrwy2PVNLKUuyO7ip4FQkD6dNNtSV309m0iBYsO6_yN8cfR0-0XgP1LQKOAmoazUyaR01r939aRoZupAQ_5MQqwdFgd42MaCJ-iTE1dfjW2ywlQg3-hCY4x29ALZGkDKBlSDx4pWD3UM8cKebvU2HlbiPgFzeYv90nWJJpkuSIsdHXKYCDNelCEDNp5SVTnfOouc.P_xHn5mQW2vBnBUgKt3Q0Q",
+  "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFUQXlRVEUwTTBZNU9USkNOekUwT1VFNE9UTXdSVEU0UkRFeE5qRkJRa1JCTTBRMFFVUkZRZyJ9.eyJodHRwczovL2Frdm8ub3JnL3VzZXJfbWV0YWRhdGEiOnt9LCJlbWFpbCI6ImRlZGVuQGFrdm8ub3JnIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vYWt2b2ZvdW5kYXRpb24uZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYzQ0YzAzNzBjNDMzMGNhYjA0MTI5MiIsImF1ZCI6IlM2UG0wV0Y0TEhPTlJQUktqZXBQWFpvWDFtdVhtMUpTIiwiaWF0IjoxNjczODYzMjA0LCJleHAiOjE2NzM4OTkyMDR9.Yl5YEJr6U0f2JyJvsxMYljsbbI6MvwDxD64CCgbK0TFo5ics2yfQeQV9l3vo7OU3DpABzFs-gaVJ6z5cfgdiGO_MSKAJ9a_5kjKKTwHSCzZ361LvZDMr_YG9Rh_kOXAm0oji3DVXlKpkSDCu08B1-lfCUIR3UUytMu-O-YvQopqt2KuV5ZgQc2yxscazytdydgff1V4yuH9-0SplD4MAlr7TbNOFDpXNxX5VfFTg0GvT6-E0TiOLU3MgRE5O7fq4UlpbCsZF0v43Pihot7Swsm3C1lUarBonCZtr6MvVxABHYM3F1k6TCgadphqKRWh_jk2w9Avpcgb3jUIFYJsp8g",
+  "scope": "openid email",
+  "expires_in": 86400,
+  "token_type": "Bearer"
+}
+</pre
+            >
+
+            <p>
+              Note: Remember that logging in using the Google account log in is
+              not sufficient to use the API. You need to sign up, create and
+              verify your user account and then log in to Flow.
+            </p>
+          </section>
+          <section
+            id="slide-org1e44bde"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org1e44bde">
+              <span class="section-number-3">5.2.</span> Rest API
+            </h3>
+            <p>
+              The organisation sub domain is identified by looking at the
+              dashboard URL for one's organisation. e.g. if your dashboard URL
+              is
+              <a href="https://myakvo.akvoflow.org/"
+                >https://myakvo.akvoflow.org</a
+              >
+              then the API request base URL would be:
+              <a href="https://api.akvo.org/flow/orgs/myakvo"
+                >https://api.akvo.org/flow/orgs/myakvo</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-orgb001a29"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgb001a29">
+              <span class="section-number-4">5.2.1.</span> [Root] Folders
+            </h4>
+            <p>
+              Documentation:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#7b5e0307-3506-4caa-94f2-27a54f8baf11"
+                >GET Folders</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-org0a66799"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org0a66799">
+              <span class="section-number-4">5.2.2.</span> Survey List
+            </h4>
+            <p>
+              Documentation:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#6aad66c5-8831-4a8b-ab5c-f0595eb999a4"
+                >GET Survey List</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-org7d6b907"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="org7d6b907">
+              <span class="section-number-4">5.2.3.</span> Survey
+            </h4>
+            <p>
+              Documentation:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#eaf1ded5-13f5-4056-9bf9-55017fd91872"
+                >GET Survey</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-orgcf15637"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orgcf15637">
+              <span class="section-number-4">5.2.4.</span> Datapoints
+            </h4>
+            <p>
+              Documentation:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#8d902523-015f-492a-a7b0-8bbb8e8a790f"
+                >GET Datapoints</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-orga704851"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h4 id="orga704851">
+              <span class="section-number-4">5.2.5.</span> Form Instances
+            </h4>
+            <table
+              rules="groups"
+              frame="hsides"
+              cellspacing="0"
+              cellpadding="6"
+              border="2"
+            >
+              <colgroup>
+                <col class="org-left" />
+
+                <col class="org-left" />
+
+                <col class="org-left" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="org-left">TYPE</th>
+                  <th scope="col" class="org-left">TYPE NAME</th>
+                  <th scope="col" class="org-left">VALUE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="org-left">Free text</td>
+                  <td class="org-left">"FREE_TEXT"</td>
+                  <td class="org-left">Object&lt;{"text": String}&gt;</td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Number</td>
+                  <td class="org-left">"NUMBER"</td>
+                  <td class="org-left">float</td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Option</td>
+                  <td class="org-left">"OPTION"</td>
+                  <td class="org-left">
+                    List[{"text": String, "code": String}] or List[{ext":
+                    String}]
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Photo</td>
+                  <td class="org-left">"PHOTO"</td>
+                  <td class="org-left">Object&lt;{"filename": String}&gt;</td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Geolocation</td>
+                  <td class="org-left">"GEO"</td>
+                  <td class="org-left">
+                    Object&lt;{"lat": float, "long": float}&gt;
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Date</td>
+                  <td class="org-left">"DATE"</td>
+                  <td class="org-left">String</td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Barcode</td>
+                  <td class="org-left">"BARCODE"</td>
+                  <td class="org-left">Object&lt;{"filename: String}&gt;</td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Geographic Shape</td>
+                  <td class="org-left">"GEOSHAPE"</td>
+                  <td class="org-left">
+                    <a href="https://geojson.org/">https://geojson.org/</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Signature</td>
+                  <td class="org-left">"SIGNATURE"</td>
+                  <td class="org-left">Object&lt;{"filename": String}&gt;</td>
+                </tr>
+
+                <tr>
+                  <td class="org-left">Akvo Caddisfly</td>
+                  <td class="org-left">"CADDISFLY"</td>
+                  <td class="org-left">Object&lt;{"filename":String}&gt;</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              Documentation:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#251ab1f1-1fb2-4458-926b-4e732577d2c8"
+                >GET Form Instances</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-org68088ee"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org68088ee">
+              <span class="section-number-3">5.3.</span> Sync API
+            </h3>
+            <p>
+              The Akvo Flow Sync API provides a way of getting changes that
+              happened in the system. This is useful for synchronizing data
+              changes out of Akvo Flow to an external system in near real-time
+              fashion.
+            </p>
+
+            <p>
+              Documentation:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#41e2c3c1-28c4-4db5-9a41-eb70d014db96"
+                >SYNC API</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-orgada7cd8"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="orgada7cd8">
+              <span class="section-number-3">5.4.</span> Documentation
+            </h3>
+            <p>
+              GitHub Wiki:
+              <a
+                href="https://github.com/akvo/akvo-flow-api/wiki/Akvo-Flow-REST-API"
+                >Akvo-Flow-REST-API</a
+              >
+              Postman:
+              <a
+                href="https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm"
+                >Akvo Flow Rest API</a
+              >
+            </p>
+          </section>
+          <section
+            id="slide-org201c88a"
+            class="future"
+            aria-hidden="true"
+            style="top: 350px; display: none"
+          >
+            <h3 id="org201c88a">
+              <span class="section-number-3">5.5.</span> Fair use Policy
+            </h3>
+            <p>
+              We have a set of rules of conduct in place that guide how we wish
+              our APIs to be used. We would like to ask you to respect the API
+              servers and others who may be using them at the same time. The
+              more calls you make to the API, the less resources are available
+              for other developers (and yes, the more Akvo's operating expenses
+              go up). We would like to ask you to limit the calls to maximum one
+              a day.
+            </p>
+
+            <p>
+              For more details on the API code of conduct please read
+              <a href="https://akvo.org/policies/">Code of Conduct</a>.
+            </p>
+          </section>
+        </section>
+      </div>
+      <div class="backgrounds">
+        <div
+          class="slide-background present"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+        </div>
+        <div
+          class="slide-background future"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+        </div>
+        <div
+          class="slide-background stack future"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+          <div
+            class="slide-background present"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div class="slide-background stack future" style="display: none">
+          <div class="slide-background-content"></div>
+          <div class="slide-background present" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div class="slide-background stack future" style="display: none">
+          <div class="slide-background-content"></div>
+          <div class="slide-background present" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div class="slide-background stack future" style="display: none">
+          <div class="slide-background-content"></div>
+          <div class="slide-background present" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div class="slide-background stack future" style="display: none">
+          <div class="slide-background-content"></div>
+          <div class="slide-background present" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+          <div class="slide-background future" style="display: none">
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number" style="display: none"></div>
+      <aside
+        class="controls"
+        style="display: block"
+        data-controls-layout="bottom-right"
+        data-controls-back-arrows="faded"
+      >
+        <button
+          class="navigate-left"
+          aria-label="previous slide"
+          disabled="disabled"
+        >
+          <div class="controls-arrow"></div>
+        </button>
+        <button
+          class="navigate-right enabled highlight"
+          aria-label="next slide"
+        >
+          <div class="controls-arrow"></div>
+        </button>
+        <button
+          class="navigate-up"
+          aria-label="above slide"
+          disabled="disabled"
+        >
+          <div class="controls-arrow"></div>
+        </button>
+        <button
+          class="navigate-down"
+          aria-label="below slide"
+          disabled="disabled"
+        >
+          <div class="controls-arrow"></div>
+        </button>
+      </aside>
+      <div class="progress" style="display: block">
+        <span style="transform: scaleX(0)"></span>
+      </div>
+      <div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div>
+      <div class="pause-overlay">
+        <button class="resume-button">Resume presentation</button>
+      </div>
+      <div
+        style="
+          position: absolute;
+          height: 1px;
+          width: 1px;
+          overflow: hidden;
+          clip: rect(1px, 1px, 1px, 1px);
+        "
+        class="aria-status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        Akvo Flow API
+      </div>
+    </div>
+    <script src="assets/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js",
+            condition: function () {
+              return !!document.querySelector("[data-markdown]");
+            },
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js",
+            condition: function () {
+              return !!document.querySelector("[data-markdown]");
+            },
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js",
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js",
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
