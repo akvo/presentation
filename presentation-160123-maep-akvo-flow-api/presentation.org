@@ -45,6 +45,17 @@ and data processing activity.
 
 ** Login To Akvo Flow
 
+To be able to use both APIs you need to be a user on Akvo Flow.
+This means the Akvo Flow organisational admin needs to add you to
+the Akvo Flow online workspace and give you access to the folder and survey you need.
+
+*** Creating new user account
+
+Go to https://{{instance_name}}.akvoflow.org/,
+then click on create account and complete the required user details to have your user account.
+Then validate your email by clicking in the confirmation link that will be sent to your email inbox.
+
+
 * Survey
 
 *** Editing Survey
@@ -181,23 +192,8 @@ You can choose from a list of parameters that you want to measure.
 The Akvo Flow REST API is a read-only API, being a read-only API means
 that we currently only support GET requests. You can get data out of Flow
 but not use the API to put data in Flow.
------
-To be able to use both APIs you need to be a user on Akvo Flow.
-This means the Akvo Flow organisational admin needs to add you to
-the Akvo Flow online workspace and give you access to the folder and survey you need.
 
 ** SSO Login
-
-- Creating New user Account
-- Getting the ID Token
-- Creating New user Account
-- Creating New user Account
-
-*** Creating new user account
-
-Go to https://{{instance_name}}.akvoflow.org/,
-then click on create account and complete the required user details to have your user account.
-Then validate your email by clicking in the confirmation link that will be sent to your email inbox.
 
 *** Do i have to use my google password to authenticate?
 
