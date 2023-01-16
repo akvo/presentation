@@ -1,17 +1,16 @@
-import java.io.IOException;
-import java.net.URISyntaxException;
-
-// import com.google.gson.GsonBuilder;
-// import com.google.gson.Gson;
-
+import io.github.cdimascio.dotenv.Dotenv;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 public class Main {
 
     public static void main(String[] args) throws URISyntaxException, IOException, JSONException{
+        Dotenv dotenv = Dotenv.load();
         Auth auth = new Auth();
-        auth.login("deden@akvo.org",  "4LRdywjhCNNhUBWFwqe^vugV");
+        auth.login(dotenv.get("AUTH0_USER"),  dotenv.get("AUTH0_PWD"));
         String id_token = auth.getAuthEntity().id_token;
         RequestBuilder req = new RequestBuilder(id_token);
         String res = req.execute("https://api-auth0.akvo.org/flow/orgs/uat1/folders");
