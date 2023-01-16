@@ -1,0 +1,298 @@
+#+PROPERTY: header-args:bash :exports both
+#+PROPERTY: header-args:bash+ :results output
+#+STARTUP: showall
+
+:REVEAL_PROPERTIES:
+#+REVEAL_TITLE_SLIDE: Akvo Flow API
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_EXTRA_CSS: file:///home/dedenbangkit/Presentation/css/akvo.css
+:END:
+
+#+TITLE: Akvo FLow API
+#+AUTHOR: Deden Bangkit
+
+* Introduction to Akvo Flow
+** Akvo Flow Online Workspace
+*** Getting to know the Akvo Flow online workspace.
+Here you prepare to capture, access and manage your Flow data.
+#+BEGIN_NOTES
+Each organisation has its own URL to access it's online workspace.
+The Flow online workspace is made up a series of pages.
+#+END_NOTES
+Access to each tool menu is limited by permissions
+so not all functions will be available to all users.
+*** Landing Page
+The first page you see after you log in is the Surveys tab.
+#+ATTR_HTML: :width 100%
+https://d29l98y0pmei9d.cloudfront.net/article/107/fae98bc6-1cea-4bd6-9998-0df751a5e2cc.png
+Surveys are the centrepiece of Flow. Create, edit and publish surveys from the Surveys tab.
+*** Devices Tab
+In the Devices page you manage the devices connected to capture data.
+*** Data Tab
+The Data tab is where you can view, edit, export, import
+and clean data collected with Flow surveys.
+*** Resources Tab
+The Resources tab holds your cascades,
+as they act as a resource you can create and re-use in any Flow form.
+*** Maps Tab
+The map on your Flow's online space shows
+the surveys collected with a GPS location as points on a map.
+*** Users Tab
+Here is where you manage your users and their permissions.
+*** Messages
+The Messages tab lists messages related to activity with surveys
+and data processing activity.
+
+** Login To Akvo Flow
+
+* Survey
+
+*** Editing Survey
+#+ATTR_HTML: :width 100%
+https://s3-eu-west-1.amazonaws.com/cdn.supporthero.io/article/107/183f6fd2-3e30-43f6-b263-173129f06f5c.gif
+
+*** Survey Setting
+#+ATTR_HTML: :width 75%
+https://d29l98y0pmei9d.cloudfront.net/article/107/b72a4bad-bf61-4dbd-a306-c23a2c5cf84b.png
+
+1. Indicates the number of forms in the survey. A new survey has zero forms.
+2. Indicates if this is a monitoring survey or not.
+3. The title of the survey. A short title to describe the survey. On the device, this will be shown as the title of the survey as well
+4. Language: the master language of the survey. In addition to this, any number of translations can be added later. The default master language is English. Note: You can type your forms in any language you want. You do not need to change this setting in that case. This setting is used when you translate your forms to another language.
+5. Button to add a form to the survey.
+
+* Form Page
+
+** Adding a Form
+
+Each survey in Akvo Flow is created to capture data on a different subject.
+A survey can consist of one or multiple forms, which hold your questions that are organised into question groups.
+This chapter will show you how to create a new form in your survey, add multiple forms and edit a form.
+
+*** Editing Form
+#+ATTR_HTML: :width 100%
+https://d29l98y0pmei9d.cloudfront.net/article/107/72c5aa74-7f96-4ad4-a5b7-12a335c5130d.png
+
+1. Action items
+   #+BEGIN_NOTES
+   Publish the form once you are done editing it and it is ready for data collection.
+   Preview gives you a look at how the form will show in the Akvo Flow app or as a webform.
+   Delete removes the form fully. Please note that once you delete a form it cannot be recreated.
+   Share as webform enables you to collect data via the web browser on your computer or any other device. This is an alternative way to capture data besides the Akvo Flow app.
+   #+END_NOTES
+2. The version of the form. Each time a form is changed, it’s version is updated.
+3. The ID of the form. This can be used to manually download the form to a device.
+4. The current total number of questions in the form.
+5. Form basics. Here you can change the name of the form, add translation and notifications.
+6. Insert group. This inserts a new question group, which is the first step in creating the questions of the form.
+
+*** Monitoring / Multiple Forms
+A regular survey will only contain a single form. However, you can add additional forms to a survey,
+which capture different aspects about the subject of the survey.
+
+To add multiple forms to a survey, you first need to enable monitoring on the survey
+by clicking on the checkbox *Enable monitoring* features.
+This will allow you to add more forms to your survey.
+When this has been enabled, you can create multiple forms.
+
+More at [[https://akvoflow.supporthero.io/article/show/5302-introduction-to-tracking-change-over-time][Tracking Change over time]]
+
+#+BEGIN_NOTES
+For example, if you survey water pumps, you could have a _registration form_ that captures the basic information for a water point, a _water quality form_,
+that captures water quality information about that point, and a ‘functionality update form’ that periodically captures the functionality.
+
+In addition, you need to select the form which will be used
+to create new data points, which we call the Registration form.
+Other forms will just be able to update the existing data points.
+#+END_NOTES
+
+**  Question Groups
+
+A form consist of questions organised into question groups.
+
+*** Repeat Group
+*Repeat this group* checkbox will allow to repeat the question group of questions as many times as needed.
+This will make it possible to ask the same set of questions multiple times without needing to predefine them manually in the surveys.
+For example, if you want to ask the same questions to each member of a household,
+you will add the questions to one question group and click on the repeat option.
+
+** Questions
+
+To create a new question select the question group you want it to be in
+then click Show Questions next to the question group.
+Click Add New Question or click Edit next to an existing question.
+
+#+ATTR_HTML: :width 100%
+https://d29l98y0pmei9d.cloudfront.net/article/107/d3a57862-fc87-445d-a1f9-e10704103359.png
+
+** Question Types
+
+In Flow we support a large variety of different question types to help you create a diverse survey.
+These are the question types available in the Flow system:
+*** Free text
+Shows the user a text box on the device to fill in the answer, with no specific format.
+Text can be letters, numbers and symbols,
+and appears in the data views and reports exactly as it was typed into the device.
+
+*** Option (select one or many)
+create a set of preset options for the device user to select from on the device
+when answering the question. Option questions can be single answer or multiple answers. The survey author can elect to allow ‘other’ responses, which on the device presents a free text field for entering any other response outside the preset options.
+Option questions will have frequency analysis performed on them in data analysis.
+
+*** Cascade
+A cascade question uses a user-defined hierarchy of options in order to display
+multiple dropdowns on the device. Determining a location is a good example: in a first dropdown question you choose the region, and then in the next dropdown, you can choose from the districts in that region, and so on.
+The user selects a pre-created cascade from the "Choose cascade resource" dropdown menu.
+
+*** Number
+Allows only numbers to be typed into the answer entry field on the device.
+Number questions will have basic statistical analysis performed on them in data analysis.
+
+*** Geolocation
+Uses the device's GPS to automatically fill in latitude, longitude and elevation.
+Click the Check Geo Location button to fill in these questions on the device.
+
+*** Photo / Video
+Presents the option to take a photo or video as part of the survey.
+Click the Take Photo or Take Video buttons on the device to access the device camera.
+
+*** Date
+Presents a date picker on the device for the device user to select a date.
+
+*** Barcode
+With the Barcode question you can scan a barcode or a QR code as part of your Flow form. Install a scanner app on your device and Flow will connect to it once you reach the question in the Flow app.
+
+*** Geographic shapes
+Allows the user to define points, lines or areas on a map. This can for example be used to
+capture geographic features of interest such a group of water taps, walking paths,
+farmer plots, or protected woodland areas.
+
+*** Signature
+with this question you can add a signature field to your form,
+which holds both the signature and the name of the signatory.
+
+*** Akvo Caddisfly (water and soil quality test)
+Akvo Caddisfly enables you to add a water quality test to your Flow survey.
+You can choose from a list of parameters that you want to measure.
+
+
+* Akvo Flow API
+
+The Akvo Flow REST API is a read-only API, being a read-only API means
+that we currently only support GET requests. You can get data out of Flow
+but not use the API to put data in Flow.
+-----
+To be able to use both APIs you need to be a user on Akvo Flow.
+This means the Akvo Flow organisational admin needs to add you to
+the Akvo Flow online workspace and give you access to the folder and survey you need.
+
+** SSO Login
+
+- Creating New user Account
+- Getting the ID Token
+- Creating New user Account
+- Creating New user Account
+
+*** Creating new user account
+
+Go to https://{{instance_name}}.akvoflow.org/,
+then click on create account and complete the required user details to have your user account.
+Then validate your email by clicking in the confirmation link that will be sent to your email inbox.
+
+*** Do i have to use my google password to authenticate?
+
+However, Akvo Flow don't store any password yet when you signed up with Google.
+OpenID connect uses different method of authentication,
+This means that we don't store your Google password when you authenticate with this method.
+If you already signed up with Google, you can set the Akvo Flow password with **forgot password** button.
+Then check your email and the following instruction to set the password.
+
+#+ATTR_HTML: :width 25%
+file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/forgot-password.png
+
+*** Getting the ID TOKEN
+The *ID TOKEN* is a token issued as a result of user authentication.
+In the following http request call is example to get the *ID TOKEN*
+
+#+name: Authenticate
+#+begin_src bash :results output
+  curl -s \
+         -d "client_id=S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS" \
+         -d "username=${AUTH0_USER}" \
+         -d "password=${AUTH0_PWD}" \
+         -d "grant_type=password" \
+         -d "scope=openid email" \
+         "https://akvofoundation.eu.auth0.com/oauth/token" | jq
+#+end_src
+
+#+ATTR_REVEAL: :frag appear
+#+RESULTS: Authenticate
+: {
+:   "access_token": "eyJhbGci....RyUDenB7xBbPhG2C31zXeA",
+:   "id_token": "eyJhbGci...BRBw",
+:   "scope": "openid email",
+:   "expires_in": 86400,
+:   "token_type": "Bearer"
+: }
+#+RESULTS:
+Note: Remember that logging in using the Google account log in is not sufficient to use the API.
+You need to sign up, create and verify your user account and then log in to Flow.
+
+
+** Rest API
+
+The organisation sub domain is identified by looking at the dashboard URL for one's organisation.
+e.g. if your dashboard URL is
+https://myakvo.akvoflow.org
+then the API request base URL would be:
+https://api.akvo.org/flow/orgs/myakvo
+
+*** [Root] Folders
+https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#7b5e0307-3506-4caa-94f2-27a54f8baf11
+*** Survey List
+https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#6aad66c5-8831-4a8b-ab5c-f0595eb999a4
+*** Survey
+https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#eaf1ded5-13f5-4056-9bf9-55017fd91872
+*** Datapoints
+https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#8d902523-015f-492a-a7b0-8bbb8e8a790f
+*** Form Instances
+
+#+STARTUP: align
+#+OPTIONS: ^:nil
+| TYPE             | TYPE NAME   | VALUE                                                          |
+|------------------+-------------+----------------------------------------------------------------|
+| Free text        | "FREE_TEXT" | Object<{"text": String}>                                       |
+| Number           | "NUMBER"    | float                                                          |
+| Option           | "OPTION"    | List[{"text": String, "code": String}] or List[{ext": String}] |
+| Photo            | "PHOTO"     | Object<{"filename": String}>                                   |
+| Geolocation      | "GEO"       | Object<{"lat": float, "long": float}>                          |
+| Date             | "DATE"      | String                                                         |
+| Barcode          | "BARCODE"   | Object<{"filename: String}>                                    |
+| Geographic Shape | "GEOSHAPE"  | https://geojson.org/                                           |
+| Signature        | "SIGNATURE" | Object<{"filename": String}>                                   |
+| Akvo Caddisfly   | "CADDISFLY" | Object<{"filename":String}>                                    |
+
+https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#251ab1f1-1fb2-4458-926b-4e732577d2c8
+
+** Sync API
+
+The Akvo Flow Sync API provides a way of getting changes that happened in the system.
+This is useful for synchronizing data changes out of Akvo Flow to an external system
+in near real-time fashion.
+
+https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#41e2c3c1-28c4-4db5-9a41-eb70d014db96
+
+** Documentation
+
+GitHub Wiki: https://github.com/akvo/akvo-flow-api/wiki/Akvo-Flow-REST-API
+Postman: https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm
+
+** Fair use Policy
+
+We have a set of rules of conduct in place that guide how we wish our APIs to be used.
+We would like to ask you to respect the API servers and others who may be using them at the same time.
+The more calls you make to the API, the less resources are available for other developers
+(and yes, the more Akvo's operating expenses go up).
+We would like to ask you to limit the calls to maximum one a day.
+
+For more details on the API code of conduct please read [[https://akvo.org/policies/][Code of Conduct]].
