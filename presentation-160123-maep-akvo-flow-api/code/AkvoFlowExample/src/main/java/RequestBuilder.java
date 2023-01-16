@@ -1,6 +1,8 @@
 import okhttp3.*;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class RequestBuilder {
     protected String token;
@@ -9,7 +11,7 @@ public class RequestBuilder {
         this.token = refreshToken;
     }
 
-    public String execute(String url) throws IOException {
+    public JSONObject execute(String url) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -19,6 +21,7 @@ public class RequestBuilder {
                 .addHeader("Accept", "application/vnd.akvo.flow.v2+json")
                 .addHeader("Authorization", String.format("Bearer %s", this.token)).build();
         Response response = client.newCall(request).execute();
-        return response.body().string();
+        String res = Objects.<ResponseBody>requireNonNull(response.body()).string();
+        return new JSONObject(res);
     }
 }
