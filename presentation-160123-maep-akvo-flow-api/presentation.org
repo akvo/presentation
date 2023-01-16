@@ -24,7 +24,7 @@ so not all functions will be available to all users.
 *** Landing Page
 The first page you see after you log in is the Surveys tab.
 #+ATTR_HTML: :width 100%
-https://d29l98y0pmei9d.cloudfront.net/article/107/fae98bc6-1cea-4bd6-9998-0df751a5e2cc.png
+file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-landing.png
 Surveys are the centrepiece of Flow. Create, edit and publish surveys from the Surveys tab.
 *** Devices Tab
 In the Devices page you manage the devices connected to capture data.
@@ -60,11 +60,11 @@ Then validate your email by clicking in the confirmation link that will be sent 
 
 *** Editing Survey
 #+ATTR_HTML: :width 100%
-https://s3-eu-west-1.amazonaws.com/cdn.supporthero.io/article/107/183f6fd2-3e30-43f6-b263-173129f06f5c.gif
+file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-survey.gif
 
 *** Survey Setting
 #+ATTR_HTML: :width 75%
-https://d29l98y0pmei9d.cloudfront.net/article/107/b72a4bad-bf61-4dbd-a306-c23a2c5cf84b.png
+file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-survey_2.png
 
 1. Indicates the number of forms in the survey. A new survey has zero forms.
 2. Indicates if this is a monitoring survey or not.
@@ -82,7 +82,7 @@ This chapter will show you how to create a new form in your survey, add multiple
 
 *** Editing Form
 #+ATTR_HTML: :width 100%
-https://d29l98y0pmei9d.cloudfront.net/article/107/72c5aa74-7f96-4ad4-a5b7-12a335c5130d.png
+file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-form.png
 
 1. Action items
    #+BEGIN_NOTES
@@ -134,7 +134,7 @@ then click Show Questions next to the question group.
 Click Add New Question or click Edit next to an existing question.
 
 #+ATTR_HTML: :width 100%
-https://d29l98y0pmei9d.cloudfront.net/article/107/d3a57862-fc87-445d-a1f9-e10704103359.png
+file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-question.png
 
 ** Question Types
 
@@ -244,13 +244,13 @@ then the API request base URL would be:
 https://api.akvo.org/flow/orgs/myakvo
 
 *** [Root] Folders
-https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#7b5e0307-3506-4caa-94f2-27a54f8baf11
+Documentation: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#7b5e0307-3506-4caa-94f2-27a54f8baf11][GET Folders]]
 *** Survey List
-https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#6aad66c5-8831-4a8b-ab5c-f0595eb999a4
+Documentation: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#6aad66c5-8831-4a8b-ab5c-f0595eb999a4][GET Survey List]]
 *** Survey
-https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#eaf1ded5-13f5-4056-9bf9-55017fd91872
+Documentation: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#eaf1ded5-13f5-4056-9bf9-55017fd91872][GET Survey]]
 *** Datapoints
-https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#8d902523-015f-492a-a7b0-8bbb8e8a790f
+Documentation: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#8d902523-015f-492a-a7b0-8bbb8e8a790f][GET Datapoints]]
 *** Form Instances
 
 #+STARTUP: align
@@ -268,7 +268,7 @@ https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#8d902523-015f-492a-a7
 | Signature        | "SIGNATURE" | Object<{"filename": String}>                                   |
 | Akvo Caddisfly   | "CADDISFLY" | Object<{"filename":String}>                                    |
 
-https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#251ab1f1-1fb2-4458-926b-4e732577d2c8
+Documentation: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#251ab1f1-1fb2-4458-926b-4e732577d2c8][GET Form Instances]]
 
 ** Sync API
 
@@ -276,12 +276,12 @@ The Akvo Flow Sync API provides a way of getting changes that happened in the sy
 This is useful for synchronizing data changes out of Akvo Flow to an external system
 in near real-time fashion.
 
-https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#41e2c3c1-28c4-4db5-9a41-eb70d014db96
+Documentation: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm#41e2c3c1-28c4-4db5-9a41-eb70d014db96][SYNC API]]
 
 ** Documentation
 
-GitHub Wiki: https://github.com/akvo/akvo-flow-api/wiki/Akvo-Flow-REST-API
-Postman: https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm
+GitHub Wiki: [[https://github.com/akvo/akvo-flow-api/wiki/Akvo-Flow-REST-API][Akvo-Flow-REST-API]]
+Postman: [[https://documenter.getpostman.com/view/25343056/2s8ZDU4Nzm][Akvo Flow Rest API]]
 
 ** Fair use Policy
 
