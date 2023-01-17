@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="reveal-full-page" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Akvo FLow API</title>
+    <meta name="author" content="Deden Bangkit" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <style type="text/css">
+      .underline {
+        text-decoration: underline;
+      }
+    </style>
+    <link rel="stylesheet" href="assets/reveal.css" />
+
+    <link rel="stylesheet" href="assets/moon.css" id="theme" />
+
+    <link rel="stylesheet" href="assets/akvo.css" />
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css";
+        document.getElementsByTagName("head")[0].appendChild(link);
+      }
+    </script>
+    <script type="text/javascript" src="assets/zoom.js"></script>
+    <script type="text/javascript" src="assets/notes.js"></script>
+  </head>
+  <body
+    class="reveal-viewport"
+    style="
+      --slide-width: 960px;
+      --slide-height: 700px;
+      --slide-scale: 1.2452571428571428;
+      transition: transform 0.8s ease 0s;
+    "
+  >
+    <div
+      class="reveal slide center focused has-vertical-slides has-horizontal-slides ready"
+      role="application"
+      data-transition-speed="default"
+      data-background-transition="fade"
+      style="cursor: none"
+    >
+      <div
+        class="slides"
+        style="
+          width: 960px;
+          height: 700px;
+          inset: 50% auto auto 50%;
+          transform: translate(-50%, -50%) scale(1.24526);
+        "
+      >
+        <section
+          id="sec-title-slide"
+          style="top: 320.5px; display: none"
+          class="past"
+          aria-hidden="true"
+          hidden=""
+        >
+          Akvo Flow API
+        </section>
+        <section
+          id="sec-table-of-contents"
+          style="top: 49px; display: block"
+          class="past"
+          aria-hidden="true"
+          hidden=""
+        >
+          <div id="table-of-contents" role="doc-toc">
+            <h2>Table of Contents</h2>
+            <div id="text-table-of-contents" role="doc-toc">
+              <ul>
+                <li>
+                  <a href="#/slide-orge63a7b9">1. Setup Project Output</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-org3c3bf9d">1.1. Executable JAR File</a>
+                    </li>
+                    <li><a href="#/slide-orgcdcc7c4">1.2. Project Setup</a></li>
+                    <li><a href="#/slide-org6bd5edd">1.3. Build</a></li>
+                    <li>
+                      <a href="#/slide-orgafd3ddd">1.4. How to Execute</a>
+                    </li>
+                    <li>
+                      <a href="#/slide-org7227686"
+                        >1.5. Command Line Arguments</a
+                      >
+                      <ul>
+                        <li><a href="#/slide-org07b6631">1.5.1. Example</a></li>
+                        <li>
+                          <a href="#/slide-orgb34794f"
+                            >1.5.2. Lets try to print the input argument in to
+                            the first line</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#/slide-org8512fe1">2. Coding Exercise</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-orge7ca314"
+                        >2.1. API Endpoint as Parameter</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#/slide-orgc7b8aab">2.2. Produce CSV File</a>
+                    </li>
+                    <li><a href="#/slide-org03c7b87">2.3. Tryout</a></li>
+                    <li>
+                      <a href="#/slide-orgf829985">2.4. Group Presentation</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section
+          style="top: 0px; display: block"
+          class="stack past"
+          data-previous-indexv="7"
+          aria-hidden="true"
+          hidden=""
+        >
+          <section
+            id="slide-orge63a7b9"
+            style="top: 311px; display: none"
+            class="past"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h2 id="orge63a7b9">
+              <span class="section-number-2">1.</span> Setup Project Output
+            </h2>
+            <div class="outline-text-2" id="text-1"></div>
+          </section>
+          <section
+            id="slide-org3c3bf9d"
+            class="past"
+            style="top: 297.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="org3c3bf9d">
+              <span class="section-number-3">1.1.</span> Executable JAR File
+            </h3>
+            <aside class="notes">
+              <p>
+                Before begin the session, let see how to make our project easy
+                to execute and also to see the use of the output result. We are
+                going to compile the Akvo Flow API Example Project with it's
+                external library To single a file.
+              </p>
+            </aside>
+
+            <p>Compile the Akvo Flow API Example Project to a single file</p>
+          </section>
+          <section
+            id="slide-orgcdcc7c4"
+            class="past"
+            style="top: 245.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="orgcdcc7c4">
+              <span class="section-number-3">1.2.</span> Project Setup
+            </h3>
+            <ul>
+              <li>
+                Go to File &gt; Project Structure <b>CTRL + ALT + SHIFT + S</b>
+              </li>
+              <li>
+                Select <b>Artifacts</b> under Project Settings, click
+                <b>+</b> button
+              </li>
+              <li>Select JAR &gt; From modules with dependencies</li>
+              <li>
+                Select the <b><b>Main Class</b></b> (which is the class that has
+                static main method), then click OK
+              </li>
+              <li>
+                Also don't forget to make sure that
+                <b>extract to the target JAR</b> is checked
+              </li>
+            </ul>
+
+            <p>
+              Now remember the path of output directory, where the JAR file will
+              be produced.
+            </p>
+          </section>
+          <section
+            id="slide-org6bd5edd"
+            class="past"
+            style="top: 266.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="org6bd5edd">
+              <span class="section-number-3">1.3.</span> Build
+            </h3>
+            <p>
+              Once the setup is done, now you will be able to Build the JAR file
+              by going to:
+            </p>
+
+            <p>
+              <b>Build &gt; Build Artifact &gt; Build</b>
+            </p>
+
+            <p>Congrats! Your first JAR is there!</p>
+          </section>
+          <section
+            id="slide-orgafd3ddd"
+            class="past"
+            style="top: 243px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="orgafd3ddd">
+              <span class="section-number-3">1.4.</span> How to Execute
+            </h3>
+            <p>
+              Go to the output directory via Terminal (Linux) / Command Prompt
+              (Windows) You can run
+            </p>
+
+            <div class="org-src-container">
+              <pre
+                class="src src-bash"
+              ><code trim="">java --jar &lt;your_jar_path&gt;
+</code></pre>
+            </div>
+          </section>
+          <section
+            id="slide-org7227686"
+            class="past"
+            style="top: 266.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="org7227686">
+              <span class="section-number-3">1.5.</span> Command Line Arguments
+            </h3>
+            <p>
+              Command line arguments are nothing but simply arguments that are
+              specified after the name of the program in the system's command
+              line, and these argument values are passed on to your program
+              during program execution.
+            </p>
+
+            <aside class="notes">
+              <p>
+                In the code example we can already see in the Main.java Let say
+                you want to have API endpoint as the argument We can replace the
+                url with <b>args[0]</b>
+              </p>
+            </aside>
+          </section>
+          <section
+            id="slide-org07b6631"
+            class="past"
+            style="top: 253px; display: block"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h4 id="org07b6631">
+              <span class="section-number-4">1.5.1.</span> Example
+            </h4>
+            <div class="org-src-container">
+              <pre
+                class="src src-bash"
+              ><code trim="">java --jar AkvoFlowExample.jar "https://api-auth0.akvo.org/flow/orgs/maep/folders"
+</code></pre>
+            </div>
+
+            <p>The first argument will passed to Main.java as parameters</p>
+          </section>
+          <section
+            id="slide-orgb34794f"
+            class=""
+            style="top: 268.5px; display: block"
+            aria-hidden="true"
+          >
+            <h4 id="orgb34794f">
+              <span class="section-number-4">1.5.2.</span> Lets try to print the
+              input argument in to the first line
+            </h4>
+            <div class="org-src-container">
+              <pre
+                class="src src-java"
+              ><code trim="">System.out.println(args[0]);
+</code></pre>
+            </div>
+          </section>
+        </section>
+        <section
+          style="top: 0px; display: block"
+          class="stack present"
+          data-previous-indexv="3"
+        >
+          <section
+            id="slide-org8512fe1"
+            style="top: 311px; display: none"
+            class="past"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h2 id="org8512fe1">
+              <span class="section-number-2">2.</span> Coding Exercise
+            </h2>
+            <div class="outline-text-2" id="text-2"></div>
+          </section>
+          <section
+            id="slide-orge7ca314"
+            class="past"
+            style="top: 243px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="orge7ca314">
+              <span class="section-number-3">2.1.</span> API Endpoint as
+              Parameter
+            </h3>
+            <aside class="notes">
+              <p>
+                There are lots of posibility using Akvo Flow Syncing data to
+                Partners Database, Generating Summary, Interactive and many
+                other But for now, let try the simpliest one, print out the JSON
+                of the url
+              </p>
+            </aside>
+
+            <p>
+              Let try the simpliest one, print out the JSON response of the url
+            </p>
+
+            <div class="org-src-container">
+              <pre
+                class="src src-bash"
+              ><code trim="">java --jar AkvoFlowExample.jar "https://api-auth0.akvo.org/flow/orgs/maep/folders"
+</code></pre>
+            </div>
+          </section>
+          <section
+            id="slide-orgc7b8aab"
+            class="past"
+            style="top: 297.5px; display: block"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="orgc7b8aab">
+              <span class="section-number-3">2.2.</span> Produce CSV File
+            </h3>
+            <p>
+              Please download the newest zip file from GitHub, then go to today
+              presentation directory.
+            </p>
+
+            <aside class="notes">
+              <p>Explain line by line</p>
+            </aside>
+          </section>
+          <section
+            id="slide-org03c7b87"
+            class="past"
+            style="top: 297.5px; display: block"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="org03c7b87">
+              <span class="section-number-3">2.3.</span> Tryout
+            </h3>
+            <p>
+              Lets do the same thing but for <b>Survey List</b> endpoint! Break
+              to 2 groups… Back in 1 hour
+            </p>
+          </section>
+          <section
+            id="slide-orgf829985"
+            class="present"
+            style="top: 297.5px; display: block"
+          >
+            <h3 id="orgf829985">
+              <span class="section-number-3">2.4.</span> Group Presentation
+            </h3>
+            <p>Explain the method you have tried.</p>
+          </section>
+        </section>
+      </div>
+      <div class="backgrounds">
+        <div
+          class="slide-background past"
+          style="display: none"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+        </div>
+        <div
+          class="slide-background past"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+        </div>
+        <div
+          class="slide-background stack past"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background present"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div
+          class="slide-background stack present"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background present"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number" style="display: none"></div>
+      <aside
+        class="controls"
+        style="display: block"
+        data-controls-layout="bottom-right"
+        data-controls-back-arrows="faded"
+      >
+        <button class="navigate-left enabled" aria-label="previous slide">
+          <div class="controls-arrow"></div>
+        </button>
+        <button
+          class="navigate-right"
+          aria-label="next slide"
+          disabled="disabled"
+        >
+          <div class="controls-arrow"></div>
+        </button>
+        <button class="navigate-up enabled" aria-label="above slide">
+          <div class="controls-arrow"></div>
+        </button>
+        <button
+          class="navigate-down"
+          aria-label="below slide"
+          disabled="disabled"
+        >
+          <div class="controls-arrow"></div>
+        </button>
+      </aside>
+      <div class="progress" style="display: block">
+        <span style="transform: scaleX(1)"></span>
+      </div>
+      <div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div>
+      <div class="pause-overlay">
+        <button class="resume-button">Resume presentation</button>
+      </div>
+      <div
+        style="
+          position: absolute;
+          height: 1px;
+          width: 1px;
+          overflow: hidden;
+          clip: rect(1px, 1px, 1px, 1px);
+        "
+        class="aria-status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        2.4. Group Presentation Explain the method you have tried.
+      </div>
+    </div>
+    <script src="assets/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js",
+            condition: function () {
+              return !!document.querySelector("[data-markdown]");
+            },
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js",
+            condition: function () {
+              return !!document.querySelector("[data-markdown]");
+            },
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js",
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js",
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
