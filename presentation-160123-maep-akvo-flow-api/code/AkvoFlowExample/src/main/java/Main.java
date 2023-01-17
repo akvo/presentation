@@ -17,20 +17,34 @@ public class Main {
         auth.login(dotenv.get("AUTH0_USER"),  dotenv.get("AUTH0_PWD"));
         String id_token = auth.getAuthEntity().id_token;
         RequestBuilder req = new RequestBuilder(id_token);
-        JSONObject res = req.execute("https://api-auth0.akvo.org/flow/orgs/maep/folders");
+        JSONObject res = req.execute("https://api-auth0.akvo.org/flow/orgs/maep/form_instances?survey_id=36540002&form_id=10740029");
+        System.out.println(res);
+
         /*
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         System.out.println(gson.toJsonTree(res));
          */
 
-        JSONArray folders = res.getJSONArray("folders");
-        for (int i = 1; i < folders.length(); i++) {
-            /*
-            if (!Objects.equals(folders.getJSONObject(i).getString("name"), "TRAINING - AKVO FLOW API")) {
-                continue;
-            }
-             */
-            System.out.println(folders.getJSONObject(i));
-        }
+
+        // JSONArray folders = res.getJSONArray("folders");
+        // for (int i = 0; i < folders.length(); i++) {
+        //     if (!Objects.equals(folders.getJSONObject(i).getString("name"), "ATDA")) {
+        //         continue;
+        //     }
+        //     String subfolder = folders.getJSONObject(i).getString("foldersUrl");
+        //     JSONObject resSubFolder = req.execute(subfolder);
+        //     JSONArray subFolders = resSubFolder.getJSONArray("folders");
+        //     for (int j = 0; j < subFolders.length(); j++) {
+        //         if (!Objects.equals(subFolders.getJSONObject(j).getString("name"), "ATDA_4")) {
+        //             continue;
+        //         }
+        //         String surveys = subFolders.getJSONObject(j).getString("surveysUrl");
+        //         JSONObject resSurveys = req.execute(surveys);
+        //         JSONArray surveysList = resSurveys.getJSONArray("surveys");
+        //         for (int k = 0; k < surveysList.length(); k++) {
+        //             System.out.println(surveysList.getJSONObject(k));
+        //         }
+        //     }
+        // }
     }
 }
