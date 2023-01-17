@@ -35,22 +35,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#/slide-orge69efb7">1. Recap</a>
+<li><a href="#/slide-org604ccb0">1. Recap &amp; Detail About The Main Endpoints</a>
 <ul>
-<li><a href="#/slide-org7b7fcba">1.1. Authentication</a></li>
-<li><a href="#/slide-org7590939">1.2. Request</a></li>
-<li><a href="#/slide-org8878354">1.3. List Folders</a></li>
-<li><a href="#/slide-orgf513554">1.4. List Surveys</a></li>
-<li><a href="#/slide-orgf00efb8">1.5. Survey and Forms Definition</a></li>
-<li><a href="#/slide-org6b508ca">1.6. Form Instance</a></li>
+<li><a href="#/slide-orgf814ee5">1.1. Authentication</a></li>
+<li><a href="#/slide-org254a3cf">1.2. Request</a></li>
+<li><a href="#/slide-org25b9a31">1.3. List Folders</a></li>
+<li><a href="#/slide-orgb3022bc">1.4. List Surveys</a></li>
+<li><a href="#/slide-org5b22ace">1.5. Survey and Forms Definition</a>
+<ul>
+<li><a href="#/slide-orga902bd6">1.5.1. Surveys Element</a></li>
+<li><a href="#/slide-org8585bf2">1.5.2. Form Element</a></li>
+<li><a href="#/slide-orgbc3e57d">1.5.3. Question Groups Element</a></li>
+<li><a href="#/slide-org8a4cc69">1.5.4. Question Elements</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org5148c3a">2. Code Explanation</a>
-<ul>
-<li><a href="#/slide-org03d0b7c">2.1. AkvoFlowExample/src/main/java/Auth.java</a></li>
-<li><a href="#/slide-org28c821b">2.2. AkvoFlowExample/src/main/java/Auth.java</a></li>
+<li><a href="#/slide-org2283468">1.6. Form Instances</a></li>
 </ul>
 </li>
+<li><a href="#/slide-org9f97bbb">2. Code Explanation</a>
+<ul>
+<li><a href="#/slide-orgbac2d9f">2.1. Auth.java</a></li>
+<li><a href="#/slide-org7252d28">2.2. RequestBuilder.java</a></li>
+<li><a href="#/slide-org743b4a1">2.3. Main.java</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org4fe8cc6">3. Quiz</a></li>
 </ul>
 </div>
 </div>
@@ -58,17 +67,17 @@
 
 
 <section>
-<section id="slide-orge69efb7">
-<h2 id="orge69efb7"><span class="section-number-2">1.</span> Recap</h2>
+<section id="slide-org604ccb0">
+<h2 id="org604ccb0"><span class="section-number-2">1.</span> Recap &amp; Detail About The Main Endpoints</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
-<section id="slide-org7b7fcba">
-<h3 id="org7b7fcba"><span class="section-number-3">1.1.</span> Authentication</h3>
+<section id="slide-orgf814ee5">
+<h3 id="orgf814ee5"><span class="section-number-3">1.1.</span> Authentication</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orge759e26"></a>Get TOKEN<br />
+<li><a id="orgde9f754"></a>Get TOKEN<br />
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -140,7 +149,7 @@
 </table>
 </li>
 
-<li><a id="org600b7b3"></a>Response:<br />
+<li><a id="org4bf0511"></a>Response:<br />
 <div class="org-src-container">
 
 <pre  class="src src-json"   ><code trim>{
@@ -160,8 +169,8 @@
 </ol>
 
 </section>
-<section id="slide-org7590939">
-<h3 id="org7590939"><span class="section-number-3">1.2.</span> Request</h3>
+<section id="slide-org254a3cf">
+<h3 id="org254a3cf"><span class="section-number-3">1.2.</span> Request</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -221,7 +230,7 @@
 </table>
 
 <ol class="org-ol">
-<li><a id="orgc9c0d59"></a>Example<br />
+<li><a id="org4305ef1"></a>Example<br />
 <div class="org-src-container">
 
 <pre  class="src src-plain"   ><code trim>curl -s "https://api-auth0.akvo.org/flow/orgs/${instance}/${endpoint}" \
@@ -234,15 +243,15 @@
 </ol>
 
 </section>
-<section id="slide-org8878354">
-<h3 id="org8878354"><span class="section-number-3">1.3.</span> List Folders</h3>
+<section id="slide-org25b9a31">
+<h3 id="org25b9a31"><span class="section-number-3">1.3.</span> List Folders</h3>
 <p>
 At the first entry point into the dashboard, we started by browsing the folder structure.
 The URL for accessing the folder structure starts with the root folder
 </p>
 
 <ol class="org-ol">
-<li><a id="org68dcdd4"></a>Root Folder Endpoint:<br />
+<li><a id="org284a17d"></a>Root Folder Endpoint:<br />
 <div class="org-src-container">
 
 <pre  class="src src-json"   ><code trim>"https://api.akvo.org/flow/orgs/{{instance}}/folders"
@@ -251,7 +260,7 @@ The URL for accessing the folder structure starts with the root folder
 </div>
 </li>
 
-<li><a id="org2f1c363"></a>Subfolder Endpoint:<br />
+<li><a id="orgacb09f5"></a>Subfolder Endpoint:<br />
 <div class="org-src-container">
 
 <pre  class="src src-json"   ><code trim>"https://api.akvo.org/flow/orgs/{{instance}}/folders?parentId=&lt;folder_id&gt;"
@@ -259,7 +268,7 @@ The URL for accessing the folder structure starts with the root folder
 </div>
 </li>
 
-<li><a id="org5ab28fa"></a>Folder Endpoint Response:<br />
+<li><a id="org618ad6b"></a>Folder Endpoint Response:<br />
 <div class="org-src-container">
 
 <pre  class="src src-json"   ><code trim>{
@@ -281,12 +290,12 @@ The URL for accessing the folder structure starts with the root folder
 </ol>
 
 </section>
-<section id="slide-orgf513554">
-<h3 id="orgf513554"><span class="section-number-3">1.4.</span> List Surveys</h3>
+<section id="slide-orgb3022bc">
+<h3 id="orgb3022bc"><span class="section-number-3">1.4.</span> List Surveys</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
 <ol class="org-ol">
-<li><a id="org1754e16"></a>Surveys Endpoint:<br />
+<li><a id="orgf4a6b2e"></a>Surveys Endpoint:<br />
 <aside class="notes">
 <p>
 Survey request URL is obtained from the key in the object folder named "surveysUrl"
@@ -301,7 +310,7 @@ Survey request URL is obtained from the key in the object folder named "surveysU
 </div>
 </li>
 
-<li><a id="org4bbea17"></a>Surveys Endpoint Response:<br />
+<li><a id="org7c5fb12"></a>Surveys Endpoint Response:<br />
 <div class="org-src-container">
 
 <pre  class="src src-json"   ><code trim>{
@@ -322,12 +331,12 @@ Survey request URL is obtained from the key in the object folder named "surveysU
 </ol>
 
 </section>
-<section id="slide-orgf00efb8">
-<h3 id="orgf00efb8"><span class="section-number-3">1.5.</span> Survey and Forms Definition</h3>
+<section id="slide-org5b22ace">
+<h3 id="org5b22ace"><span class="section-number-3">1.5.</span> Survey and Forms Definition</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
 <ol class="org-ol">
-<li><a id="org31cfc1b"></a>Survey Endpoint:<br />
+<li><a id="orgb3ff30f"></a>Survey Endpoint:<br />
 <aside class="notes">
 <p>
 Survey request URL is obtained from the key in the object folder named "surveysUrl"
@@ -342,7 +351,7 @@ Survey request URL is obtained from the key in the object folder named "surveysU
 </div>
 </li>
 
-<li><a id="orgb426c73"></a>Survey Endpoint Response:<br />
+<li><a id="orgbbd4926"></a>Survey Endpoint Response:<br />
 <p>
 <a href="https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/survey.json">survey.json</a>
 </p>
@@ -350,14 +359,296 @@ Survey request URL is obtained from the key in the object folder named "surveysU
 </ol>
 
 </section>
-<section id="slide-org6b508ca">
-<h3 id="org6b508ca"><span class="section-number-3">1.6.</span> Form Instance</h3>
+<section id="slide-orga902bd6">
+<h4 id="orga902bd6"><span class="section-number-4">1.5.1.</span> Surveys Element</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Element</td>
+<td class="org-left">Type</td>
+</tr>
+
+<tr>
+<td class="org-left">id</td>
+<td class="org-left">Number</td>
+</tr>
+
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">registrationFormId</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">createdAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">modifiedAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">forms</td>
+<td class="org-left">Array</td>
+</tr>
+
+<tr>
+<td class="org-left">dataPointsUrl</td>
+<td class="org-left">String</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+id : The id of this survey
+name : The name of the survey
+registrationFormId : The id of the registration form
+createdAt: the date of creation
+modifiedAt: the modification date of survey
+forms: An array of elements containing form definitions for this survey
+dataPointsUrl: The URL used to retrieve a list of datapoints associated with this survey
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org8585bf2">
+<h4 id="org8585bf2"><span class="section-number-4">1.5.2.</span> Form Element</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">id</td>
+<td class="org-left">Number</td>
+</tr>
+
+<tr>
+<td class="org-left">surveyId</td>
+<td class="org-left">Number</td>
+</tr>
+
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">createdAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">modifiedAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">questionGroups</td>
+<td class="org-left">Array</td>
+</tr>
+
+<tr>
+<td class="org-left">formInstancesUrl</td>
+<td class="org-left">String</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+questiongroups: An array in which each object corresponds to a group of
+questions as grouped by the survey designer
+formInstanceUrl: The URL used to retrieve form responses associated with this form
+</p>
+
+</aside>
+
+</section>
+<section id="slide-orgbc3e57d">
+<h4 id="orgbc3e57d"><span class="section-number-4">1.5.3.</span> Question Groups Element</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">id</td>
+<td class="org-left">Number</td>
+</tr>
+
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">isRepeatable</td>
+<td class="org-left">Boolean</td>
+</tr>
+
+<tr>
+<td class="org-left">createdAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">modifiedAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">questions</td>
+<td class="org-left">Array</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+questions: An array of objects representing questions contained in this question group
+isRepeatable: This indicates whether a question group has been defined as repeatable
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org8a4cc69">
+<h4 id="org8a4cc69"><span class="section-number-4">1.5.4.</span> Question Elements</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">id</td>
+<td class="org-left">Number</td>
+</tr>
+
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">order</td>
+<td class="org-left">Number</td>
+</tr>
+
+<tr>
+<td class="org-left">variableName</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">createdAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">modifiedAt</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">type</td>
+<td class="org-left">FREE<sub>TEXT</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">NUMBER</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">OPTION</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">PHOTO</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">GEO</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DATE</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">BARCODE</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">GEOSHAPE</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SIGNATURE</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">CADDISFLY</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+Variable Name: The user defined identifier for a question
+Order : The order of question in a group
+Type : The question type, it can be used to define the form instances answer
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org2283468">
+<h3 id="org2283468"><span class="section-number-3">1.6.</span> Form Instances</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
 <ol class="org-ol">
-<li><a id="org869c2d3"></a>Form Instances Endpoint:<br />
+<li><a id="org14f1d38"></a>Form Instances Endpoint:<br />
 <aside class="notes">
 <p>
+Form Instance is the responses of Form Submission, it doesn't have any detail information
+about the form itself so it has to be mapped with form definition that served in Survey Endpoint
 Form Instance Endpoint URL is obtained from the key in the object folder named "formInstancesurl"
 </p>
 
@@ -370,9 +661,9 @@ Form Instance Endpoint URL is obtained from the key in the object folder named "
 </div>
 </li>
 
-<li><a id="org7a47563"></a>Form Instances Endpoint Response:<br />
+<li><a id="org08d5489"></a>Form Instances Endpoint Response:<br />
 <p>
-<a href="https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/form_instances.json">form<sub>instances.json</sub></a>
+<a href="https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/form_instances.json">form instances.json</a>
 </p>
 </li>
 </ol>
@@ -380,39 +671,36 @@ Form Instance Endpoint URL is obtained from the key in the object folder named "
 </section>
 </section>
 <section>
-<section id="slide-org5148c3a">
-<h2 id="org5148c3a"><span class="section-number-2">2.</span> Code Explanation</h2>
+<section id="slide-org9f97bbb">
+<h2 id="org9f97bbb"><span class="section-number-2">2.</span> Code Explanation</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 </section>
-<section id="slide-org03d0b7c">
-<h3 id="org03d0b7c"><span class="section-number-3">2.1.</span> AkvoFlowExample/src/main/java/Auth.java</h3>
-<div class="org-src-container">
-
-<pre  class="src src-java"   ><code trim>OkHttpClient client = new OkHttpClient().newBuilder()
-	.build();
-String credentials = String.format("username=%s&amp;password=%s&amp;", username, password) +
-	"grant_type=password&amp;" +
-	"client_id=S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS&amp;" +
-	"scope=offline_access";
-MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-RequestBody body = create(mediaType, String.valueOf(credentials));
-String url = "https://akvofoundation.eu.auth0.com/oauth/token";
-Request request = new Request.Builder()
-	.url(url)
-	.method("POST", body)
-	.addHeader("Content-Type", "application/x-www-form-urlencoded")
-	.build();
-Response response = client.newCall(request).execute();
-Gson gson = new Gson();
-assert response.body() != null;
-this.authEntity = gson.fromJson(response.body().string(), AuthEntity.class);
-</code></pre>
-</div>
+<section id="slide-orgbac2d9f">
+<h3 id="orgbac2d9f"><span class="section-number-3">2.1.</span> Auth.java</h3>
+<p>
+FILE PATH: AkvoFlowExample/src/main/java/Auth.java
+</p>
 
 </section>
-<section id="slide-org28c821b">
-<h3 id="org28c821b"><span class="section-number-3">2.2.</span> AkvoFlowExample/src/main/java/Auth.java</h3>
+<section id="slide-org7252d28">
+<h3 id="org7252d28"><span class="section-number-3">2.2.</span> RequestBuilder.java</h3>
+<p>
+FILE PATH: AkvoFlowExample/src/main/java/RequestBuilder.java
+</p>
+
+</section>
+<section id="slide-org743b4a1">
+<h3 id="org743b4a1"><span class="section-number-3">2.3.</span> Main.java</h3>
+<p>
+FILE PATH: AkvoFlowExample/src/main/java/Main.java
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org4fe8cc6">
+<h2 id="org4fe8cc6"><span class="section-number-2">3.</span> Quiz</h2>
 </section>
 </section>
 </div>

@@ -11,7 +11,7 @@
 #+TITLE: Akvo FLow API
 #+AUTHOR: Deden Bangkit
 
-* Recap
+* Recap & Detail About The Main Endpoints
 
 ** Authentication
 
@@ -141,11 +141,89 @@ Survey request URL is obtained from the key in the object folder named "surveysU
 
 [[https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/survey.json][survey.json]]
 
-** Form Instance
+*** Surveys Element
+
+| Element            | Type   |
+| id                 | Number |
+| name               | String |
+| registrationFormId | String |
+| createdAt          | String |
+| modifiedAt         | String |
+| forms              | Array  |
+| dataPointsUrl      | String |
+
+#+BEGIN_NOTES
+id : The id of this survey
+name : The name of the survey
+registrationFormId : The id of the registration form
+createdAt: the date of creation
+modifiedAt: the modification date of survey
+forms: An array of elements containing form definitions for this survey
+dataPointsUrl: The URL used to retrieve a list of datapoints associated with this survey
+#+END_NOTES
+
+*** Form Element
+
+| id               | Number |
+| surveyId         | Number |
+| name             | String |
+| createdAt        | String |
+| modifiedAt       | String |
+| questionGroups   | Array  |
+| formInstancesUrl | String |
+
+#+BEGIN_NOTES
+questiongroups: An array in which each object corresponds to a group of
+questions as grouped by the survey designer
+formInstanceUrl: The URL used to retrieve form responses associated with this form
+#+END_NOTES
+
+*** Question Groups Element
+
+| id           | Number  |
+| name         | String  |
+| isRepeatable | Boolean |
+| createdAt    | String  |
+| modifiedAt   | String  |
+| questions    | Array   |
+
+#+BEGIN_NOTES
+questions: An array of objects representing questions contained in this question group
+isRepeatable: This indicates whether a question group has been defined as repeatable
+#+END_NOTES
+
+*** Question Elements
+
+| id           | Number    |
+| name         | String    |
+| order        | Number    |
+| variableName | String    |
+| createdAt    | String    |
+| modifiedAt   | String    |
+| type         | FREE_TEXT |
+|              | NUMBER    |
+|              | OPTION    |
+|              | PHOTO     |
+|              | GEO       |
+|              | DATE      |
+|              | BARCODE   |
+|              | GEOSHAPE  |
+|              | SIGNATURE |
+|              | CADDISFLY |
+
+#+BEGIN_NOTES
+Variable Name: The user defined identifier for a question
+Order : The order of question in a group
+Type : The question type, it can be used to define the form instances answer
+#+END_NOTES
+
+** Form Instances
 
 **** Form Instances Endpoint:
 
 #+begin_notes
+Form Instance is the responses of Form Submission, it doesn't have any detail information
+about the form itself so it has to be mapped with form definition that served in Survey Endpoint
 Form Instance Endpoint URL is obtained from the key in the object folder named "formInstancesurl"
 #+end_notes
 
@@ -155,31 +233,17 @@ Form Instance Endpoint URL is obtained from the key in the object folder named "
 
 **** Form Instances Endpoint Response:
 
-[[https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/form_instances.json][form_instances.json]]
+[[https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/form_instances.json][form instances.json]]
 
 * Code Explanation
 
-** AkvoFlowExample/src/main/java/Auth.java
+** Auth.java
+FILE PATH: AkvoFlowExample/src/main/java/Auth.java
 
-#+begin_src java
-    OkHttpClient client = new OkHttpClient().newBuilder()
-            .build();
-    String credentials = String.format("username=%s&password=%s&", username, password) +
-            "grant_type=password&" +
-            "client_id=S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS&" +
-            "scope=offline_access";
-    MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-    RequestBody body = create(mediaType, String.valueOf(credentials));
-    String url = "https://akvofoundation.eu.auth0.com/oauth/token";
-    Request request = new Request.Builder()
-            .url(url)
-            .method("POST", body)
-            .addHeader("Content-Type", "application/x-www-form-urlencoded")
-            .build();
-    Response response = client.newCall(request).execute();
-    Gson gson = new Gson();
-    assert response.body() != null;
-    this.authEntity = gson.fromJson(response.body().string(), AuthEntity.class);
-#+end_src
+** RequestBuilder.java
+FILE PATH: AkvoFlowExample/src/main/java/RequestBuilder.java
 
-** AkvoFlowExample/src/main/java/Auth.java
+** Main.java
+FILE PATH: AkvoFlowExample/src/main/java/Main.java
+
+* Quiz
