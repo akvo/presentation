@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Akvo FLow API</title>
+<meta name="author" content="Deden Bangkit"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="file:///home/dedenbangkit/Repos/akvorepos/presentation/css/akvo.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">Akvo Flow API
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orge69efb7">1. Recap</a>
+<ul>
+<li><a href="#/slide-org7b7fcba">1.1. Authentication</a></li>
+<li><a href="#/slide-org7590939">1.2. Request</a></li>
+<li><a href="#/slide-org8878354">1.3. List Folders</a></li>
+<li><a href="#/slide-orgf513554">1.4. List Surveys</a></li>
+<li><a href="#/slide-orgf00efb8">1.5. Survey and Forms Definition</a></li>
+<li><a href="#/slide-org6b508ca">1.6. Form Instance</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org5148c3a">2. Code Explanation</a>
+<ul>
+<li><a href="#/slide-org03d0b7c">2.1. AkvoFlowExample/src/main/java/Auth.java</a></li>
+<li><a href="#/slide-org28c821b">2.2. AkvoFlowExample/src/main/java/Auth.java</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+
+<section>
+<section id="slide-orge69efb7">
+<h2 id="orge69efb7"><span class="section-number-2">1.</span> Recap</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-org7b7fcba">
+<h3 id="org7b7fcba"><span class="section-number-3">1.1.</span> Authentication</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="orge759e26"></a>Get TOKEN<br />
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Request Method</td>
+<td class="org-left"><b><b>POST</b></b></td>
+</tr>
+
+<tr>
+<td class="org-left">URL</td>
+<td class="org-left"><a href="https://akvofoundation.eu.auth0.com/oauth/token">https://akvofoundation.eu.auth0.com/oauth/token</a></td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b><b>Body</b></b></td>
+<td class="org-left"><b><b>Value</b></b></td>
+<td class="org-left"><b>*Type</b></td>
+</tr>
+
+<tr>
+<td class="org-left">username</td>
+<td class="org-left">email</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">password</td>
+<td class="org-left">your akvo flow password</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">grant<sub>type</sub></td>
+<td class="org-left">"password"</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">client<sub>id</sub></td>
+<td class="org-left">"S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS"</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">scope</td>
+<td class="org-left">"openid email"</td>
+<td class="org-left">String</td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li><a id="org600b7b3"></a>Response:<br />
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>{
+  "access_token": "eyJhbGciOiJkaXI...wzwagZJt8egc5kxGpxQBUw",
+  "id_token": "eyJhbGciOiJSUz...fxQ9w4qZ4Z0A",
+  "scope": "openid email",
+  "expires_in": 86400,
+  "token_type": "Bearer"
+}
+</code></pre>
+</div>
+
+<p>
+<b><b>ID TOKEN</b></b> : "eyJhbGciOiJSUz&#x2026;fxQ9w4qZ4Z0A"
+</p>
+</li>
+</ol>
+
+</section>
+<section id="slide-org7590939">
+<h3 id="org7590939"><span class="section-number-3">1.2.</span> Request</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Request Method</td>
+<td class="org-left"><b><b>GET</b></b></td>
+</tr>
+
+<tr>
+<td class="org-left">URL</td>
+<td class="org-left"><a href="https://api-auth0.akvo.org/flow/orgs/*instance*/*endpoint">https://api-auth0.akvo.org/flow/orgs/*instance*/*endpoint</a>*"</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b><b>Headers</b></b></td>
+<td class="org-left"><b><b>Value</b></b></td>
+<td class="org-left"><b>*Type</b></td>
+</tr>
+
+<tr>
+<td class="org-left">"Content-Type"</td>
+<td class="org-left">"application/json"</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">"Accept"</td>
+<td class="org-left">"application/vnd.akvo.flow.v2+json"</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">"Authorization"</td>
+<td class="org-left">"Bearer {{id<sub>token</sub>}}"</td>
+<td class="org-left">String</td>
+</tr>
+</tbody>
+</table>
+
+<ol class="org-ol">
+<li><a id="orgc9c0d59"></a>Example<br />
+<div class="org-src-container">
+
+<pre  class="src src-plain"   ><code trim>curl -s "https://api-auth0.akvo.org/flow/orgs/${instance}/${endpoint}" \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/vnd.akvo.flow.v2+json" \
+     -H "Authorization: Bearer ${id_token}"
+</code></pre>
+</div>
+</li>
+</ol>
+
+</section>
+<section id="slide-org8878354">
+<h3 id="org8878354"><span class="section-number-3">1.3.</span> List Folders</h3>
+<p>
+At the first entry point into the dashboard, we started by browsing the folder structure.
+The URL for accessing the folder structure starts with the root folder
+</p>
+
+<ol class="org-ol">
+<li><a id="org68dcdd4"></a>Root Folder Endpoint:<br />
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>"https://api.akvo.org/flow/orgs/{{instance}}/folders"
+"https://api.akvo.org/flow/orgs/{{instance}}/folders?parentId=0"
+</code></pre>
+</div>
+</li>
+
+<li><a id="org2f1c363"></a>Subfolder Endpoint:<br />
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>"https://api.akvo.org/flow/orgs/{{instance}}/folders?parentId=&lt;folder_id&gt;"
+</code></pre>
+</div>
+</li>
+
+<li><a id="org5ab28fa"></a>Folder Endpoint Response:<br />
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>{
+  "folders": [
+    {
+      "id": "813484512",
+      "name": "TRAINING - AKVO FLOW API",
+      "parentId": "1",
+      "createdAt": "2023-01-15T13:27:33.382Z",
+      "modifiedAt": "2023-01-15T13:27:51.958Z",
+      "surveysUrl": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys?folder_id=813484512",
+      "foldersUrl": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/folders?parent_id=813484512"
+    }
+  ]
+}
+</code></pre>
+</div>
+</li>
+</ol>
+
+</section>
+<section id="slide-orgf513554">
+<h3 id="orgf513554"><span class="section-number-3">1.4.</span> List Surveys</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<ol class="org-ol">
+<li><a id="org1754e16"></a>Surveys Endpoint:<br />
+<aside class="notes">
+<p>
+Survey request URL is obtained from the key in the object folder named "surveysUrl"
+</p>
+
+</aside>
+
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>"https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys?folder_id=813484512"
+</code></pre>
+</div>
+</li>
+
+<li><a id="org4bbea17"></a>Surveys Endpoint Response:<br />
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>{
+  "surveys": [
+    {
+      "id": "806432680",
+      "name": "TRAINING SURVEY",
+      "folderId": "813484512",
+      "createdAt": "2023-01-15T13:27:57.984Z",
+      "modifiedAt": "2023-01-15T13:28:16.149Z",
+      "surveyUrl": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys/806432680"
+    }
+  ]
+}
+</code></pre>
+</div>
+</li>
+</ol>
+
+</section>
+<section id="slide-orgf00efb8">
+<h3 id="orgf00efb8"><span class="section-number-3">1.5.</span> Survey and Forms Definition</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<ol class="org-ol">
+<li><a id="org31cfc1b"></a>Survey Endpoint:<br />
+<aside class="notes">
+<p>
+Survey request URL is obtained from the key in the object folder named "surveysUrl"
+</p>
+
+</aside>
+
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>"https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys/806432680a"
+</code></pre>
+</div>
+</li>
+
+<li><a id="orgb426c73"></a>Survey Endpoint Response:<br />
+<p>
+<a href="https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/survey.json">survey.json</a>
+</p>
+</li>
+</ol>
+
+</section>
+<section id="slide-org6b508ca">
+<h3 id="org6b508ca"><span class="section-number-3">1.6.</span> Form Instance</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<ol class="org-ol">
+<li><a id="org869c2d3"></a>Form Instances Endpoint:<br />
+<aside class="notes">
+<p>
+Form Instance Endpoint URL is obtained from the key in the object folder named "formInstancesurl"
+</p>
+
+</aside>
+
+<div class="org-src-container">
+
+<pre  class="src src-json"   ><code trim>"https://api-auth0.akvo.org/flow/orgs/{{instance}}/form_instances?survey_id=806432680&amp;form_id=800174865"
+</code></pre>
+</div>
+</li>
+
+<li><a id="org7a47563"></a>Form Instances Endpoint Response:<br />
+<p>
+<a href="https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/form_instances.json">form<sub>instances.json</sub></a>
+</p>
+</li>
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-org5148c3a">
+<h2 id="org5148c3a"><span class="section-number-2">2.</span> Code Explanation</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-org03d0b7c">
+<h3 id="org03d0b7c"><span class="section-number-3">2.1.</span> AkvoFlowExample/src/main/java/Auth.java</h3>
+<div class="org-src-container">
+
+<pre  class="src src-java"   ><code trim>OkHttpClient client = new OkHttpClient().newBuilder()
+	.build();
+String credentials = String.format("username=%s&amp;password=%s&amp;", username, password) +
+	"grant_type=password&amp;" +
+	"client_id=S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS&amp;" +
+	"scope=offline_access";
+MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+RequestBody body = create(mediaType, String.valueOf(credentials));
+String url = "https://akvofoundation.eu.auth0.com/oauth/token";
+Request request = new Request.Builder()
+	.url(url)
+	.method("POST", body)
+	.addHeader("Content-Type", "application/x-www-form-urlencoded")
+	.build();
+Response response = client.newCall(request).execute();
+Gson gson = new Gson();
+assert response.body() != null;
+this.authEntity = gson.fromJson(response.body().string(), AuthEntity.class);
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org28c821b">
+<h3 id="org28c821b"><span class="section-number-3">2.2.</span> AkvoFlowExample/src/main/java/Auth.java</h3>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+.reveal {
+  background-image: url(https://www.aquagenx.com/wp-content/uploads/2020/03/Akvo-Logo.jpg);
+  background-color: #fefefe;
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: 20px calc(100% - 20px);
+}
+
+:root {
+  --r-background-color: transparent;
+  --r-heading-color: #ffffff;
+  --r-main-color: #202024;
+  --r-link-color: #404898;
+  --r-main-font-size: 24px;
+  --r-heading-font: "Roboto Condensed", sans-serif;
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: bold;
+  --r-main-font: "Assistant", sans-serif;
+  --r-block-margin: none;
+}
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  background-color: #404898;
+  padding: 5px 15px;
+  width: fit-content;
+}
+#text-table-of-contents {
+  height: 500px;
+  overflow-y: scroll;
+  border: 2px solid #404898;
+  padding: 10px 10px;
+}
+#sec-title-slide {
+  font-size: 45px;
+  font-weight: bold;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal h1 {
+  font-size: 42px;
+}
+.reveal h2 {
+  font-size: 40px;
+}
+.reveal h3 {
+  font-size: 36px;
+}
+.reveal h4 {
+  font-size: 32px;
+  background-color: #03ad8c;
+}
+
+ul,
+ol,
+.reveal ol,
+.reveal ul,
+.reveal dl,
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ul ul ul {
+  display: table;
+  margin: 0 0 0 5px;
+  margin-left: 0px;
+  color: #404898;
+  font-size: 16px;
+  padding: 0px 0px 0px 20px;
+}
+ul,
+.reveal ul,
+.reveal dl,
+.reveal ul ul,
+.reveal ul ul ul {
+  list-style-type: disc;
+}
+
+.reveal strong,
+.reveal b {
+  color: #fff;
+  background: #404898;
+  padding: 0px 12px;
+  text-decoration: none;
+}
+
+.reveal img {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  align: center;
+}
+.reveal pre {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  overflow-x: scroll;
+  font-size: 16px;
+  box-shadow: none;
+  padding: 25px;
+}
+.reveal table {
+  font-size: 16px;
+  min-width: 100%;
+  margin-bottom: 25px;
+}
+.reveal table td,
+th {
+  border: 1px solid #000;
+}

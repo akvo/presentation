@@ -1,0 +1,185 @@
+#+PROPERTY: header-args:bash :exports both
+#+PROPERTY: header-args:bash+ :results output
+#+STARTUP: showall
+
+:REVEAL_PROPERTIES:
+#+REVEAL_TITLE_SLIDE: Akvo Flow API
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_EXTRA_CSS: file:///home/dedenbangkit/Repos/akvorepos/presentation/css/akvo.css
+:END:
+
+#+TITLE: Akvo FLow API
+#+AUTHOR: Deden Bangkit
+
+* Recap
+
+** Authentication
+
+**** Get TOKEN
+
+| Request Method | **POST**                                        |
+| URL            | https://akvofoundation.eu.auth0.com/oauth/token |
+
+ | **Body**   | **Value**                          | **Type* |
+ | username   | email                              | String  |
+ | password   | your akvo flow password            | String  |
+ | grant_type | "password"                         | String  |
+ | client_id  | "S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS" | String  |
+ | scope      | "openid email"                     | String  |
+
+**** Response:
+
+#+begin_src json
+{
+  "access_token": "eyJhbGciOiJkaXI...wzwagZJt8egc5kxGpxQBUw",
+  "id_token": "eyJhbGciOiJSUz...fxQ9w4qZ4Z0A",
+  "scope": "openid email",
+  "expires_in": 86400,
+  "token_type": "Bearer"
+}
+#+end_src
+
+**ID TOKEN** : "eyJhbGciOiJSUz...fxQ9w4qZ4Z0A"
+
+** Request
+
+| Request Method | **GET**                                                     |
+| URL            | https://api-auth0.akvo.org/flow/orgs/*instance*/*endpoint*" |
+
+| **Headers**     | **Value**                           | **Type* |
+| "Content-Type"  | "application/json"                  | String  |
+| "Accept"        | "application/vnd.akvo.flow.v2+json" | String  |
+| "Authorization" | "Bearer {{id_token}}"               | String  |
+
+**** Example
+
+#+begin_src plain
+  curl -s "https://api-auth0.akvo.org/flow/orgs/${instance}/${endpoint}" \
+       -H "Content-Type: application/json" \
+       -H "Accept: application/vnd.akvo.flow.v2+json" \
+       -H "Authorization: Bearer ${id_token}"
+#+end_src
+
+** List Folders
+
+At the first entry point into the dashboard, we started by browsing the folder structure.
+The URL for accessing the folder structure starts with the root folder
+
+**** Root Folder Endpoint:
+
+#+begin_src json
+"https://api.akvo.org/flow/orgs/{{instance}}/folders"
+"https://api.akvo.org/flow/orgs/{{instance}}/folders?parentId=0"
+#+end_src
+
+**** Subfolder Endpoint:
+
+#+begin_src json
+"https://api.akvo.org/flow/orgs/{{instance}}/folders?parentId=<folder_id>"
+#+end_src
+
+**** Folder Endpoint Response:
+
+#+begin_src json
+{
+  "folders": [
+    {
+      "id": "813484512",
+      "name": "TRAINING - AKVO FLOW API",
+      "parentId": "1",
+      "createdAt": "2023-01-15T13:27:33.382Z",
+      "modifiedAt": "2023-01-15T13:27:51.958Z",
+      "surveysUrl": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys?folder_id=813484512",
+      "foldersUrl": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/folders?parent_id=813484512"
+    }
+  ]
+}
+#+end_src
+
+** List Surveys
+
+**** Surveys Endpoint:
+
+#+begin_notes
+Survey request URL is obtained from the key in the object folder named "surveysUrl"
+#+end_notes
+
+#+begin_src json
+"https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys?folder_id=813484512"
+#+end_src
+
+**** Surveys Endpoint Response:
+
+#+begin_src json
+{
+  "surveys": [
+    {
+      "id": "806432680",
+      "name": "TRAINING SURVEY",
+      "folderId": "813484512",
+      "createdAt": "2023-01-15T13:27:57.984Z",
+      "modifiedAt": "2023-01-15T13:28:16.149Z",
+      "surveyUrl": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys/806432680"
+    }
+  ]
+}
+#+end_src
+
+** Survey and Forms Definition
+
+**** Survey Endpoint:
+
+#+begin_notes
+Survey request URL is obtained from the key in the object folder named "surveysUrl"
+#+end_notes
+
+#+begin_src json
+"https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys/806432680a"
+#+end_src
+
+**** Survey Endpoint Response:
+
+[[https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/survey.json][survey.json]]
+
+** Form Instance
+
+**** Form Instances Endpoint:
+
+#+begin_notes
+Form Instance Endpoint URL is obtained from the key in the object folder named "formInstancesurl"
+#+end_notes
+
+#+begin_src json
+"https://api-auth0.akvo.org/flow/orgs/{{instance}}/form_instances?survey_id=806432680&form_id=800174865"
+#+end_src
+
+**** Form Instances Endpoint Response:
+
+[[https://raw.githubusercontent.com/akvo/presentation/main/presentation-170123-maep-akvo-flow-api/json/form_instances.json][form_instances.json]]
+
+* Code Explanation
+
+** AkvoFlowExample/src/main/java/Auth.java
+
+#+begin_src java
+    OkHttpClient client = new OkHttpClient().newBuilder()
+            .build();
+    String credentials = String.format("username=%s&password=%s&", username, password) +
+            "grant_type=password&" +
+            "client_id=S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS&" +
+            "scope=offline_access";
+    MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+    RequestBody body = create(mediaType, String.valueOf(credentials));
+    String url = "https://akvofoundation.eu.auth0.com/oauth/token";
+    Request request = new Request.Builder()
+            .url(url)
+            .method("POST", body)
+            .addHeader("Content-Type", "application/x-www-form-urlencoded")
+            .build();
+    Response response = client.newCall(request).execute();
+    Gson gson = new Gson();
+    assert response.body() != null;
+    this.authEntity = gson.fromJson(response.body().string(), AuthEntity.class);
+#+end_src
+
+** AkvoFlowExample/src/main/java/Auth.java

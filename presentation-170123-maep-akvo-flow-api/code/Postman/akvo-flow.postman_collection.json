@@ -1,0 +1,1346 @@
+{
+	"info": {
+		"_postman_id": "0d99f953-f69c-42d5-9b77-953f5a363f3e",
+		"name": "Akvo Flow",
+		"description": "The Akvo Flow REST API is a read-only API that enables an  \norganization/user to use a third party application to request data  \ngathered with Akvo Flow. Being a read-only API means that we currently  \nonly support `GET` requests.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25343056"
+	},
+	"item": [
+		{
+			"name": "SSO Login",
+			"item": [
+				{
+					"name": "Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid email",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://akvofoundation.eu.auth0.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"akvofoundation",
+								"eu",
+								"auth0",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "deden@akvo.org",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "•••••••",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "openid email",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://akvofoundation.eu.auth0.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"akvofoundation",
+										"eu",
+										"auth0",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 23:18:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "78a255501964881a-SIN"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding, Origin"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "ot-baggage-auth0-request-id",
+									"value": "78a255501964881a"
+								},
+								{
+									"key": "ot-tracer-sampled",
+									"value": "true"
+								},
+								{
+									"key": "ot-tracer-spanid",
+									"value": "522f6eee3db78496"
+								},
+								{
+									"key": "ot-tracer-traceid",
+									"value": "00572e3e2511fbe9"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-000000000000000000572e3e2511fbe9-522f6eee3db78496-01"
+								},
+								{
+									"key": "tracestate",
+									"value": "auth0-request-id=78a255501964881a,auth0=true"
+								},
+								{
+									"key": "X-Auth0-RequestId",
+									"value": "1c22c35b9decda7af271"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1673825599"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=6NS4xL9YIzUBX4C2YYWr8irzR27ncV7xHTHeeZnsT9k-1673824735-0-ATBulwSG9ft3Ct4DqhD29HQ1MAGdvqIlp88hwr1VvSpGOgNu7hjE/wVqTAPCKJh0QnrTRRSUIGBNemPLV5dI0g4=; path=/; expires=Sun, 15-Jan-23 23:48:55 GMT; domain=.eu.auth0.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJkaXI...wzwagZJt8egc5kxGpxQBUw\",\n    \"id_token\": \"eyJhbGciOiJSUz...fxQ9w4qZ4Z0A\",\n    \"scope\": \"openid email\",\n    \"expires_in\": 86400,\n    \"token_type\": \"Bearer\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "REST API",
+			"item": [
+				{
+					"name": "01. Folder List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/folders",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"folders"
+							]
+						},
+						"description": "At the first entry point into the dashboard, we start by browsing the folder structure. The URL for accessing the folder structure starts with the root folder\n\n``` plaintext\nhttps://api.akvo.org/flow/orgs/[instance_name]/folders?parentId=0 or\nhttps://api.akvo.org/flow/orgs/[instance_name]/folders\n\n```"
+					},
+					"response": [
+						{
+							"name": "200 -  01. Folder List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/folders",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"folders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 13:37:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"folders\": [\n        {\n            \"id\": \"813484512\",\n            \"name\": \"TRAINING - AKVO FLOW API\",\n            \"parentId\": \"1\",\n            \"createdAt\": \"2023-01-15T13:27:33.382Z\",\n            \"modifiedAt\": \"2023-01-15T13:27:51.958Z\",\n            \"surveysUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys?folder_id=813484512\",\n            \"foldersUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/folders?parent_id=813484512\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "02. Survey List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys?folder_id=813484512",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"surveys"
+							],
+							"query": [
+								{
+									"key": "folder_id",
+									"value": "813484512"
+								}
+							]
+						},
+						"description": "Retrieving survey definitions follows from the list of folders. When we have the list of folders as indicated in the previous section, each folder object has a `surveysUrl` element that can be used to retrieve the list of surveys within that folder."
+					},
+					"response": [
+						{
+							"name": "200 - 02. Survey List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/surveys?folder_id=813484512",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"surveys"
+									],
+									"query": [
+										{
+											"key": "folder_id",
+											"value": "813484512"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 14:04:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"surveys\": [\n        {\n            \"id\": \"806432680\",\n            \"name\": \"TRAINING SURVEY\",\n            \"folderId\": \"813484512\",\n            \"createdAt\": \"2023-01-15T13:27:57.984Z\",\n            \"modifiedAt\": \"2023-01-15T13:28:16.149Z\",\n            \"surveyUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys/806432680\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "03. Survey",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/surveys/806432680",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"surveys",
+								"806432680"
+							]
+						},
+						"description": "These are the question types available in the Flow system:"
+					},
+					"response": [
+						{
+							"name": "200 - 03. Survey",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/surveys/806432680",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"surveys",
+										"806432680"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 13:54:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"806432680\",\n    \"name\": \"TRAINING SURVEY\",\n    \"registrationFormId\": \"\",\n    \"forms\": [\n        {\n            \"id\": \"800174865\",\n            \"name\": \"Training Form\",\n            \"questionGroups\": [\n                {\n                    \"id\": \"806405016\",\n                    \"name\": \"Personal Data\",\n                    \"repeatable\": false,\n                    \"questions\": [\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Name\",\n                            \"type\": \"FREE_TEXT\",\n                            \"modifiedAt\": \"2023-01-15T13:29:57.943Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"774673109\",\n                            \"order\": 1,\n                            \"createdAt\": \"2023-01-15T13:29:11.348Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Address\",\n                            \"type\": \"CASCADE\",\n                            \"modifiedAt\": \"2023-01-15T13:30:28.416Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"785884906\",\n                            \"order\": 2,\n                            \"createdAt\": \"2023-01-15T13:30:00.597Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Age\",\n                            \"type\": \"NUMBER\",\n                            \"modifiedAt\": \"2023-01-15T13:30:42.506Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"797514584\",\n                            \"order\": 3,\n                            \"createdAt\": \"2023-01-15T13:30:31.596Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Gender\",\n                            \"type\": \"OPTION\",\n                            \"modifiedAt\": \"2023-01-15T13:31:10.696Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"797505352\",\n                            \"order\": 4,\n                            \"createdAt\": \"2023-01-15T13:30:46.249Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Birthdate\",\n                            \"type\": \"DATE\",\n                            \"modifiedAt\": \"2023-01-15T13:32:07.279Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"774673110\",\n                            \"order\": 5,\n                            \"createdAt\": \"2023-01-15T13:31:46.980Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Photo\",\n                            \"type\": \"PHOTO\",\n                            \"modifiedAt\": \"2023-01-15T13:35:53.894Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"793795061\",\n                            \"order\": 6,\n                            \"createdAt\": \"2023-01-15T13:35:36.411Z\"\n                        }\n                    ],\n                    \"createdAt\": \"2023-01-15T13:28:48.140Z\",\n                    \"modifiedAt\": \"2023-01-15T13:31:25.004Z\"\n                },\n                {\n                    \"id\": \"784422768\",\n                    \"name\": \"Family Data\",\n                    \"repeatable\": false,\n                    \"questions\": [\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Family - Name\",\n                            \"type\": \"FREE_TEXT\",\n                            \"modifiedAt\": \"2023-01-15T13:35:13.569Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"806405020\",\n                            \"order\": 1,\n                            \"createdAt\": \"2023-01-15T13:32:32.644Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Family - Age\",\n                            \"type\": \"NUMBER\",\n                            \"modifiedAt\": \"2023-01-15T13:35:03.908Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"806432684\",\n                            \"order\": 2,\n                            \"createdAt\": \"2023-01-15T13:32:51.318Z\"\n                        },\n                        {\n                            \"personalData\": false,\n                            \"name\": \"Family - Relationship\",\n                            \"type\": \"OPTION\",\n                            \"modifiedAt\": \"2023-01-15T13:34:55.411Z\",\n                            \"answerStats\": null,\n                            \"variableName\": null,\n                            \"id\": \"813484516\",\n                            \"order\": 3,\n                            \"createdAt\": \"2023-01-15T13:33:22.587Z\"\n                        }\n                    ],\n                    \"createdAt\": \"2023-01-15T13:31:29.213Z\",\n                    \"modifiedAt\": \"2023-01-15T13:31:40.449Z\"\n                }\n            ],\n            \"version\": 1,\n            \"createdAt\": \"2023-01-15T13:28:21.903Z\",\n            \"modifiedAt\": \"2023-01-15T13:36:05.987Z\",\n            \"formInstancesUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/form_instances?survey_id=806432680&form_id=800174865\"\n        }\n    ],\n    \"createdAt\": \"2023-01-15T13:27:57.984Z\",\n    \"modifiedAt\": \"2023-01-15T13:28:16.149Z\",\n    \"dataPointsUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/data_points?survey_id=806432680\"\n}"
+						}
+					]
+				},
+				{
+					"name": "04. Datapoints URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/data_points?survey_id=806432680",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"data_points"
+							],
+							"query": [
+								{
+									"key": "survey_id",
+									"value": "806432680"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - 04. Datapoints URL",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/data_points?survey_id=806432680",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"data_points"
+									],
+									"query": [
+										{
+											"key": "survey_id",
+											"value": "806432680"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 13:58:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"dataPoints\": [\n        {\n            \"id\": \"774673113\",\n            \"identifier\": \"9kyx-vuw5-z2qh\",\n            \"displayName\": \"Deden - ABOMEY - 34\",\n            \"latitude\": null,\n            \"longitude\": null,\n            \"createdAt\": \"2023-01-15T13:42:43.728Z\",\n            \"modifiedAt\": \"2023-01-15T13:42:51.472Z\"\n        },\n        {\n            \"id\": \"784422785\",\n            \"identifier\": \"m7h5-hxpu-1275\",\n            \"displayName\": \"Navin - BANIKOARA - 30\",\n            \"latitude\": null,\n            \"longitude\": null,\n            \"createdAt\": \"2023-01-15T13:54:20.586Z\",\n            \"modifiedAt\": \"2023-01-15T13:54:26.257Z\"\n        },\n        {\n            \"id\": \"785884913\",\n            \"identifier\": \"ev9t-d6w9-pfv3\",\n            \"displayName\": \"Joy - COVE - 35\",\n            \"latitude\": null,\n            \"longitude\": null,\n            \"createdAt\": \"2023-01-15T13:44:42.791Z\",\n            \"modifiedAt\": \"2023-01-15T13:44:49.143Z\"\n        },\n        {\n            \"id\": \"785884914\",\n            \"identifier\": \"2s9e-06yh-a4u1\",\n            \"displayName\": \"Abdoul - BANTE - 25\",\n            \"latitude\": null,\n            \"longitude\": null,\n            \"createdAt\": \"2023-01-15T13:48:50.329Z\",\n            \"modifiedAt\": \"2023-01-15T13:48:56.503Z\"\n        },\n        {\n            \"id\": \"797505375\",\n            \"identifier\": \"vrbd-baj9-0s1t\",\n            \"displayName\": \"Andres - PERERE - 34\",\n            \"latitude\": null,\n            \"longitude\": null,\n            \"createdAt\": \"2023-01-15T13:52:06.682Z\",\n            \"modifiedAt\": \"2023-01-15T13:52:13.894Z\"\n        },\n        {\n            \"id\": \"797505379\",\n            \"identifier\": \"crs9-2sw6-cr4z\",\n            \"displayName\": \"Tom - DANGBO - 25\",\n            \"latitude\": null,\n            \"longitude\": null,\n            \"createdAt\": \"2023-01-15T13:53:35.518Z\",\n            \"modifiedAt\": \"2023-01-15T13:53:41.676Z\"\n        }\n    ],\n    \"nextPageUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/data_points?survey_id=806432680&cursor=CjASKmoOZX5ha3ZvZmxvdy0xODJyGAsSDlN1cnZleWVkTG9jYWxlGOPuo_wCDBgAIAA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "05. Form Instance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/form_instances?survey_id=806432680&form_id=800174865",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"form_instances"
+							],
+							"query": [
+								{
+									"key": "survey_id",
+									"value": "806432680"
+								},
+								{
+									"key": "form_id",
+									"value": "800174865"
+								}
+							]
+						},
+						"description": "Responses take different forms depending on the type of question.\n\n| **TYPE** | **TYPE NAME** | **VALUE** |\n| --- | --- | --- |\n| Free text | FREE_TEXT | `Object<{\"text\": String}>` |\n| Number | NUMBER | `float` |\n| Option | OPTION | `List[{\"text\": String, \"code\": String}] or List[{ext\": String}]` |\n| Photo | PHOTO | `Object<{\"filename\": String}>` |\n| Geolocation | GEO | `Object<{\"lat\": float, \"long\": float}>` |\n| Date | DATE | `String` |\n| Barcode | BARCODE | `Object<{\"filename: String}>` |\n| Geographic Shape | GEOSHAPE | [https://geojson.org/](https://geojson.org/) |\n| Signature | SIGNATURE | `Object<{\"filename\": String}>` |\n| Akvo Caddisfly | CADDISFLY | `Object<{\"filename\":String}>` |"
+					},
+					"response": [
+						{
+							"name": "200 - 05. Form Instance",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/form_instances?survey_id=806432680&form_id=800174865",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"form_instances"
+									],
+									"query": [
+										{
+											"key": "survey_id",
+											"value": "806432680"
+										},
+										{
+											"key": "form_id",
+											"value": "800174865"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 13:55:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"formInstances\": [\n        {\n            \"formVersion\": 1,\n            \"deviceIdentifier\": \"AkvoFlow Webforms\",\n            \"dataPointId\": \"785884913\",\n            \"submissionDate\": \"2023-01-15T13:44:40Z\",\n            \"modifiedAt\": \"2023-01-15T13:44:49.353Z\",\n            \"id\": \"797505360\",\n            \"responses\": {\n                \"784422768\": [\n                    {\n                        \"806405020\": \"Michael\",\n                        \"806432684\": 28,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Sibling\"\n                            }\n                        ]\n                    }\n                ],\n                \"806405016\": [\n                    {\n                        \"774673109\": \"Joy\",\n                        \"774673110\": \"2023-01-15T00:00:00Z\",\n                        \"785884906\": [\n                            {\n                                \"code\": \"25\",\n                                \"name\": \"COVE\"\n                            }\n                        ],\n                        \"793795061\": {\n                            \"filename\": \"https://akvoflow-182.s3.amazonaws.com/images/39fea412-6da6-411e-bafd-e548c6d8e583.jpg\"\n                        },\n                        \"797505352\": [\n                            {\n                                \"text\": \"Male\"\n                            }\n                        ],\n                        \"797514584\": 35\n                    }\n                ]\n            },\n            \"identifier\": \"ev9t-d6w9-pfv3\",\n            \"displayName\": \"Joy - COVE - 35\",\n            \"formId\": \"800174865\",\n            \"surveyalTime\": 110,\n            \"submitter\": \"deden@akvo.org\",\n            \"createdAt\": \"2023-01-15T13:44:43.192Z\"\n        },\n        {\n            \"formVersion\": 1,\n            \"deviceIdentifier\": \"AkvoFlow Webforms\",\n            \"dataPointId\": \"784422785\",\n            \"submissionDate\": \"2023-01-15T13:54:18Z\",\n            \"modifiedAt\": \"2023-01-15T13:54:26.491Z\",\n            \"id\": \"800174894\",\n            \"responses\": {\n                \"784422768\": [\n                    {\n                        \"806405020\": \"Galih\",\n                        \"806432684\": 25,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Parent\"\n                            }\n                        ]\n                    }\n                ],\n                \"806405016\": [\n                    {\n                        \"774673109\": \"Navin\",\n                        \"774673110\": \"2023-01-09T00:00:00Z\",\n                        \"785884906\": [\n                            {\n                                \"code\": \"33\",\n                                \"name\": \"BANIKOARA\"\n                            }\n                        ],\n                        \"793795061\": {\n                            \"filename\": \"https://akvoflow-182.s3.amazonaws.com/images/c8e63335-cc74-4adb-b545-347daa3e7ff9.jpg\"\n                        },\n                        \"797505352\": [\n                            {\n                                \"text\": \"Male\"\n                            }\n                        ],\n                        \"797514584\": 30\n                    }\n                ]\n            },\n            \"identifier\": \"m7h5-hxpu-1275\",\n            \"displayName\": \"Navin - BANIKOARA - 30\",\n            \"formId\": \"800174865\",\n            \"surveyalTime\": 38,\n            \"submitter\": \"deden@akvo.org\",\n            \"createdAt\": \"2023-01-15T13:54:20.853Z\"\n        },\n        {\n            \"formVersion\": 1,\n            \"deviceIdentifier\": \"AkvoFlow Webforms\",\n            \"dataPointId\": \"785884914\",\n            \"submissionDate\": \"2023-01-15T13:48:48Z\",\n            \"modifiedAt\": \"2023-01-15T13:48:56.713Z\",\n            \"id\": \"806405030\",\n            \"responses\": {\n                \"784422768\": [\n                    {\n                        \"806405020\": \"Ima\",\n                        \"806432684\": 36,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Sibling\"\n                            }\n                        ]\n                    }\n                ],\n                \"806405016\": [\n                    {\n                        \"774673109\": \"Abdoul\",\n                        \"774673110\": \"2022-12-01T00:00:00Z\",\n                        \"785884906\": [\n                            {\n                                \"code\": \"34\",\n                                \"name\": \"BANTE\"\n                            }\n                        ],\n                        \"793795061\": {\n                            \"filename\": \"https://akvoflow-182.s3.amazonaws.com/images/3be11246-a7f2-439d-81a7-201d0795d7df.jpg\"\n                        },\n                        \"797505352\": [\n                            {\n                                \"text\": \"Male\"\n                            }\n                        ],\n                        \"797514584\": 25\n                    }\n                ]\n            },\n            \"identifier\": \"2s9e-06yh-a4u1\",\n            \"displayName\": \"Abdoul - BANTE - 25\",\n            \"formId\": \"800174865\",\n            \"surveyalTime\": 239,\n            \"submitter\": \"deden@akvo.org\",\n            \"createdAt\": \"2023-01-15T13:48:50.689Z\"\n        },\n        {\n            \"formVersion\": 1,\n            \"deviceIdentifier\": \"AkvoFlow Webforms\",\n            \"dataPointId\": \"797505379\",\n            \"submissionDate\": \"2023-01-15T13:53:33Z\",\n            \"modifiedAt\": \"2023-01-15T13:53:41.908Z\",\n            \"id\": \"806405040\",\n            \"responses\": {\n                \"784422768\": [\n                    {\n                        \"806405020\": \"Robert\",\n                        \"806432684\": 43,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Sibling\"\n                            }\n                        ]\n                    }\n                ],\n                \"806405016\": [\n                    {\n                        \"774673109\": \"Tom\",\n                        \"774673110\": \"2023-01-14T00:00:00Z\",\n                        \"785884906\": [\n                            {\n                                \"code\": \"26\",\n                                \"name\": \"DANGBO\"\n                            }\n                        ],\n                        \"793795061\": {\n                            \"filename\": \"https://akvoflow-182.s3.amazonaws.com/images/1e83bb82-dd12-425a-95c1-4c7391828738.jpg\"\n                        },\n                        \"797505352\": [\n                            {\n                                \"text\": \"Male\"\n                            }\n                        ],\n                        \"797514584\": 25\n                    }\n                ]\n            },\n            \"identifier\": \"crs9-2sw6-cr4z\",\n            \"displayName\": \"Tom - DANGBO - 25\",\n            \"formId\": \"800174865\",\n            \"surveyalTime\": 80,\n            \"submitter\": \"deden@akvo.org\",\n            \"createdAt\": \"2023-01-15T13:53:35.883Z\"\n        },\n        {\n            \"formVersion\": 1,\n            \"deviceIdentifier\": \"AkvoFlow Webforms\",\n            \"dataPointId\": \"774673113\",\n            \"submissionDate\": \"2023-01-15T13:42:40Z\",\n            \"modifiedAt\": \"2023-01-15T13:42:51.699Z\",\n            \"id\": \"806425240\",\n            \"responses\": {\n                \"784422768\": [\n                    {\n                        \"806405020\": \"Shinta\",\n                        \"806432684\": 33,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Spouse\"\n                            }\n                        ]\n                    },\n                    {\n                        \"806405020\": \"Denta\",\n                        \"806432684\": 6,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Children\"\n                            }\n                        ]\n                    }\n                ],\n                \"806405016\": [\n                    {\n                        \"774673109\": \"Deden\",\n                        \"774673110\": \"1988-12-18T00:00:00Z\",\n                        \"785884906\": [\n                            {\n                                \"code\": \"51\",\n                                \"name\": \"ABOMEY\"\n                            }\n                        ],\n                        \"793795061\": {\n                            \"filename\": \"https://akvoflow-182.s3.amazonaws.com/images/1977bea2-03ab-4c0c-b558-b00407ccbcc8.jpg\"\n                        },\n                        \"797505352\": [\n                            {\n                                \"text\": \"Male\"\n                            }\n                        ],\n                        \"797514584\": 34\n                    }\n                ]\n            },\n            \"identifier\": \"9kyx-vuw5-z2qh\",\n            \"displayName\": \"Deden - ABOMEY - 34\",\n            \"formId\": \"800174865\",\n            \"surveyalTime\": 166,\n            \"submitter\": \"deden@akvo.org\",\n            \"createdAt\": \"2023-01-15T13:42:44.198Z\"\n        },\n        {\n            \"formVersion\": 1,\n            \"deviceIdentifier\": \"AkvoFlow Webforms\",\n            \"dataPointId\": \"797505375\",\n            \"submissionDate\": \"2023-01-15T13:52:04Z\",\n            \"modifiedAt\": \"2023-01-15T13:52:14.133Z\",\n            \"id\": \"806425251\",\n            \"responses\": {\n                \"784422768\": [\n                    {\n                        \"806405020\": \"Pedro\",\n                        \"806432684\": 33,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Sibling\"\n                            }\n                        ]\n                    },\n                    {\n                        \"806405020\": \"Eric\",\n                        \"806432684\": 32,\n                        \"813484516\": [\n                            {\n                                \"text\": \"Sibling\"\n                            }\n                        ]\n                    }\n                ],\n                \"806405016\": [\n                    {\n                        \"774673109\": \"Andres\",\n                        \"774673110\": \"2022-11-08T00:00:00Z\",\n                        \"785884906\": [\n                            {\n                                \"code\": \"8\",\n                                \"name\": \"PERERE\"\n                            }\n                        ],\n                        \"793795061\": {\n                            \"filename\": \"https://akvoflow-182.s3.amazonaws.com/images/283d31ec-de41-4439-b8a5-4b07e6f01e7b.jpg\"\n                        },\n                        \"797505352\": [\n                            {\n                                \"text\": \"Male\"\n                            }\n                        ],\n                        \"797514584\": 34\n                    }\n                ]\n            },\n            \"identifier\": \"vrbd-baj9-0s1t\",\n            \"displayName\": \"Andres - PERERE - 34\",\n            \"formId\": \"800174865\",\n            \"surveyalTime\": 187,\n            \"submitter\": \"deden@akvo.org\",\n            \"createdAt\": \"2023-01-15T13:52:07.198Z\"\n        }\n    ],\n    \"nextPageUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/form_instances?survey_id=806432680&form_id=800174865&cursor=CjASKmoOZX5ha3ZvZmxvdy0xODJyGAsSDlN1cnZleUluc3RhbmNlGKOlxIADDBgAIAA\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest({",
+							"    url: pm.environment.get(\"auth_url\"),",
+							"    method: 'POST',",
+							"    header: {",
+							"        'Accept': '*/*',",
+							"        'Content-Type': 'application/x-www-form-urlencoded',",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded',",
+							"        urlencoded: [",
+							"            { key: 'username', value: pm.environment.get(\"username\") },",
+							"            { key: 'password', value: pm.environment.get(\"password\")},",
+							"            { key: 'grant_type', value: 'password' },",
+							"            { key: 'client_id', value: 'S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS' },",
+							"            { key: 'scope', value: \"openid emai\" }",
+							"       ]",
+							"    }",
+							"}, function (err, res) {",
+							"    console.log(res.json())",
+							"    pm.environment.set(\"id_token\", res.json().id_token);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SYNC API",
+			"item": [
+				{
+					"name": "01. Init",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/sync?initial=true",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "initial",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "01. Init",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/sync?initial=true",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "initial",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 23:28:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nextSyncUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/sync?next=true&cursor=45186170\"\n}"
+						}
+					]
+				},
+				{
+					"name": "02. Sync",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.akvo.flow.v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-auth0.akvo.org/flow/orgs/{{instance}}/sync?next=true&cursor=45186170",
+							"protocol": "https",
+							"host": [
+								"api-auth0",
+								"akvo",
+								"org"
+							],
+							"path": [
+								"flow",
+								"orgs",
+								"{{instance}}",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "next",
+									"value": "true"
+								},
+								{
+									"key": "cursor",
+									"value": "45186170"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "02. Sync",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.akvo.flow.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-auth0.akvo.org/flow/orgs/•••••••/sync?next=true&cursor=45186170",
+									"protocol": "https",
+									"host": [
+										"api-auth0",
+										"akvo",
+										"org"
+									],
+									"path": [
+										"flow",
+										"orgs",
+										"•••••••",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "next",
+											"value": "true"
+										},
+										{
+											"key": "cursor",
+											"value": "45186170"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "openresty"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Jan 2023 23:33:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Accept,Accept-Encoding,Accept-Language,Authorization,Connection,DNT,Host,Origin,Referer,User-Agent"
+								},
+								{
+									"key": "X-Cache-Status",
+									"value": "MISS"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"changes\": {\n        \"dataPointDeleted\": [],\n        \"dataPointChanged\": [\n            {\n                \"id\": \"813484540\",\n                \"identifier\": \"6ab8-hemt-zkqv\",\n                \"displayName\": \"Deden Sync Test - ADJA-OUERE - 23\",\n                \"latitude\": null,\n                \"longitude\": null,\n                \"createdAt\": \"2023-01-15T23:33:14.067Z\",\n                \"modifiedAt\": \"2023-01-15T23:33:22.490Z\"\n            }\n        ],\n        \"formChanged\": [\n            {\n                \"id\": \"800174865\",\n                \"name\": \"Training Form\",\n                \"questionGroups\": [\n                    {\n                        \"id\": \"806405016\",\n                        \"name\": \"Personal Data\",\n                        \"repeatable\": false,\n                        \"questions\": [\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Name\",\n                                \"type\": \"FREE_TEXT\",\n                                \"modifiedAt\": \"2023-01-15T13:29:57.943Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"774673109\",\n                                \"order\": 1,\n                                \"createdAt\": \"2023-01-15T13:29:11.348Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Address\",\n                                \"type\": \"CASCADE\",\n                                \"modifiedAt\": \"2023-01-15T13:30:28.416Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"785884906\",\n                                \"order\": 2,\n                                \"createdAt\": \"2023-01-15T13:30:00.597Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Age\",\n                                \"type\": \"NUMBER\",\n                                \"modifiedAt\": \"2023-01-15T13:30:42.506Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"797514584\",\n                                \"order\": 3,\n                                \"createdAt\": \"2023-01-15T13:30:31.596Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Gender\",\n                                \"type\": \"OPTION\",\n                                \"modifiedAt\": \"2023-01-15T13:31:10.696Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"797505352\",\n                                \"order\": 4,\n                                \"createdAt\": \"2023-01-15T13:30:46.249Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Birthdate\",\n                                \"type\": \"DATE\",\n                                \"modifiedAt\": \"2023-01-15T13:32:07.279Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"774673110\",\n                                \"order\": 5,\n                                \"createdAt\": \"2023-01-15T13:31:46.980Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Photo\",\n                                \"type\": \"PHOTO\",\n                                \"modifiedAt\": \"2023-01-15T13:35:53.894Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"793795061\",\n                                \"order\": 6,\n                                \"createdAt\": \"2023-01-15T13:35:36.411Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Email\",\n                                \"type\": \"FREE_TEXT\",\n                                \"modifiedAt\": \"2023-01-15T23:31:34.261Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"806432707\",\n                                \"order\": 7,\n                                \"createdAt\": \"2023-01-15T23:31:24.901Z\"\n                            }\n                        ],\n                        \"createdAt\": \"2023-01-15T13:28:48.140Z\",\n                        \"modifiedAt\": \"2023-01-15T13:31:25.004Z\"\n                    },\n                    {\n                        \"id\": \"784422768\",\n                        \"name\": \"Family Data\",\n                        \"repeatable\": true,\n                        \"questions\": [\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Family - Name\",\n                                \"type\": \"FREE_TEXT\",\n                                \"modifiedAt\": \"2023-01-15T13:35:13.569Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"806405020\",\n                                \"order\": 1,\n                                \"createdAt\": \"2023-01-15T13:32:32.644Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Family - Age\",\n                                \"type\": \"NUMBER\",\n                                \"modifiedAt\": \"2023-01-15T13:35:03.908Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"806432684\",\n                                \"order\": 2,\n                                \"createdAt\": \"2023-01-15T13:32:51.318Z\"\n                            },\n                            {\n                                \"personalData\": false,\n                                \"name\": \"Family - Relationship\",\n                                \"type\": \"OPTION\",\n                                \"modifiedAt\": \"2023-01-15T13:34:55.411Z\",\n                                \"answerStats\": null,\n                                \"variableName\": null,\n                                \"id\": \"813484516\",\n                                \"order\": 3,\n                                \"createdAt\": \"2023-01-15T13:33:22.587Z\"\n                            }\n                        ],\n                        \"createdAt\": \"2023-01-15T13:31:29.213Z\",\n                        \"modifiedAt\": \"2023-01-15T13:39:01.819Z\"\n                    }\n                ],\n                \"version\": 2,\n                \"createdAt\": \"2023-01-15T13:28:21.903Z\",\n                \"modifiedAt\": \"2023-01-15T23:32:13.219Z\",\n                \"surveyId\": \"806432680\"\n            }\n        ],\n        \"surveyChanged\": [],\n        \"formInstanceDeleted\": [],\n        \"formInstanceChanged\": [\n            {\n                \"formVersion\": 2,\n                \"deviceIdentifier\": \"AkvoFlow Webforms\",\n                \"dataPointId\": \"813484540\",\n                \"submissionDate\": \"2023-01-15T23:33:10Z\",\n                \"modifiedAt\": \"2023-01-15T23:33:22.746Z\",\n                \"id\": \"806432708\",\n                \"responses\": {\n                    \"784422768\": [\n                        {\n                            \"806405020\": \"Mehaga\",\n                            \"806432684\": 6,\n                            \"813484516\": [\n                                {\n                                    \"text\": \"Children\"\n                                }\n                            ]\n                        }\n                    ],\n                    \"806405016\": [\n                        {\n                            \"774673109\": \"Deden Sync Test\",\n                            \"774673110\": \"2023-01-16T00:00:00Z\",\n                            \"785884906\": [\n                                {\n                                    \"code\": \"53\",\n                                    \"name\": \"ADJA-OUERE\"\n                                }\n                            ],\n                            \"793795061\": {\n                                \"filename\": \"1db9b98d-c294-4d2a-ba31-31a000bcbe27.jpg\"\n                            },\n                            \"797505352\": [\n                                {\n                                    \"text\": \"Male\"\n                                }\n                            ],\n                            \"797514584\": 23,\n                            \"806432707\": \"deden@akvo.org\"\n                        }\n                    ]\n                },\n                \"identifier\": \"6ab8-hemt-zkqv\",\n                \"displayName\": \"Deden Sync Test - ADJA-OUERE - 23\",\n                \"formId\": \"800174865\",\n                \"surveyalTime\": 50,\n                \"submitter\": \"deden@akvo.org\",\n                \"createdAt\": \"2023-01-15T23:33:14.521Z\"\n            }\n        ],\n        \"formDeleted\": [],\n        \"surveyDeleted\": []\n    },\n    \"nextSyncUrl\": \"https://api-auth0.akvo.org/flow/orgs/{{instance}}/sync?next=true&cursor=45186199\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest({",
+							"    url: pm.environment.get(\"auth_url\"),",
+							"    method: 'POST',",
+							"    header: {",
+							"        'Accept': '*/*',",
+							"        'Content-Type': 'application/x-www-form-urlencoded',",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded',",
+							"        urlencoded: [",
+							"            { key: 'username', value: pm.environment.get(\"username\") },",
+							"            { key: 'password', value: pm.environment.get(\"password\")},",
+							"            { key: 'grant_type', value: 'password' },",
+							"            { key: 'client_id', value: 'S6Pm0WF4LHONRPRKjepPXZoX1muXm1JS' },",
+							"            { key: 'scope', value: \"openid emai\" }",
+							"       ]",
+							"    }",
+							"}, function (err, res) {",
+							"    console.log(res.json())",
+							"    pm.environment.set(\"id_token\", res.json().id_token);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

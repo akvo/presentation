@@ -11,6 +11,22 @@
 #+TITLE: Akvo FLow API
 #+AUTHOR: Deden Bangkit
 
+* Schedule | Goals
+- *Day 1*
+ - Introduction
+ - Introduction to Flow APIs
+ - Understanding Flow entities (Folder, survey, Forms, data)
+ - Authentication
+- *Day 2*
+ - Understanding the folders API
+ - Understanding surveys and forms APIs
+- *Day 3*
+ - Understanding the data API
+- *Day 4*
+ - Understanding sync API
+- *Day 5*
+ - Basic transformation techniques
+
 * Introduction to Akvo Flow
 ** Akvo Flow Online Workspace
 *** Getting to know the Akvo Flow online workspace.
@@ -55,14 +71,12 @@ Go to https://{{instance_name}}.akvoflow.org/,
 then click on create account and complete the required user details to have your user account.
 Then validate your email by clicking in the confirmation link that will be sent to your email inbox.
 
-
 * Survey
-
-*** Editing Survey
+** Editing Survey
 #+ATTR_HTML: :width 100%
 file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-survey.gif
 
-*** Survey Setting
+** Survey Setting
 #+ATTR_HTML: :width 75%
 file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/images/page-survey_2.png
 
@@ -73,7 +87,6 @@ file:///home/dedenbangkit/Presentation/presentation-160123-maep-akvo-flow-api/im
 5. Button to add a form to the survey.
 
 * Form Page
-
 ** Adding a Form
 
 Each survey in Akvo Flow is created to capture data on a different subject.
@@ -117,7 +130,7 @@ to create new data points, which we call the Registration form.
 Other forms will just be able to update the existing data points.
 #+END_NOTES
 
-**  Question Groups
+** Question Groups
 
 A form consist of questions organised into question groups.
 
@@ -186,7 +199,6 @@ which holds both the signature and the name of the signatory.
 Akvo Caddisfly enables you to add a water quality test to your Flow survey.
 You can choose from a list of parameters that you want to measure.
 
-
 * Akvo Flow API
 
 The Akvo Flow REST API is a read-only API, being a read-only API means
@@ -224,8 +236,8 @@ In the following http request call is example to get the *ID TOKEN*
 #+ATTR_REVEAL: :frag appear
 #+RESULTS: Authenticate
 : {
-:   "access_token": "eyJhbGci....RyUDenB7xBbPhG2C31zXeA",
-:   "id_token": "eyJhbGci...BRBw",
+:   "access_token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiaXNzIjoiaHR0cHM6Ly9ha3ZvZm91bmRhdGlvbi5ldS5hdXRoMC5jb20vIn0..FMMVTJYimojbaYBr.hynw30NsgvlaODYMTXOfnQQJqN42GAsiaHn-qYeAMm4-31NqUzs3O6vczhh0Vtorsayl8M5vmwRdGrD60PZ4-EnjT-xu0hu6OMh8kZzxEl0q_2xkca_Vwr8h8fOgmtlSQg8T7cHn891IcD-BGFw4RfDBWT3IdVekTa24wPFkMM6JVGbJUh2ggv0j-TB-ppeQeBetKwF5mt7yR1_Zcnpa5M37f_wIfrBPJLtHVzRSaAf1WMnByG3--tr6BWkrhKt-KdvlZkyzlWT9prO-dqgSaVCbHCtO2-QSqdIqbb2oJDt9XdL_hmg7bztgKVXsC-yRukIIS9PFZBz367-1Y-wq.y-vy5ZT3N4HdJSEbgW0iTw",
+:   "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFUQXlRVEUwTTBZNU9USkNOekUwT1VFNE9UTXdSVEU0UkRFeE5qRkJRa1JCTTBRMFFVUkZRZyJ9.eyJodHRwczovL2Frdm8ub3JnL3VzZXJfbWV0YWRhdGEiOnt9LCJlbWFpbCI6ImRlZGVuQGFrdm8ub3JnIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vYWt2b2ZvdW5kYXRpb24uZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYzQ0YzAzNzBjNDMzMGNhYjA0MTI5MiIsImF1ZCI6IlM2UG0wV0Y0TEhPTlJQUktqZXBQWFpvWDFtdVhtMUpTIiwiaWF0IjoxNjczODczNDQyLCJleHAiOjE2NzM5MDk0NDJ9.Sp3I1GGv7vJLvjVJPG4_zPj24LpSwRYl0Iax-VpCvEmZPhEpt5Lracd52fCjk0f1wmLPXURKT-TPVM_BOOfq7o52zsD4XFIb9Bx2fA5XtKYi0WA-1fqYoD1gUzCt5ZEKcqUsDf4FBu2kDhoRL0-O-N_f6MKB0CLQh1tFuD-9mvMrZA0UD8UOm7O_IrVbCiiuMl6NPFtW9yfYZb4sHPY3XoUu-Cfc4oGPN1OwkSGGrhM5vb7cjnZEH9sJQswhCEqbeKudX7PwSpnNgVEZ5ObbJLn1h1zlQoNEFrruZzGKAzH-dNy1nLY9GgIAxTtKjGdBNPSRNFo0DQIKNKjHKIR3rg",
 :   "scope": "openid email",
 :   "expires_in": 86400,
 :   "token_type": "Bearer"
@@ -233,7 +245,6 @@ In the following http request call is example to get the *ID TOKEN*
 #+RESULTS:
 Note: Remember that logging in using the Google account log in is not sufficient to use the API.
 You need to sign up, create and verify your user account and then log in to Flow.
-
 
 ** Rest API
 
