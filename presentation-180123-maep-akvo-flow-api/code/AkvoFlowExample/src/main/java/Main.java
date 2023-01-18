@@ -37,11 +37,12 @@ public class Main {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         System.out.println(gson.toJsonTree(res));
          */
-        System.out.println();
 
         if (Objects.equals(url.getEndpoint(), "folders")) {
             Folder folderData = new Folder(res);
             folderData.print();
+        } else {
+            System.out.println(res);
         }
     }
 }

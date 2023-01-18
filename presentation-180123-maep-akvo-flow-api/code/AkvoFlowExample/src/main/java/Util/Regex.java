@@ -12,7 +12,8 @@ public class Regex {
     }
 
     public String getEndpoint() {
-        return this.endpoint;
+        String[] array = this.endpoint.split("\\?",-1);
+        return array[0];
     }
     public void check() {
         final String regex = "^(:?[^/]*/){6}(.*)$";
