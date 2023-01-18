@@ -11,20 +11,97 @@
 #+TITLE: Akvo FLow API
 #+AUTHOR: Deden Bangkit
 
-* Setup Project Output
-
-**  Executable JAR File
+* Form Instance API
 
 #+BEGIN_NOTES
-Before begin the session, let see how to make our project easy to execute
+As I explained yesterday, that the form instance endpoint has no information about the form definition
+so after getting all the data, you have to do the transformation
+because the data transformation is a bit complicated.
+we will dedicate this topic in one day, on the last day of our meeting
+#+END_NOTES
+
+#+ATTR_HTML: :width 100%
+file:///home/dedenbangkit/Repos/akvorepos/presentation/presentation-180123-maep-akvo-flow-api/images/form-instance.png
+
+* Data Monitoring
+
+Akvo Flow's monitoring consists of two main components:
+- What you are monitoring, the subject of your data collection. We call this a **Data Point**
+- Time
+
+*** The Core Idea of Datapoints
+
+The core idea of the monitoring feature in Akvo Flow is to create data points
+to which information can be added over time through one or more monitoring forms.
+Now lets try to add monitoring forms in the survey on the online space.
+
+*** Multiple Forms
+
+#+BEGIN_NOTES
+datapoints API url ussualy used for partners who only want to collect the monitoring forms
+without downloading the details of the datapoint (which is in the registration form)
+because fetching registration form instances is taking longer than collecting datapoints
+#+END_NOTES
+
+These forms then together capture different aspects of a data point.
+One form is used to create the data point with attributes that are unique to the point
+and which will not change over time.
+The other forms are used to add additional information to an existing data point
+that may change over time.
+
+* Coding Exercise
+
+#+BEGIN_NOTES
+There are lots of posibility using Akvo Flow
+Syncing data to Partners Database, Generating Summary, Interactive and many other
+But for now, let try the simpliest one, print out the JSON of the url
+#+END_NOTES
+
+** Debugging
+
+*** Setup Main Arguments
+
+#+BEGIN_NOTES
+Before begin the session, let see how to make our project easy to debug
 and also to see the use of the output result.
+In the code example we can already see in the Main.java
+Let say you want to have API endpoint as the argument
+We can replace the url with *args[0]*
+#+END_NOTES
+
+#+ATTR_HTML: :width 60%
+file:///home/dedenbangkit/Repos/akvorepos/presentation/presentation-180123-maep-akvo-flow-api/images/intelij-modify-debug.png
+
+
+** API Endpoint as Parameter
+
+Let try the simpliest one, print out the JSON response of the url
+
+** Produce CSV File
+
+Please download the newest zip file from GitHub, then go to today presentation directory.
+
+#+BEGIN_NOTES
+Explain line by line
+#+END_NOTES
+
+** Tryout
+
+Lets do the same thing but for *Survey List* endpoint!
+Break to 2 groups... Back in 1 hour
+
+** Group Presentation
+
+Explain the method you have tried.
+
+* Bonus (If Still have time)
+
+#+BEGIN_NOTES
 We are going to compile the Akvo Flow API Example Project with it's external library
 To single a file.
 #+END_NOTES
 
-Compile the Akvo Flow API Example Project to a single file
-
-** Project Setup
+** Compiling JAR File
 
 - Go to File > Project Structure *CTRL + ALT + SHIFT + S*
 - Select *Artifacts* under Project Settings, click *+* button
@@ -57,12 +134,6 @@ Command line arguments are nothing but simply arguments that
 are specified after the name of the program in the system's command line,
 and these argument values are passed on to your program during program execution.
 
-#+BEGIN_NOTES
-In the code example we can already see in the Main.java
-Let say you want to have API endpoint as the argument
-We can replace the url with *args[0]*
-#+END_NOTES
-
 *** Example
 
 #+begin_src bash
@@ -76,36 +147,3 @@ The first argument will passed to Main.java as parameters
 #+begin_src java
   System.out.println(args[0]);
 #+end_src
-
-* Coding Exercise
-
-#+BEGIN_NOTES
-There are lots of posibility using Akvo Flow
-Syncing data to Partners Database, Generating Summary, Interactive and many other
-But for now, let try the simpliest one, print out the JSON of the url
-#+END_NOTES
-
-** API Endpoint as Parameter
-
-Let try the simpliest one, print out the JSON response of the url
-
-#+begin_src bash
-  java --jar AkvoFlowExample.jar "https://api-auth0.akvo.org/flow/orgs/maep/folders"
-#+end_src
-
-** Produce CSV File
-
-Please download the newest zip file from GitHub, then go to today presentation directory.
-
-#+BEGIN_NOTES
-Explain line by line
-#+END_NOTES
-
-** Tryout
-
-Lets do the same thing but for *Survey List* endpoint!
-Break to 2 groups... Back in 1 hour
-
-** Group Presentation
-
-Explain the method you have tried.

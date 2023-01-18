@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Akvo FLow API</title>
+<meta name="author" content="Deden Bangkit"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="file:///home/dedenbangkit/Repos/akvorepos/presentation/css/akvo.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">Akvo Flow API
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-org40d82a0">1. Form Instance API</a></li>
+<li><a href="#/slide-org3473d10">2. Data Monitoring</a>
+<ul>
+<li>
+<ul>
+<li><a href="#/slide-orgfbac798">2.0.1. The Core Idea of Datapoints</a></li>
+<li><a href="#/slide-org98fab00">2.0.2. Multiple Forms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#/slide-org6c5539b">3. Coding Exercise</a>
+<ul>
+<li><a href="#/slide-org2985366">3.1. Debugging</a>
+<ul>
+<li><a href="#/slide-org278a9e8">3.1.1. Setup Main Arguments</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgd99a2f1">3.2. API Endpoint as Parameter</a></li>
+<li><a href="#/slide-orgc5b9736">3.3. Produce CSV File</a></li>
+<li><a href="#/slide-org3cdf852">3.4. Tryout</a></li>
+<li><a href="#/slide-orgaba6f14">3.5. Group Presentation</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org7095bde">4. Bonus (If Still have time)</a>
+<ul>
+<li><a href="#/slide-org37dc228">4.1. Compiling JAR File</a></li>
+<li><a href="#/slide-orgc9119ac">4.2. Build</a></li>
+<li><a href="#/slide-orga0809a0">4.3. How to Execute</a></li>
+<li><a href="#/slide-org1ff6d79">4.4. Command Line Arguments</a>
+<ul>
+<li><a href="#/slide-orgb83b771">4.4.1. Example</a></li>
+<li><a href="#/slide-org0c9be09">4.4.2. Lets try to print the input argument in to the first line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+
+<section>
+<section id="slide-org40d82a0">
+<h2 id="org40d82a0"><span class="section-number-2">1.</span> Form Instance API</h2>
+<aside class="notes">
+<p>
+As I explained yesterday, that the form instance endpoint has no information about the form definition
+so after getting all the data, you have to do the transformation
+because the data transformation is a bit complicated.
+we will dedicate this topic in one day, on the last day of our meeting
+</p>
+
+</aside>
+
+
+<div id="orgb407227" class="figure">
+<p><img src="file:///home/dedenbangkit/Repos/akvorepos/presentation/presentation-180123-maep-akvo-flow-api/images/form-instance.png" alt="form-instance.png" width="100%" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org3473d10">
+<h2 id="org3473d10"><span class="section-number-2">2.</span> Data Monitoring</h2>
+<p>
+Akvo Flow's monitoring consists of two main components:
+</p>
+<ul>
+<li>What you are monitoring, the subject of your data collection. We call this a <b><b>Data Point</b></b></li>
+<li>Time</li>
+
+</ul>
+
+</section>
+<section id="slide-orgfbac798">
+<h4 id="orgfbac798"><span class="section-number-4">2.0.1.</span> The Core Idea of Datapoints</h4>
+<p>
+The core idea of the monitoring feature in Akvo Flow is to create data points
+to which information can be added over time through one or more monitoring forms.
+Now lets try to add monitoring forms in the survey on the online space.
+</p>
+
+</section>
+<section id="slide-org98fab00">
+<h4 id="org98fab00"><span class="section-number-4">2.0.2.</span> Multiple Forms</h4>
+<aside class="notes">
+<p>
+datapoints API url ussualy used for partners who only want to collect the monitoring forms
+without downloading the details of the datapoint (which is in the registration form)
+because fetching registration form instances is taking longer than collecting datapoints
+</p>
+
+</aside>
+
+<p>
+These forms then together capture different aspects of a data point.
+One form is used to create the data point with attributes that are unique to the point
+and which will not change over time.
+The other forms are used to add additional information to an existing data point
+that may change over time.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org6c5539b">
+<h2 id="org6c5539b"><span class="section-number-2">3.</span> Coding Exercise</h2>
+<aside class="notes">
+<p>
+There are lots of posibility using Akvo Flow
+Syncing data to Partners Database, Generating Summary, Interactive and many other
+But for now, let try the simpliest one, print out the JSON of the url
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org2985366">
+<h3 id="org2985366"><span class="section-number-3">3.1.</span> Debugging</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+</section>
+<section id="slide-org278a9e8">
+<h4 id="org278a9e8"><span class="section-number-4">3.1.1.</span> Setup Main Arguments</h4>
+<aside class="notes">
+<p>
+Before begin the session, let see how to make our project easy to debug
+and also to see the use of the output result.
+In the code example we can already see in the Main.java
+Let say you want to have API endpoint as the argument
+We can replace the url with <b>args[0]</b>
+</p>
+
+</aside>
+
+
+<div id="orge18612c" class="figure">
+<p><img src="file:///home/dedenbangkit/Repos/akvorepos/presentation/presentation-180123-maep-akvo-flow-api/images/intelij-modify-debug.png" alt="intelij-modify-debug.png" width="60%" />
+</p>
+</div>
+
+
+</section>
+<section id="slide-orgd99a2f1">
+<h3 id="orgd99a2f1"><span class="section-number-3">3.2.</span> API Endpoint as Parameter</h3>
+<p>
+Let try the simpliest one, print out the JSON response of the url
+</p>
+
+</section>
+<section id="slide-orgc5b9736">
+<h3 id="orgc5b9736"><span class="section-number-3">3.3.</span> Produce CSV File</h3>
+<p>
+Please download the newest zip file from GitHub, then go to today presentation directory.
+</p>
+
+<aside class="notes">
+<p>
+Explain line by line
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org3cdf852">
+<h3 id="org3cdf852"><span class="section-number-3">3.4.</span> Tryout</h3>
+<p>
+Lets do the same thing but for <b>Survey List</b> endpoint!
+Break to 2 groups&#x2026; Back in 1 hour
+</p>
+
+</section>
+<section id="slide-orgaba6f14">
+<h3 id="orgaba6f14"><span class="section-number-3">3.5.</span> Group Presentation</h3>
+<p>
+Explain the method you have tried.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org7095bde">
+<h2 id="org7095bde"><span class="section-number-2">4.</span> Bonus (If Still have time)</h2>
+<aside class="notes">
+<p>
+We are going to compile the Akvo Flow API Example Project with it's external library
+To single a file.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org37dc228">
+<h3 id="org37dc228"><span class="section-number-3">4.1.</span> Compiling JAR File</h3>
+<ul>
+<li>Go to File &gt; Project Structure <b>CTRL + ALT + SHIFT + S</b></li>
+<li>Select <b>Artifacts</b> under Project Settings, click <b>+</b> button</li>
+<li>Select JAR &gt; From modules with dependencies</li>
+<li>Select the <b><b>Main Class</b></b> (which is the class that has static main method), then click OK</li>
+<li>Also don't forget to make sure that <b>extract to the target JAR</b> is checked</li>
+
+</ul>
+
+<p>
+Now remember the path of output directory, where the JAR file will be produced.
+</p>
+
+</section>
+<section id="slide-orgc9119ac">
+<h3 id="orgc9119ac"><span class="section-number-3">4.2.</span> Build</h3>
+<p>
+Once the setup is done, now you will be able to Build the JAR file by going to:
+</p>
+
+<p>
+<b>Build &gt; Build Artifact &gt; Build</b>
+</p>
+
+<p>
+Congrats! Your first JAR is there!
+</p>
+
+</section>
+<section id="slide-orga0809a0">
+<h3 id="orga0809a0"><span class="section-number-3">4.3.</span> How to Execute</h3>
+<p>
+Go to the output directory via Terminal (Linux) / Command Prompt (Windows)
+You can run
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>java --jar &lt;your_jar_path&gt;
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org1ff6d79">
+<h3 id="org1ff6d79"><span class="section-number-3">4.4.</span> Command Line Arguments</h3>
+<p>
+Command line arguments are nothing but simply arguments that
+are specified after the name of the program in the system's command line,
+and these argument values are passed on to your program during program execution.
+</p>
+
+</section>
+<section id="slide-orgb83b771">
+<h4 id="orgb83b771"><span class="section-number-4">4.4.1.</span> Example</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>java --jar AkvoFlowExample.jar "https://api-auth0.akvo.org/flow/orgs/maep/folders"
+</code></pre>
+</div>
+
+<p>
+The first argument will passed to Main.java as parameters
+</p>
+
+</section>
+<section id="slide-org0c9be09">
+<h4 id="org0c9be09"><span class="section-number-4">4.4.2.</span> Lets try to print the input argument in to the first line</h4>
+<div class="org-src-container">
+
+<pre  class="src src-java"   ><code trim>System.out.println(args[0]);
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>

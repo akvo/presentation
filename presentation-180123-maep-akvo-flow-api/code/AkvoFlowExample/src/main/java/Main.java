@@ -1,4 +1,5 @@
 import DataHandler.Folder;
+import Util.Regex;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.cdimascio.dotenv.Dotenv;
@@ -15,6 +16,8 @@ import java.util.Objects;
 public class Main {
 
     public static void main(@NotNull String[] args) throws URISyntaxException, IOException, JSONException {
+        Regex url = new Regex(args[0]);
+        url.check();
         Auth auth = new Auth();
         if (args.length == 0) {
             System.out.println("Require URL in the arguments");
@@ -34,8 +37,11 @@ public class Main {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         System.out.println(gson.toJsonTree(res));
          */
+        System.out.println();
 
-        Folder folderData = new Folder(res);
-        folderData.print();
+        if (Objects.equals(url.getEndpoint(), "folders")) {
+            Folder folderData = new Folder(res);
+            folderData.print();
+        }
     }
 }

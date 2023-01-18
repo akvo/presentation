@@ -58,17 +58,15 @@
       >
         <section
           id="sec-title-slide"
-          style="top: 320.5px; display: none"
-          class="past"
-          aria-hidden="true"
-          hidden=""
+          style="top: 320.5px; display: block"
+          class="present"
         >
           Akvo Flow API
         </section>
         <section
           id="sec-table-of-contents"
           style="top: 49px; display: block"
-          class="past"
+          class="future"
           aria-hidden="true"
           hidden=""
         >
@@ -76,47 +74,74 @@
             <h2>Table of Contents</h2>
             <div id="text-table-of-contents" role="doc-toc">
               <ul>
+                <li><a href="#/slide-org40d82a0">1. Form Instance API</a></li>
                 <li>
-                  <a href="#/slide-orge63a7b9">1. Setup Project Output</a>
+                  <a href="#/slide-org3473d10">2. Data Monitoring</a>
                   <ul>
                     <li>
-                      <a href="#/slide-org3c3bf9d">1.1. Executable JAR File</a>
-                    </li>
-                    <li><a href="#/slide-orgcdcc7c4">1.2. Project Setup</a></li>
-                    <li><a href="#/slide-org6bd5edd">1.3. Build</a></li>
-                    <li>
-                      <a href="#/slide-orgafd3ddd">1.4. How to Execute</a>
-                    </li>
-                    <li>
-                      <a href="#/slide-org7227686"
-                        >1.5. Command Line Arguments</a
-                      >
                       <ul>
-                        <li><a href="#/slide-org07b6631">1.5.1. Example</a></li>
                         <li>
-                          <a href="#/slide-orgb34794f"
-                            >1.5.2. Lets try to print the input argument in to
-                            the first line</a
+                          <a href="#/slide-orgfbac798"
+                            >2.0.1. The Core Idea of Datapoints</a
                           >
+                        </li>
+                        <li>
+                          <a href="#/slide-org98fab00">2.0.2. Multiple Forms</a>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#/slide-org8512fe1">2. Coding Exercise</a>
+                  <a href="#/slide-org6c5539b">3. Coding Exercise</a>
                   <ul>
                     <li>
-                      <a href="#/slide-orge7ca314"
-                        >2.1. API Endpoint as Parameter</a
+                      <a href="#/slide-org2985366">3.1. Debugging</a>
+                      <ul>
+                        <li>
+                          <a href="#/slide-org278a9e8"
+                            >3.1.1. Setup Main Arguments</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#/slide-orgd99a2f1"
+                        >3.2. API Endpoint as Parameter</a
                       >
                     </li>
                     <li>
-                      <a href="#/slide-orgc7b8aab">2.2. Produce CSV File</a>
+                      <a href="#/slide-orgc5b9736">3.3. Produce CSV File</a>
                     </li>
-                    <li><a href="#/slide-org03c7b87">2.3. Tryout</a></li>
+                    <li><a href="#/slide-org3cdf852">3.4. Tryout</a></li>
                     <li>
-                      <a href="#/slide-orgf829985">2.4. Group Presentation</a>
+                      <a href="#/slide-orgaba6f14">3.5. Group Presentation</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#/slide-org7095bde">4. Bonus (If Still have time)</a>
+                  <ul>
+                    <li>
+                      <a href="#/slide-org37dc228">4.1. Compiling JAR File</a>
+                    </li>
+                    <li><a href="#/slide-orgc9119ac">4.2. Build</a></li>
+                    <li>
+                      <a href="#/slide-orga0809a0">4.3. How to Execute</a>
+                    </li>
+                    <li>
+                      <a href="#/slide-org1ff6d79"
+                        >4.4. Command Line Arguments</a
+                      >
+                      <ul>
+                        <li><a href="#/slide-orgb83b771">4.4.1. Example</a></li>
+                        <li>
+                          <a href="#/slide-org0c9be09"
+                            >4.4.2. Lets try to print the input argument in to
+                            the first line</a
+                          >
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </li>
@@ -127,53 +152,275 @@
 
         <section
           style="top: 0px; display: block"
-          class="stack past"
-          data-previous-indexv="7"
+          class="stack future"
+          data-previous-indexv="0"
           aria-hidden="true"
           hidden=""
         >
           <section
-            id="slide-orge63a7b9"
+            id="slide-org40d82a0"
+            style="top: 0px; display: block"
+            class=""
+            aria-hidden="true"
+          >
+            <h2 id="org40d82a0">
+              <span class="section-number-2">1.</span> Form Instance API
+            </h2>
+            <aside class="notes">
+              <p>
+                As I explained yesterday, that the form instance endpoint has no
+                information about the form definition so after getting all the
+                data, you have to do the transformation because the data
+                transformation is a bit complicated. we will dedicate this topic
+                in one day, on the last day of our meeting
+              </p>
+            </aside>
+
+            <div id="orgb407227" class="figure">
+              <p>
+                <img
+                  src="assets/form-instance.png"
+                  alt="form-instance.png"
+                  width="100%"
+                />
+              </p>
+            </div>
+          </section>
+        </section>
+        <section
+          style="top: 0px; display: none"
+          class="stack future"
+          data-previous-indexv="0"
+          aria-hidden="true"
+          hidden=""
+        >
+          <section
+            id="slide-org3473d10"
+            style="top: 274.5px; display: none"
+            class="past"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h2 id="org3473d10">
+              <span class="section-number-2">2.</span> Data Monitoring
+            </h2>
+            <p>Akvo Flow's monitoring consists of two main components:</p>
+            <ul>
+              <li>
+                What you are monitoring, the subject of your data collection. We
+                call this a <b><b>Data Point</b></b>
+              </li>
+              <li>Time</li>
+            </ul>
+          </section>
+          <section
+            id="slide-orgfbac798"
+            class="past"
+            style="top: 269px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h4 id="orgfbac798">
+              <span class="section-number-4">2.0.1.</span> The Core Idea of
+              Datapoints
+            </h4>
+            <p>
+              The core idea of the monitoring feature in Akvo Flow is to create
+              data points to which information can be added over time through
+              one or more monitoring forms. Now lets try to add monitoring forms
+              in the survey on the online space.
+            </p>
+          </section>
+          <section
+            id="slide-org98fab00"
+            class=""
+            style="top: 253px; display: none"
+            aria-hidden="true"
+          >
+            <h4 id="org98fab00">
+              <span class="section-number-4">2.0.2.</span> Multiple Forms
+            </h4>
+            <aside class="notes">
+              <p>
+                datapoints API url ussualy used for partners who only want to
+                collect the monitoring forms without downloading the details of
+                the datapoint (which is in the registration form) because
+                fetching registration form instances is taking longer than
+                collecting datapoints
+              </p>
+            </aside>
+
+            <p>
+              These forms then together capture different aspects of a data
+              point. One form is used to create the data point with attributes
+              that are unique to the point and which will not change over time.
+              The other forms are used to add additional information to an
+              existing data point that may change over time.
+            </p>
+          </section>
+        </section>
+        <section
+          style="top: 0px; display: none"
+          class="stack future"
+          data-previous-indexv="0"
+          aria-hidden="true"
+          hidden=""
+        >
+          <section
+            id="slide-org6c5539b"
             style="top: 311px; display: none"
             class="past"
             aria-hidden="true"
             hidden=""
           >
-            <h2 id="orge63a7b9">
-              <span class="section-number-2">1.</span> Setup Project Output
+            <h2 id="org6c5539b">
+              <span class="section-number-2">3.</span> Coding Exercise
             </h2>
-            <div class="outline-text-2" id="text-1"></div>
+            <aside class="notes">
+              <p>
+                There are lots of posibility using Akvo Flow Syncing data to
+                Partners Database, Generating Summary, Interactive and many
+                other But for now, let try the simpliest one, print out the JSON
+                of the url
+              </p>
+            </aside>
           </section>
           <section
-            id="slide-org3c3bf9d"
+            id="slide-org2985366"
+            class="past"
+            style="top: 313.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="org2985366">
+              <span class="section-number-3">3.1.</span> Debugging
+            </h3>
+            <div class="outline-text-3" id="text-3-1"></div>
+          </section>
+          <section
+            id="slide-org278a9e8"
+            class="past"
+            style="top: 77.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h4 id="org278a9e8">
+              <span class="section-number-4">3.1.1.</span> Setup Main Arguments
+            </h4>
+            <aside class="notes">
+              <p>
+                Before begin the session, let see how to make our project easy
+                to debug and also to see the use of the output result. In the
+                code example we can already see in the Main.java Let say you
+                want to have API endpoint as the argument We can replace the url
+                with <b>args[0]</b>
+              </p>
+            </aside>
+
+            <div id="orge18612c" class="figure">
+              <p>
+                <img
+                  src="assets/intelij-modify-debug.png"
+                  alt="intelij-modify-debug.png"
+                  width="60%"
+                />
+              </p>
+            </div>
+          </section>
+          <section
+            id="slide-orgd99a2f1"
             class="past"
             style="top: 297.5px; display: none"
             aria-hidden="true"
             hidden=""
           >
-            <h3 id="org3c3bf9d">
-              <span class="section-number-3">1.1.</span> Executable JAR File
+            <h3 id="orgd99a2f1">
+              <span class="section-number-3">3.2.</span> API Endpoint as
+              Parameter
             </h3>
-            <aside class="notes">
-              <p>
-                Before begin the session, let see how to make our project easy
-                to execute and also to see the use of the output result. We are
-                going to compile the Akvo Flow API Example Project with it's
-                external library To single a file.
-              </p>
-            </aside>
-
-            <p>Compile the Akvo Flow API Example Project to a single file</p>
+            <p>
+              Let try the simpliest one, print out the JSON response of the url
+            </p>
           </section>
           <section
-            id="slide-orgcdcc7c4"
+            id="slide-orgc5b9736"
             class="past"
+            style="top: 297.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="orgc5b9736">
+              <span class="section-number-3">3.3.</span> Produce CSV File
+            </h3>
+            <p>
+              Please download the newest zip file from GitHub, then go to today
+              presentation directory.
+            </p>
+
+            <aside class="notes">
+              <p>Explain line by line</p>
+            </aside>
+          </section>
+          <section
+            id="slide-org3cdf852"
+            class="past"
+            style="top: 297.5px; display: none"
+            aria-hidden="true"
+            hidden=""
+          >
+            <h3 id="org3cdf852">
+              <span class="section-number-3">3.4.</span> Tryout
+            </h3>
+            <p>
+              Lets do the same thing but for <b>Survey List</b> endpoint! Break
+              to 2 groups… Back in 1 hour
+            </p>
+          </section>
+          <section
+            id="slide-orgaba6f14"
+            class=""
+            style="top: 297.5px; display: none"
+            aria-hidden="true"
+          >
+            <h3 id="orgaba6f14">
+              <span class="section-number-3">3.5.</span> Group Presentation
+            </h3>
+            <p>Explain the method you have tried.</p>
+          </section>
+        </section>
+        <section
+          style="top: 0px; display: none"
+          class="stack future"
+          data-previous-indexv="0"
+          aria-hidden="true"
+          hidden=""
+        >
+          <section
+            id="slide-org7095bde"
+            style="top: 311px; display: none"
+            class=""
+            aria-hidden="true"
+          >
+            <h2 id="org7095bde">
+              <span class="section-number-2">4.</span> Bonus (If Still have
+              time)
+            </h2>
+            <aside class="notes">
+              <p>
+                We are going to compile the Akvo Flow API Example Project with
+                it's external library To single a file.
+              </p>
+            </aside>
+          </section>
+          <section
+            id="slide-org37dc228"
+            class="future"
             style="top: 245.5px; display: none"
             aria-hidden="true"
             hidden=""
           >
-            <h3 id="orgcdcc7c4">
-              <span class="section-number-3">1.2.</span> Project Setup
+            <h3 id="org37dc228">
+              <span class="section-number-3">4.1.</span> Compiling JAR File
             </h3>
             <ul>
               <li>
@@ -200,14 +447,14 @@
             </p>
           </section>
           <section
-            id="slide-org6bd5edd"
-            class="past"
+            id="slide-orgc9119ac"
+            class="future"
             style="top: 266.5px; display: none"
             aria-hidden="true"
             hidden=""
           >
-            <h3 id="org6bd5edd">
-              <span class="section-number-3">1.3.</span> Build
+            <h3 id="orgc9119ac">
+              <span class="section-number-3">4.2.</span> Build
             </h3>
             <p>
               Once the setup is done, now you will be able to Build the JAR file
@@ -221,14 +468,14 @@
             <p>Congrats! Your first JAR is there!</p>
           </section>
           <section
-            id="slide-orgafd3ddd"
-            class="past"
+            id="slide-orga0809a0"
+            class="future"
             style="top: 243px; display: none"
             aria-hidden="true"
             hidden=""
           >
-            <h3 id="orgafd3ddd">
-              <span class="section-number-3">1.4.</span> How to Execute
+            <h3 id="orga0809a0">
+              <span class="section-number-3">4.3.</span> How to Execute
             </h3>
             <p>
               Go to the output directory via Terminal (Linux) / Command Prompt
@@ -243,14 +490,14 @@
             </div>
           </section>
           <section
-            id="slide-org7227686"
-            class="past"
+            id="slide-org1ff6d79"
+            class="future"
             style="top: 266.5px; display: none"
             aria-hidden="true"
             hidden=""
           >
-            <h3 id="org7227686">
-              <span class="section-number-3">1.5.</span> Command Line Arguments
+            <h3 id="org1ff6d79">
+              <span class="section-number-3">4.4.</span> Command Line Arguments
             </h3>
             <p>
               Command line arguments are nothing but simply arguments that are
@@ -258,24 +505,16 @@
               line, and these argument values are passed on to your program
               during program execution.
             </p>
-
-            <aside class="notes">
-              <p>
-                In the code example we can already see in the Main.java Let say
-                you want to have API endpoint as the argument We can replace the
-                url with <b>args[0]</b>
-              </p>
-            </aside>
           </section>
           <section
-            id="slide-org07b6631"
-            class="past"
-            style="top: 253px; display: block"
+            id="slide-orgb83b771"
+            class="future"
+            style="top: 253px; display: none"
             aria-hidden="true"
             hidden=""
           >
-            <h4 id="org07b6631">
-              <span class="section-number-4">1.5.1.</span> Example
+            <h4 id="orgb83b771">
+              <span class="section-number-4">4.4.1.</span> Example
             </h4>
             <div class="org-src-container">
               <pre
@@ -287,13 +526,14 @@
             <p>The first argument will passed to Main.java as parameters</p>
           </section>
           <section
-            id="slide-orgb34794f"
-            class=""
-            style="top: 268.5px; display: block"
+            id="slide-org0c9be09"
+            class="future"
+            style="top: 268.5px; display: none"
             aria-hidden="true"
+            hidden=""
           >
-            <h4 id="orgb34794f">
-              <span class="section-number-4">1.5.2.</span> Lets try to print the
+            <h4 id="org0c9be09">
+              <span class="section-number-4">4.4.2.</span> Lets try to print the
               input argument in to the first line
             </h4>
             <div class="org-src-container">
@@ -304,121 +544,42 @@
             </div>
           </section>
         </section>
-        <section
-          style="top: 0px; display: block"
-          class="stack present"
-          data-previous-indexv="3"
-        >
-          <section
-            id="slide-org8512fe1"
-            style="top: 311px; display: none"
-            class="past"
-            aria-hidden="true"
-            hidden=""
-          >
-            <h2 id="org8512fe1">
-              <span class="section-number-2">2.</span> Coding Exercise
-            </h2>
-            <div class="outline-text-2" id="text-2"></div>
-          </section>
-          <section
-            id="slide-orge7ca314"
-            class="past"
-            style="top: 243px; display: none"
-            aria-hidden="true"
-            hidden=""
-          >
-            <h3 id="orge7ca314">
-              <span class="section-number-3">2.1.</span> API Endpoint as
-              Parameter
-            </h3>
-            <aside class="notes">
-              <p>
-                There are lots of posibility using Akvo Flow Syncing data to
-                Partners Database, Generating Summary, Interactive and many
-                other But for now, let try the simpliest one, print out the JSON
-                of the url
-              </p>
-            </aside>
-
-            <p>
-              Let try the simpliest one, print out the JSON response of the url
-            </p>
-
-            <div class="org-src-container">
-              <pre
-                class="src src-bash"
-              ><code trim="">java --jar AkvoFlowExample.jar "https://api-auth0.akvo.org/flow/orgs/maep/folders"
-</code></pre>
-            </div>
-          </section>
-          <section
-            id="slide-orgc7b8aab"
-            class="past"
-            style="top: 297.5px; display: block"
-            aria-hidden="true"
-            hidden=""
-          >
-            <h3 id="orgc7b8aab">
-              <span class="section-number-3">2.2.</span> Produce CSV File
-            </h3>
-            <p>
-              Please download the newest zip file from GitHub, then go to today
-              presentation directory.
-            </p>
-
-            <aside class="notes">
-              <p>Explain line by line</p>
-            </aside>
-          </section>
-          <section
-            id="slide-org03c7b87"
-            class="past"
-            style="top: 297.5px; display: block"
-            aria-hidden="true"
-            hidden=""
-          >
-            <h3 id="org03c7b87">
-              <span class="section-number-3">2.3.</span> Tryout
-            </h3>
-            <p>
-              Lets do the same thing but for <b>Survey List</b> endpoint! Break
-              to 2 groups… Back in 1 hour
-            </p>
-          </section>
-          <section
-            id="slide-orgf829985"
-            class="present"
-            style="top: 297.5px; display: block"
-          >
-            <h3 id="orgf829985">
-              <span class="section-number-3">2.4.</span> Group Presentation
-            </h3>
-            <p>Explain the method you have tried.</p>
-          </section>
-        </section>
       </div>
       <div class="backgrounds">
         <div
-          class="slide-background past"
+          class="slide-background present"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+        </div>
+        <div
+          class="slide-background future"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+        </div>
+        <div
+          class="slide-background stack future"
+          style="display: block"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+          <div
+            class="slide-background present"
+            style="display: block"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div
+          class="slide-background stack future"
           style="display: none"
           data-loaded="true"
         >
           <div class="slide-background-content"></div>
-        </div>
-        <div
-          class="slide-background past"
-          style="display: block"
-          data-loaded="true"
-        >
-          <div class="slide-background-content"></div>
-        </div>
-        <div
-          class="slide-background stack past"
-          style="display: block"
-          data-loaded="true"
-        >
-          <div class="slide-background-content"></div>
           <div
             class="slide-background past"
             style="display: none"
@@ -429,56 +590,21 @@
           <div
             class="slide-background past"
             style="display: none"
-            data-loaded="true"
-          >
-            <div class="slide-background-content"></div>
-          </div>
-          <div
-            class="slide-background past"
-            style="display: none"
-            data-loaded="true"
-          >
-            <div class="slide-background-content"></div>
-          </div>
-          <div
-            class="slide-background past"
-            style="display: none"
-            data-loaded="true"
-          >
-            <div class="slide-background-content"></div>
-          </div>
-          <div
-            class="slide-background past"
-            style="display: none"
-            data-loaded="true"
-          >
-            <div class="slide-background-content"></div>
-          </div>
-          <div
-            class="slide-background past"
-            style="display: none"
-            data-loaded="true"
-          >
-            <div class="slide-background-content"></div>
-          </div>
-          <div
-            class="slide-background past"
-            style="display: block"
             data-loaded="true"
           >
             <div class="slide-background-content"></div>
           </div>
           <div
             class="slide-background present"
-            style="display: block"
+            style="display: none"
             data-loaded="true"
           >
             <div class="slide-background-content"></div>
           </div>
         </div>
         <div
-          class="slide-background stack present"
-          style="display: block"
+          class="slide-background stack future"
+          style="display: none"
           data-loaded="true"
         >
           <div class="slide-background-content"></div>
@@ -498,21 +624,91 @@
           </div>
           <div
             class="slide-background past"
-            style="display: block"
+            style="display: none"
             data-loaded="true"
           >
             <div class="slide-background-content"></div>
           </div>
           <div
             class="slide-background past"
-            style="display: block"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background past"
+            style="display: none"
             data-loaded="true"
           >
             <div class="slide-background-content"></div>
           </div>
           <div
             class="slide-background present"
-            style="display: block"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+        </div>
+        <div
+          class="slide-background stack future"
+          style="display: none"
+          data-loaded="true"
+        >
+          <div class="slide-background-content"></div>
+          <div
+            class="slide-background present"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background future"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background future"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background future"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background future"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background future"
+            style="display: none"
+            data-loaded="true"
+          >
+            <div class="slide-background-content"></div>
+          </div>
+          <div
+            class="slide-background future"
+            style="display: none"
             data-loaded="true"
           >
             <div class="slide-background-content"></div>
@@ -526,17 +722,21 @@
         data-controls-layout="bottom-right"
         data-controls-back-arrows="faded"
       >
-        <button class="navigate-left enabled" aria-label="previous slide">
-          <div class="controls-arrow"></div>
-        </button>
         <button
-          class="navigate-right"
-          aria-label="next slide"
+          class="navigate-left"
+          aria-label="previous slide"
           disabled="disabled"
         >
           <div class="controls-arrow"></div>
         </button>
-        <button class="navigate-up enabled" aria-label="above slide">
+        <button class="navigate-right enabled" aria-label="next slide">
+          <div class="controls-arrow"></div>
+        </button>
+        <button
+          class="navigate-up"
+          aria-label="above slide"
+          disabled="disabled"
+        >
           <div class="controls-arrow"></div>
         </button>
         <button
@@ -548,7 +748,7 @@
         </button>
       </aside>
       <div class="progress" style="display: block">
-        <span style="transform: scaleX(1)"></span>
+        <span style="transform: scaleX(0)"></span>
       </div>
       <div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div>
       <div class="pause-overlay">
@@ -566,7 +766,7 @@
         aria-live="polite"
         aria-atomic="true"
       >
-        2.4. Group Presentation Explain the method you have tried.
+        Akvo Flow API
       </div>
     </div>
     <script src="assets/reveal.js"></script>

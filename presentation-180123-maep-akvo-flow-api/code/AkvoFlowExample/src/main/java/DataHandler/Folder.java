@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.lang.model.element.Element;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class Folder {
@@ -11,7 +13,13 @@ public class Folder {
     public Folder(JSONObject data) {
         this.data = data.getJSONArray("folders");
     }
-    public void print() {
+    public void print() throws IOException {
+        File file = new File("./folder-list.csv");
+        if (file.createNewFile()) {
+            System.out.println("File created: " + file.getName());
+        } else {
+            System.out.println("File already exists.");
+        }
         if (this.data.length() == 0) {
             System.out.println("NO Folders Available");
             System.exit(0);
