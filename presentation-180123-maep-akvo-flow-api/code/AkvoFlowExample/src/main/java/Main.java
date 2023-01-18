@@ -19,8 +19,8 @@ public class Main {
         Regex url = new Regex(args[0]);
         url.check();
         Auth auth = new Auth();
-        if (args.length == 0) {
-            System.out.println("Require URL in the arguments");
+        if (args.length < 2) {
+            System.out.println("Require URL and filename in the arguments");
             System.exit(1);
         }
         try {
@@ -33,13 +33,11 @@ public class Main {
         RequestBuilder req = new RequestBuilder(id_token);
         JSONObject res = req.execute(args[0]);
 
-        /*
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        System.out.println(gson.toJsonTree(res));
-         */
-
         if (Objects.equals(url.getEndpoint(), "folders")) {
-            Folder folderData = new Folder(res);
+            Folder folderData = new Folder(res, args[1], "folders");
+            folderData.print();
+        } else if (Objects.equals(url.getEndpoint(), "surveys")) {
+            Folder folderData = new Folder(res, args[1], "surveys");
             folderData.print();
         } else {
             System.out.println(res);

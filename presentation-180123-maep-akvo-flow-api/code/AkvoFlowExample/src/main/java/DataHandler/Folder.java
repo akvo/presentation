@@ -8,16 +8,18 @@ import java.io.*;
 import java.util.*;
 
 public class Folder {
-    JSONArray data;
-    public Folder(JSONObject data) {
-        this.data = data.getJSONArray("folders");
+    protected JSONArray data;
+    protected String filename;
+    public Folder(JSONObject data, String filename, String objectName) {
+       this.data = data.getJSONArray(objectName);
+       this.filename = filename;
     }
     public void print() throws IOException {
         if (this.data.length() == 0) {
-            System.out.println("NO Folders Available");
+            System.out.println("No Folders Available");
             System.exit(0);
         }
-        File file = new File("./output.csv");
+        File file = new File(String.format("./%s.csv", this.filename));
         if (file.createNewFile()) {
             System.out.println("File created: " + file.getName());
         } else {
@@ -28,22 +30,17 @@ public class Folder {
         JSONObject firstObject = (JSONObject)  this.data.get(0);
         Object[] headers = (Object[]) firstObject.keySet().toArray();
         for (int i = 0; i < Objects.requireNonNull(headers).length; i++) {
-            // System.out.print(headers[i]);
             bw.write((String) headers[i]);
             if (i != headers.length - 1) {
                 bw.write(",");
-                // System.out.print(",");
             }
         }
         for (Object datum : this.data) {
             JSONObject ds = (JSONObject) datum;
             bw.newLine();
-            // System.out.println();
             for (int i = 0; i < Objects.requireNonNull(headers).length; i++) {
-                // System.out.print(ds.get((String) headers[i]));
                 bw.write((String) ds.get((String) headers[i]));
                 if (i != headers.length - 1) {
-                    // System.out.print(",");
                     bw.write(",");
                 }
             }
