@@ -49,6 +49,7 @@ and which will not change over time.
 The other forms are used to add additional information to an existing data point
 that may change over time.
 
+
 * Coding Exercise
 
 #+BEGIN_NOTES
@@ -72,7 +73,6 @@ We can replace the url with *args[0]*
 #+ATTR_HTML: :width 60%
 file:///home/dedenbangkit/Repos/akvorepos/presentation/presentation-180123-maep-akvo-flow-api/images/intelij-modify-debug.png
 
-
 ** API Endpoint as Parameter
 
 Let try the simpliest one, print out the JSON response of the url
@@ -93,6 +93,7 @@ Break to 2 groups... Back in 1 hour
 ** Group Presentation
 
 Explain the method you have tried.
+
 
 * Bonus (If Still have time)
 
