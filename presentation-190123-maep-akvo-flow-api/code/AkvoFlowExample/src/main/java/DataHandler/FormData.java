@@ -105,10 +105,4 @@ public class FormData {
             }
         }
     }
-
-    public void toCsv() {
-        for(int i = 0; i < this.results.length(); i++) {
-
-        }
-    }
 }
