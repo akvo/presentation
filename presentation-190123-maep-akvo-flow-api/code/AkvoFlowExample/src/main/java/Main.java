@@ -56,6 +56,15 @@ public class Main {
             JSONObject surveys = req.execute();
             req.getAll(res);
             JSONArray formInstances = req.collections;
+            /*
+            - (JSONObject) surveys contains the survey definition
+            - (JSONArray) req.collections is a collection of form instances object
+            that have been retrieved from all the next page url
+            if you want to transform the form instances
+            Before you integrate into other systems,
+            this the line is where you can safely start transforming
+            to the system requirements
+             */
             FormData formData = new FormData(formId, surveys, formInstances);
             formData.transform();
             JSONArray results = formData.getResults();

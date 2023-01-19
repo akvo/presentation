@@ -1,0 +1,93 @@
+#+PROPERTY: header-args:bash :exports both
+#+PROPERTY: header-args:bash+ :results output
+#+STARTUP: showall
+
+:REVEAL_PROPERTIES:
+#+REVEAL_TITLE_SLIDE: Akvo Flow API
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_EXTRA_CSS: file:///home/dedenbangkit/Repos/akvorepos/presentation/css/akvo.css
+:END:
+
+#+TITLE: Akvo FLow API
+#+AUTHOR: Deden Bangkit
+
+* Differences and Similarities: Registration and Monioring Data
+
+** Similarity
+
+Both Registration and Monitoring has similar json structure
+
+#+BEGIN_NOTES
+because they are obtained from the same endpoint,
+even though with different parameters,
+of course there is no different between the object structure
+the only different object is in the responses
+#+END_NOTES
+
+** One to Many
+
+#+BEGIN_NOTES
+the link between a registration form instances and
+monitoring form instances is the datapoint id
+#+END_NOTES
+
+#+ATTR_HTML: :width 100%
+file:///home/dedenbangkit/Repos/akvorepos/presentation/presentation-190123-maep-akvo-flow-api/images/similarity.png
+
+
+* Data Transformation
+
+** Basic Transformation
+
+DATA RESPONSE is in the **form instance** API endpoint
+FORM DEFINITION is in the **surveys** API endpoint
+
+#+BEGIN_NOTES
+the response structure of the form instances doesn't provide
+enough information to know the question shape
+so to get clear information about this response
+at least a simple data transformation is required
+#+END_NOTES
+
+** Example
+
+Generating CSV FILE with FORM DEFINITION as Headers
+and DATA RESPONSE as row values
+
+*** Download the latest Zip File
+
+#+BEGIN_NOTES
+as ususall, import the code from today's folder
+#+END_NOTES
+
+*** Recursive Download of All the Pagination Links
+
+End the request once the formInstances length is empty
+
+#+begin_src json
+{
+    "formInstances": []
+}
+#+end_src
+
+#+BEGIN_NOTES
+as we explained earlier, that form instances endpoints have
+limitation on the amount of data retrieved
+you can imagine if we provide thousands of data at once,
+the server will respond more slowly to your request
+#+END_NOTES
+
+** Case Study
+
+_We want to merge the cascade questions in the registration into our data monitoring form.
+after that we want to do aggregation based on the region stated in the cascade question_
+
+#+BEGIN_NOTES
+As stated by Mr. Innousa yesterday, MAEP wants to pivot between the registration
+and the monitoring form from this explanation
+
+we conclude that this transformation is not something that can be quickly written
+in the Java programming language
+
+but we can show how to do this in other programming languages
+#+END_NOTES
