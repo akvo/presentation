@@ -1,14 +1,18 @@
 import Api.Auth;
 import Api.RequestBuilder;
 import DataHandler.Folder;
+import DataHandler.FormData;
 import Util.Regex;
 import io.github.cdimascio.dotenv.DotenvException;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -31,10 +35,6 @@ public class Main {
         req.setEndpoint(args[0]);
         JSONObject res = req.execute();
 
-        if (res.has("nextPageUrl")) {
-            req.getAll(res);
-        }
-
         if (Objects.equals(url.getEndpoint(), "folders")) {
             Folder folderData = new Folder(res, args[1], "folders");
             folderData.print();
@@ -46,7 +46,17 @@ public class Main {
         } else if (Objects.equals(url.getEndpoint(), "data_points")) {
             System.out.println(req.collections.length());
         } else if (Objects.equals(url.getEndpoint(), "form_instances")) {
-            System.out.println(req.collections.length());
+            String surveyId = url.getQueryParams().get("survey_id");
+            String formId = url.getQueryParams().get("form_id");
+            String surveyUrl = url.replaceUrl(String.format("surveys/%s", surveyId));
+            req.setEndpoint(surveyUrl);
+            JSONObject surveys = req.execute();
+            req.getAll(res);
+            JSONArray formInstances = req.collections;
+            FormData formData = new FormData(formId, surveys, formInstances);
+            formData.transform();
+            JSONArray results = formData.getResults();
+            System.out.println(results);
         } else {
             System.out.println(res);
         }

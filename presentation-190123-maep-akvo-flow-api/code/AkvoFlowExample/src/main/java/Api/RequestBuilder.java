@@ -11,6 +11,7 @@ import java.util.Objects;
 public class RequestBuilder {
     protected String token;
     public String endpoint;
+    
     public JSONArray collections = new JSONArray();
     public RequestBuilder(String refreshToken) {
        this.token = refreshToken;
@@ -46,8 +47,7 @@ public class RequestBuilder {
             return !Objects.equals(x, "nextPageUrl");
         }).toArray();
         String key = (String) keys[0];
-        JSONArray currentData;
-        currentData = (JSONArray) data.get(key);
+        JSONArray currentData = (JSONArray) data.get(key);
         for(int i = 0; i < currentData.length(); i++) {
             this.collections.put(currentData.get(i));
         }
