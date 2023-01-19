@@ -36,9 +36,9 @@ public class FormData {
     private Object geoHandler(JSONObject data) {
         StringBuilder response = new StringBuilder();
         response.append(data.get("lat").toString());
-        response.append(",");
+        response.append("|");
         response.append(data.get("long").toString());
-        return response;
+        return response.toString();
     }
 
     private Object valueHandler (Object data, String dataType) {
@@ -103,6 +103,12 @@ public class FormData {
                     this.results.put(transformed);
                 }
             }
+        }
+    }
+
+    public void toCsv() {
+        for(int i = 0; i < this.results.length(); i++) {
+
         }
     }
 }

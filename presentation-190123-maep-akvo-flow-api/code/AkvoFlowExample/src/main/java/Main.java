@@ -1,6 +1,6 @@
 import Api.Auth;
 import Api.RequestBuilder;
-import DataHandler.Folder;
+import DataHandler.CSVWriter;
 import DataHandler.FormData;
 import Util.Regex;
 import io.github.cdimascio.dotenv.DotenvException;
@@ -11,8 +11,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
 
@@ -36,11 +34,11 @@ public class Main {
         JSONObject res = req.execute();
 
         if (Objects.equals(url.getEndpoint(), "folders")) {
-            Folder folderData = new Folder(res, args[1], "folders");
-            folderData.print();
+            CSVWriter csv = new CSVWriter(res, args[1], "folders");
+            csv.print();
         } else if (Objects.equals(url.getEndpoint(), "surveys")) {
-            Folder folderData = new Folder(res, args[1], "surveys");
-            folderData.print();
+            CSVWriter csv = new CSVWriter(res, args[1], "surveys");
+            csv.print();
         } else if (Objects.equals(url.isSurveyDefinition(), true)) {
             System.out.println("this is survey");
         } else if (Objects.equals(url.getEndpoint(), "data_points")) {
@@ -57,6 +55,10 @@ public class Main {
             formData.transform();
             JSONArray results = formData.getResults();
             System.out.println(results);
+            JSONObject data = new JSONObject();
+            data.put("form_instances", results);
+            CSVWriter csv = new CSVWriter(data, args[1], "form_instances");
+            csv.print();
         } else {
             System.out.println(res);
         }

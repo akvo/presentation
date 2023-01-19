@@ -3,14 +3,13 @@ package DataHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.lang.model.element.Element;
 import java.io.*;
 import java.util.*;
 
-public class Folder {
+public class CSVWriter {
     protected JSONArray data;
     protected String filename;
-    public Folder(JSONObject data, String filename, String objectName) {
+    public CSVWriter(JSONObject data, String filename, String objectName) {
        this.data = data.getJSONArray(objectName);
        this.filename = filename;
     }
@@ -30,7 +29,7 @@ public class Folder {
         JSONObject firstObject = (JSONObject)  this.data.get(0);
         Object[] headers = (Object[]) firstObject.keySet().toArray();
         for (int i = 0; i < Objects.requireNonNull(headers).length; i++) {
-            bw.write((String) headers[i]);
+            bw.write(headers[i].toString());
             if (i != headers.length - 1) {
                 bw.write(",");
             }
@@ -39,7 +38,7 @@ public class Folder {
             JSONObject ds = (JSONObject) datum;
             bw.newLine();
             for (int i = 0; i < Objects.requireNonNull(headers).length; i++) {
-                bw.write((String) ds.get((String) headers[i]));
+                bw.write(ds.get(headers[i].toString()).toString());
                 if (i != headers.length - 1) {
                     bw.write(",");
                 }
