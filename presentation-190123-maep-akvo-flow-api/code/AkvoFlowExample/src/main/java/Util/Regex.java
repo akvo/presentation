@@ -9,8 +9,6 @@ public class Regex {
     protected String url;
     protected String endpoint;
 
-    protected String fullUrl;
-
     public Regex(String url) {
         this.url = url;
     }

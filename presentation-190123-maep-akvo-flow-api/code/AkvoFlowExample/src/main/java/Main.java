@@ -42,7 +42,12 @@ public class Main {
         } else if (Objects.equals(url.isSurveyDefinition(), true)) {
             System.out.println("this is survey");
         } else if (Objects.equals(url.getEndpoint(), "data_points")) {
-            System.out.println(req.collections.length());
+            req.getAll(res);
+            JSONArray dataPoints = req.collections;
+            JSONObject data = new JSONObject();
+            data.put("data_points", dataPoints);
+            CSVWriter csv = new CSVWriter(data, args[1], "data_points");
+            csv.print();
         } else if (Objects.equals(url.getEndpoint(), "form_instances")) {
             String surveyId = url.getQueryParams().get("survey_id");
             String formId = url.getQueryParams().get("form_id");
@@ -54,7 +59,6 @@ public class Main {
             FormData formData = new FormData(formId, surveys, formInstances);
             formData.transform();
             JSONArray results = formData.getResults();
-            System.out.println(results);
             JSONObject data = new JSONObject();
             data.put("form_instances", results);
             CSVWriter csv = new CSVWriter(data, args[1], "form_instances");

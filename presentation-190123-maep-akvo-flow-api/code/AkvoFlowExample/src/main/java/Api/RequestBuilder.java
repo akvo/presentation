@@ -21,10 +21,10 @@ public class RequestBuilder {
     }
 
     public JSONObject execute() throws IOException {
-        System.out.println(String.format("GET: %s", this.endpoint));
+        System.out.printf("GET: %s%n", this.endpoint);
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
-        MediaType mediaType = MediaType.parse("application/json");
+        MediaType.parse("application/json");
         Request request = new Request.Builder()
                 .url(this.endpoint)
                 .addHeader("Content-Type", "application/json")
@@ -43,9 +43,7 @@ public class RequestBuilder {
 
     public void getAll(JSONObject data) throws IOException {
         Object[] keys;
-        keys = Arrays.stream(data.keySet().toArray()).filter(x -> {
-            return !Objects.equals(x, "nextPageUrl");
-        }).toArray();
+        keys = Arrays.stream(data.keySet().toArray()).filter(x -> !Objects.equals(x, "nextPageUrl")).toArray();
         String key = (String) keys[0];
         JSONArray currentData = (JSONArray) data.get(key);
         for(int i = 0; i < currentData.length(); i++) {

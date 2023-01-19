@@ -4,13 +4,13 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class FormData {
-    private JSONArray formInstances;
+    private final JSONArray formInstances;
     private JSONArray questionGroups;
-    private JSONArray results = new JSONArray();
+    private final JSONArray results = new JSONArray();
 
     private final List<String> noHandler = new ArrayList<>(
             Arrays.asList("FREE TEXT", "NUMBER","BARCODE",
@@ -34,11 +34,7 @@ public class FormData {
     }
 
     private Object geoHandler(JSONObject data) {
-        StringBuilder response = new StringBuilder();
-        response.append(data.get("lat").toString());
-        response.append("|");
-        response.append(data.get("long").toString());
-        return response.toString();
+        return "%s|%s".formatted(data.get("lat").toString(), data.get("long").toString());
     }
 
     private Object valueHandler (Object data, String dataType) {
@@ -60,10 +56,10 @@ public class FormData {
     }
 
     public FormData(String formId, @NotNull JSONObject forms, @NotNull JSONArray formInstances) {
-        JSONArray formList = (JSONArray) forms.getJSONArray("forms");
+        JSONArray formList = forms.getJSONArray("forms");
         for (int i = 0; i < formList.length(); i++) {
             if (Objects.equals(formList.getJSONObject(i).getString("id"), formId)) {
-                this.questionGroups = (JSONArray) formList.getJSONObject(i).getJSONArray("questionGroups");
+                this.questionGroups = formList.getJSONObject(i).getJSONArray("questionGroups");
             }
         }
         this.formInstances = formInstances;
@@ -73,10 +69,10 @@ public class FormData {
             JSONObject formInstance = this.formInstances.getJSONObject(fi);
             JSONObject responses = formInstance.getJSONObject("responses");
             JSONObject transformed = new JSONObject();
-            Object [] names = (Object[]) formInstance.keySet().toArray();
-            for (int o = 0; o < names.length; o++) {
-                if (!Objects.equals(names[o], "responses")) {
-                    transformed.put(names[o].toString(), formInstance.get((String) names[o]));
+            Object [] names = formInstance.keySet().toArray();
+            for (Object name : names) {
+                if (!Objects.equals(name, "responses")) {
+                    transformed.put(name.toString(), formInstance.get((String) name));
                 }
             }
             for (int qg = 0; qg < this.questionGroups.length(); qg++) {
@@ -84,25 +80,19 @@ public class FormData {
                 String questionGroupId = questionGroup.getString("id");
                 JSONArray questions = questionGroup.getJSONArray("questions");
                 JSONArray answerGroups = responses.getJSONArray(questionGroupId);
-                for (int ag = 0; ag < answerGroups.length(); ag++) {
-                    JSONObject repeatedAnswer = transformed;
-                    repeatedAnswer.put("repeatIndex", (ag + 1));
-                    JSONObject answerGroup = answerGroups.getJSONObject(ag);
-                    for (int q = 0; q < questions.length(); q++) {
-                        JSONObject question = questions.getJSONObject(q);
-                        String questionId = question.getString("id");
-                        String questionName = question.getString("name");
-                        String questionType = question.getString("type");
-                        if (answerGroup.has(questionId)) {
-                            Object value = valueHandler(answerGroup.get(questionId), questionType);
-                            repeatedAnswer.put(questionName, value);
-                        } else {
-                            repeatedAnswer.put(questionName, "");
-                        }
+                IntStream.range(0, answerGroups.length()).mapToObj(answerGroups::getJSONObject).forEach(answerGroup -> IntStream.range(0, questions.length()).mapToObj(questions::getJSONObject).forEach(question -> {
+                    String questionId = question.getString("id");
+                    String questionName = question.getString("name");
+                    String questionType = question.getString("type");
+                    if (answerGroup.has(questionId)) {
+                        Object value = valueHandler(answerGroup.get(questionId), questionType);
+                        transformed.put(questionName, value);
+                    } else {
+                        transformed.put(questionName, "");
                     }
-                    this.results.put(transformed);
-                }
+                }));
             }
+            this.results.put(transformed);
         }
     }
 }
