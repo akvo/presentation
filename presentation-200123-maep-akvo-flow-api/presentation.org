@@ -1,0 +1,26 @@
+#+PROPERTY: header-args:bash :exports both
+#+PROPERTY: header-args:bash+ :results output
+#+STARTUP: showall
+
+:REVEAL_PROPERTIES:
+#+REVEAL_TITLE_SLIDE: Akvo Flow API
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_EXTRA_CSS: file:///home/dedenbangkit/Repos/akvorepos/presentation/css/akvo.css
+:END:
+
+#+TITLE: Akvo FLow API
+#+AUTHOR: Deden Bangkit
+
+* Recap Overall processes
+
+* Import all API Endpoints to your Windows Machine
+
+https://documentter.getpostman.com/view/25343056/2s8ZDU4Nzm
+
+*** Installing Postman
+*** Create a Postman Account
+*** Create a Workspace
+*** Import The Akvo Flow API Project to POSTMAN
+*** Setting Up Environment
+
+* How to GET the CSV Data with Python

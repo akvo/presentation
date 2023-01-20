@@ -1,0 +1,8 @@
+createdAt,modifiedAt,surveysUrl,name,foldersUrl,id,parentId
+2020-03-26T03:21:24.171Z,2020-03-26T03:58:28.744Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=485430351,ATDA_3,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=485430351,485430351,485530125
+2020-03-26T03:22:04Z,2020-03-26T03:59:03.443Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=460000512,ATDA_7,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=460000512,460000512,485530125
+2020-03-26T03:21:41.543Z,2020-03-26T03:58:46.429Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=473740200,ATDA_5,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=473740200,473740200,485530125
+2018-11-23T11:48:29.190Z,2020-03-26T03:58:46.807Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=30433178,ATDA_4,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=30433178,30433178,485530125
+2020-03-26T03:20:42.136Z,2020-03-26T03:58:08.915Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=487450399,ATDA_1,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=487450399,487450399,485530125
+2020-03-26T03:21:07.942Z,2020-03-26T03:58:17.877Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=475770168,ATDA_2,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=475770168,475770168,485530125
+2018-11-23T11:47:36.893Z,2020-03-26T03:59:03.639Z,https://api-auth0.akvo.org/flow/orgs/maep/surveys?folder_id=2493150,ATDA_6,https://api-auth0.akvo.org/flow/orgs/maep/folders?parent_id=2493150,2493150,485530125
