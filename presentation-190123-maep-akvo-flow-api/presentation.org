@@ -83,7 +83,7 @@ _We want to merge the cascade questions in the registration into our data monito
 after that we want to do aggregation based on the region stated in the cascade question_
 
 #+BEGIN_NOTES
-As stated by Mr. Innousa yesterday, MAEP wants to pivot between the registration
+As stated by Mr. Naboua yesterday, MAEP wants to pivot between the registration
 and the monitoring form from this explanation
 
 we conclude that this transformation is not something that can be quickly written

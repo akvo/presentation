@@ -80,7 +80,9 @@ public class FormData {
                 String questionGroupId = questionGroup.getString("id");
                 JSONArray questions = questionGroup.getJSONArray("questions");
                 JSONArray answerGroups = responses.getJSONArray(questionGroupId);
-                IntStream.range(0, answerGroups.length()).mapToObj(answerGroups::getJSONObject).forEach(answerGroup -> IntStream.range(0, questions.length()).mapToObj(questions::getJSONObject).forEach(question -> {
+                IntStream.range(0, answerGroups.length()).mapToObj(answerGroups::getJSONObject).forEach(
+                        answerGroup -> IntStream.range(0, questions.length()).mapToObj(questions::getJSONObject).forEach(
+                                question -> {
                     String questionId = question.getString("id");
                     String questionName = question.getString("name");
                     String questionType = question.getString("type");

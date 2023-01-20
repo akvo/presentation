@@ -33,7 +33,7 @@ public class RequestBuilder {
         String res;
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                System.out.println("Failed to get response");
+                System.out.println("Impossible d'obtenir une réponse");
                 System.exit(1);
             }
             res = Objects.requireNonNull(response.body()).string();

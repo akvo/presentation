@@ -36,6 +36,7 @@ public class Auth {
             this.authEntity = gson.fromJson(response.body().string(), AuthEntity.class);
         } else {
             System.out.println(response.code());
+            System.out.println("Username or password is wrong");
             System.exit(1);
         }
     }

@@ -25,7 +25,7 @@ public class Main {
         try {
             auth.login();
         } catch (DotenvException e) {
-            System.out.println(".env file not found");
+            System.out.println(".env introuvable");
             System.exit(1);
         }
         String id_token = auth.getAuthEntity().id_token;
@@ -40,6 +40,8 @@ public class Main {
             CSVWriter csv = new CSVWriter(res, args[1], "surveys");
             csv.print();
         } else if (Objects.equals(url.isSurveyDefinition(), true)) {
+            CSVWriter csv = new CSVWriter(res, args[1], "forms");
+            csv.print();
             System.out.println("this is survey");
         } else if (Objects.equals(url.getEndpoint(), "data_points")) {
             req.getAll(res);

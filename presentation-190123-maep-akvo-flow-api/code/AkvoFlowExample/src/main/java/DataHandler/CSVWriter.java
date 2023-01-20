@@ -20,9 +20,9 @@ public class CSVWriter {
         }
         File file = new File(String.format("./%s.csv", this.filename));
         if (file.createNewFile()) {
-            System.out.println("File created: " + file.getName());
+            System.out.println("Fichier créé :" + file.getName());
         } else {
-            System.out.println("File already exists.");
+            System.out.println("Le fichier existe déjà:" + file.getName());
         }
         FileOutputStream fos = new FileOutputStream(file);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
