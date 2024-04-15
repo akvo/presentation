@@ -1,0 +1,75 @@
+#+PROPERTY: header-args:bash :exports both
+#+PROPERTY: header-args:bash+ :results output
+#+STARTUP: showall
+
+:REVEAL_PROPERTIES:
+#+REVEAL_TITLE_SLIDE: Integrating AI into Akvo's Offerings and Internal Operations
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_EXTRA_CSS: file:///home/dedenbangkit/Repos/akvorepos/presentation/css/akvo.css
+:END:
+
+#+TITLE: Integrating AI into Akvo's Offerings and Internal Operations
+#+AUTHOR: Deden Bangkit
+
+* Problem Akvo Can Help Solve with AI
+
+** Applications Based on Past POC Successes
+
+*** Angkor Salad Project (G4AW, 2019):
+
+- **Objective**: Provide Efficiency in Accessing Market Information
+- Chatbots / Virtual Assistants targeting farmers in Cambodia
+- Utilized Akvo Flow Data Collected Daily by Our Partner
+
+#+ATTR_HTML: :width 70%
+https://raw.githubusercontent.com/akvo/akvo-tech-consultancy/develop/sites/portfolio/public/images/poc/poc-whatsapp-01.jpg
+
+*** Wash in Schools (UNICEF, 2018)
+
+- **Objective**: Enhance Data Utilization and Decision-Making
+- Implemented Complex Data Filters for Target Identification
+
+#+ATTR_HTML: :width 70%
+https://raw.githubusercontent.com/akvo/akvo-tech-consultancy/develop/sites/portfolio/public/images/portfolio/portfolio-wash-in-schools-07.jpg
+
+*** Other portfolios (2018 - 2020)
+
+https://tc.akvo.org/portfolio/
+
+** The Missing Elements:
+
+- **AI-Driven Insights**. The project lacked AI-generated insights due to the absence of generative text capabilities. While data collection was robust, the ability to derive actionable insights directly from the data using AI was missing.
+- **AI-Generated Recommendations for Targeted Actions**. While the visualisations provided valuable insights, AI could be use to recommend specific interventions or prioritize actions based on the identified needs.
+- **Automated Data Processing**. The project may have faced challenges with manual data processing and analysis. AI-driven automation could have streamlined these processes, allowing for faster decision-making and more efficient utilization of resources.
+
+* Realistic Possibilities with AI
+
+By integrating AI-generated text, starting small and building on past successes allows for incremental adoption and maximizes the impact of AI integration.
+
+** Akvo's Internal
+
+**Integration of AI-Generated Text**
+
+- Provide a Channel for Data Analysis and Insights
+- Example: Integrating OpenAI API into Slack for flexible and time-cost-effective Data Analysis
+
+#+ATTR_HTML: :width 40%
+file:///home/dedenbangkit/Repos/akvorepos/presentation/240416-ai-integration-roadmap/images/example-data-insights.png
+
+** Partners
+
+**Enhancing Existing / Upcomming Projects with AI**
+
+- Reflect on Past Successes and Identify Opportunities for Enhancement
+- Example: Implement AI-Generated Text for Chatbots to Provide Personalized Recommendations for better user experience
+
+
+* Next Steps
+
+** Short-Term
+- **Set Up Free ChatBot Channel**: Initiate a Free ChatBot Channel in Slack as a Realistic First Step. Efforts are Manageable, Serving as a Starting Point for Further AI Exploration
+- **Invest in Developer Learning**: Provide Learning Opportunities for Developers to Acquire AI Development Expertise
+- **Explore Project Opportunities**: BD Teams to Identify Project Opportunities as Starting Points for Partner Offerings
+
+** Long-Term
+- **Contribute Data to OpenAI**: Utilize Akvo Flow, Akvo RSR, and Other Platforms to Contribute to OpenAI's Data Pool. Example: Referencing the Potential of Data Contribution to OpenAI as Demonstrated in https://www.youtube.com/watch?v=eNKu307k59g
