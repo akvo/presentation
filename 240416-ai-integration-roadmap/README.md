@@ -1,4 +1,4 @@
-# MAEP Workshop
+# Akvo AI Integration
 
 Presentation: clone this repo. cd to html in this directory
 Open *.html file with browser
