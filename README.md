@@ -1,3 +1,3 @@
-# presentation
+# Presentation
 
-Akvo's org, ppt, and html Presentations
+Akvo's org, ppt, and html Presentations.
